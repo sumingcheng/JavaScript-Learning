@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Car(brand, color) {
+      this.brand = brand;
+      this.color = color;
+    }
+
+    var Car1 = {};
+    var Car2 = {};
+
+    Car.call(Car1, 'Benz1', 'red1');
+    console.log(Car1);
+    // 传参的时候 传的是数组
+    Car.apply(Car2, ['Benz2', 'red2']);
+    console.log(Car2);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    ;
+    (function () {
+      var Compute = function () {}
+      Compute.prototype = {
+        plus: function (a, b) {
+          return a + b;
+        },
+        minus: function (a, b) {
+          return a - b;
+        },
+        mul: function (a, b) {
+          return a * b;
+        },
+        div: function (a, b) {
+          return a / b;
+        }
+      }
+      window.Compute = Compute;
+    })();
+    var compute = new Compute();
+    var res = compute.mul(2, 4);
+    console.log(res);
+  </script>
+</body>
+
+</html>

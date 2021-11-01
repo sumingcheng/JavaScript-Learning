@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style text="text/css">
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .wrap {
+      width: 700px;
+      margin: 0 auto;
+      border: 1px solid #000;
+    }
+
+    .top,
+    .foot {
+      height: 50px;
+      background-color: #000;
+    }
+
+    .main {
+      padding: 0 100px;
+      overflow: hidden;
+    }
+
+    .main .left,
+    .main .content,
+    .main .right {
+      float: left;
+      position: relative;
+      background-color: aquamarine;
+      margin-bottom: -2000px;
+      padding-bottom: 2000px;
+    }
+
+    .main .left {
+      left: -100px;
+      width: 100px;
+    }
+
+    .main .content {
+      width: 100%;
+      margin-left: -100px;
+      background-color: red;
+    }
+
+    .main .right {
+      left: 100px;
+      width: 100px;
+      margin-left: -100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">top</div>
+    <div class="main clearfix">
+      <div class="left">left</div>
+      <div class="content">content</br>content</div>
+      <div class="right">right</div>
+    </div>
+    <div class="foot">foot</div>
+  </div>
+</body>
+
+</html>

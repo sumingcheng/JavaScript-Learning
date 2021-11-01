@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Teacher() {}
+
+    function Student() {}
+
+    function Buffer() {}
+    var inherit = (function () {
+      // 这个函数里面是一个伪全局。
+      // 防止污染外面的空间
+      var Buffer = function () {}
+      return function inherit(Target, Origin) {
+        Buffer.prototype = Origin.prototype;
+        Target.prototype = new Buffer();
+        Target.prototype.constructor = Target;
+        Target.prototype.super_class = Origin;
+      }
+    })();
+    inherit(Student, Teacher);
+    Student.prototype.age = 18;
+    var s = new Student();
+    var t = new Teacher();
+    console.log(s);
+    console.log(t);
+  </script>
+</body>
+
+</html>

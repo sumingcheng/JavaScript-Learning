@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Car() {
+      this.brand = 'Benz';
+    }
+    Car.prototype = {
+      brand: 'Mazda',
+      intro: function () {
+        console.log('我是' + this.brand + '车');
+      }
+    }
+    var car = new Car();
+
+    // car.intro，对象car在使用this。this指向new出来的car。
+    car.intro();
+    // Car.prototype本身自己也是一个对象，this指向对象本身。
+    Car.prototype.intro();
+  </script>
+</body>
+
+</html>

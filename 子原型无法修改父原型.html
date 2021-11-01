@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    Professor.prototype.tSkill = 'JAVA';
+
+    function Professor() {}
+    var professor = new Professor();
+
+    Teacher.prototype = professor;
+
+    function Teacher() {
+      this.mSKILL = 'JS/JQ';
+      this.students = '500'
+    }
+    var teacher = new Teacher();
+
+    Student.prototype = teacher;
+
+    function Student() {
+      this.pSkill = 'HTML/CSS';
+    }
+
+    var student = new Student();
+    student.students++;
+    // student.students先取值,然后+1，然后在自己student里没有这个属性，那就增加一个students属性，再把501赋值给students
+    //student.students = student.students + 1;
+
+    console.log(student, teacher);
+  </script>
+</body>
+
+</html>

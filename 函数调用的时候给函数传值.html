@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=s, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var a = Number(window.prompt('a'));
+    var b = Number(window.prompt('b'));
+    // function中a,b的作用是占位,并且在调用的时候给参数赋值,是形式参数。
+    function test(a, b) {
+      console.log(a + b);
+    }
+    // 实际值，实参
+    test(a, b);
+  </script>
+</body>
+
+</html>

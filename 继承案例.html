@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var inherit = (function () {
+      var Buffer = function () {}
+      return function inherit(Target, Origin) {
+        Buffer.prototype = Origin.prototype;
+        Target.prototype = new Buffer();
+        Target.prototype.constructor = Target;
+        Target.prototype.super_class = Origin;
+      }
+    })();
+
+    var initProgrammer = (function () {
+      var Programme = function () {}
+      Programme.prototype = {
+        name: '程序员',
+        tool: '计算机',
+        work: '编程',
+        duration: '10个小时',
+        say: function () {
+          console.log('我是一名' + this.myName + this.name + ',' + '我的工作是用计算机' + this.tool + this.work + ',' +
+            '我每天工作' + this.duration + '我的工作需要用到' + this.lang.toString() + '。')
+        }
+      }
+
+      function FrondEnd() {}
+
+      function BackEnd() {}
+      inherit(FrondEnd, Programme);
+      inherit(BackEnd, Programme);
+
+      FrondEnd.prototype.lang = ['HTML', 'CSS', 'JavaScript'];
+      FrondEnd.prototype.myName = '前端';
+
+      BackEnd.prototype.lang = ['Node', 'Java'];
+      BackEnd.prototype.myName = '后端';
+
+      return {
+        FrondEnd: FrondEnd,
+        BackEnd: BackEnd
+      }
+    })();
+    var frontEnd = new initProgrammer.FrondEnd();
+    var backEnd = new initProgrammer.BackEnd();
+
+    frontEnd.say();
+    backEnd.say();
+  </script>
+</body>
+
+</html>

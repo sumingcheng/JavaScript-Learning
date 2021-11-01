@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Teacher() {}
+
+    function Student() {}
+
+    function Buffer() {}
+    inherit(Student, Teacher);
+    var s = new Student();
+    var t = new Teacher();
+
+    console.log(s);
+    console.log(t);
+
+    function inherit(Target, Origin) {
+      function Buffer() {}
+      Buffer.prototype = Origin.prototype;
+      Target.prototype = new Buffer();
+      // 把Target构造器指向他本身
+      Target.prototype.constructor = Target;
+      // 继承源（超类），我们也保存起来
+      Target.prototype.super_class = Origin;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function test() {
+      var arr = [];
+      var i = 0
+      for (; i < 10;) {
+        arr[i] = function () {
+          document.write(i + ' ');
+        }
+        i++
+      }
+      return arr;
+      // 返回出去了10匿名函数，形成10个闭包
+    }
+    var myArr = test();
+
+    for (var j = 0; j < 10; j++) {
+      myArr[j]();
+      // 相当于我执行了10个匿名函数
+    }
+    console.log(myArr);
+  </script>
+</body>
+
+</html>

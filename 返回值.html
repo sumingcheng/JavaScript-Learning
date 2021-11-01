@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Person() {
+      this.smoke = function () {
+        this.weight--;
+        // 普通函数如果不写返回值，默认返回undefined
+        // return undefined;
+      }
+    }
+    Person.prototype = {
+      weight: 130
+    }
+    var person = new Person();
+
+    console.log(person.smoke());
+  </script>
+</body>
+
+</html>

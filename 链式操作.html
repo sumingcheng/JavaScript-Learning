@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var sched = {
+      wakeup: function () {
+        console.log('Running');
+        return this;
+      },
+      moning: function () {
+        console.log('Going Shopping');
+        return this;
+      },
+      noon: function () {
+        console.log('Having arest');
+        return this;
+      },
+      after: function () {
+        console.log('Studying');
+        return this;
+      },
+      evening: function () {
+        console.log('Walking');
+        return this;
+      },
+      night: function () {
+        console.log('Sleeping');
+        return this;
+      }
+    }
+
+    sched.after().moning().noon().night().evening();
+  </script>
+</body>
+
+</html>

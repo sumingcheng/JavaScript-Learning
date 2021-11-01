@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    (function () {
+      // 作用域被限制在立即执行函数内部
+      // 立即执行函数非常好写插件，可以有效隔离全局作用域
+      function Test() {}
+      // 立即执行函数把Text抛出去
+      window.Text = Text;
+    })();
+
+    var test = new Text();
+  </script>
+</body>
+
+</html>

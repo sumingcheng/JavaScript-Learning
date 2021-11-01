@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var a = [];
+    console.log(a instanceof Array);
+    // str，trueTip，缓存起来
+    var str = Object.prototype.toString;
+    var trueTip = '[object Array]';
+    // 建议使用toString去判断
+    if (str.call(a) === trueTip) {
+      console.log('是数组');
+    } else {
+      console.log('不是数组');
+    }
+
+    Object.prototype = {
+      toString: function () {
+        // this指向对象本身
+        this.toString();
+        // call(a)
+        // a.toString();
+      }
+    }
+  </script>
+</body>
+
+</html>

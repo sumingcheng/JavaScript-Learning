@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function test(b) {
+      // this.d = window.d = d
+      this.d = 3;
+      var a = 1;
+
+      function c() {}
+    }
+    test(123);
+
+    // window.d=3
+    console.log(d);
+    console.log(this.d);
+    console.log(window.d);
+
+    // AO = {
+    // arguments:[123],
+    //   this: window,
+    //   b: undefined,
+    //   -> 123
+    //   a: undefined,
+    //   c: function c() {}
+    // }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Teacher(name, sex, weigth, course) {
+      this.name = name;
+      this.sex = sex;
+      this.weigth = weigth;
+      this.course = course;
+      this.smoke = function () {
+        this.weigth++;
+        console.log(this.weigth);
+      }
+      this.eat = function () {
+        this.weigth--;
+        console.log(this.weigth);
+      }
+    }
+    // 实例化对象Teacher 
+    var teacher1 = new Teacher('张三', '男', 145, 'JS');
+    var teacher2 = new Teacher('李四', '女', 90, 'HTML');
+
+    console.log(teacher1);
+    console.log(teacher2);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    Object.prototype.num = 1;
+    var person1 = {
+      name: "张三",
+      age: 18,
+      sex: "male",
+      height: 180,
+      weight: 140,
+      children: {
+        first: {
+          name: "张1",
+          age: 13,
+        },
+        second: {
+          name: "张2",
+          age: 23,
+        },
+        third: {
+          name: "张3",
+          age: 24,
+        }
+      },
+      car: ["Benz", "Mazda"],
+    }
+    // 字符层化
+    var str = JSON.stringify(person1);
+    // 对象化
+    var person2 = JSON.parse(str);
+    person2.name = "李四";
+    person2.children.forth = {
+      name: '张4',
+      age: 1,
+    }
+    person2.car.push('BYD');
+    console.log(person1, person2);
+  </script>
+</body>
+
+</html>

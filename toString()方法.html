@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var num = 1;
+    var obj = {};
+    var obj2 = Object.create(null);
+    // document.write 在打印的时候会有隐式转换，转换成string
+    document.write(num);
+    document.write(obj);
+    // Uncaught TypeError: Cannot convert object to primitive value at
+    // 不能把对象转化成原始值
+    document.write(obj2);
+
+
+    // 可以自己添加一个 toString
+    obj2.toString = function () {
+      return 'hello';
+    }
+    document.write(obj2);
+  </script>
+</body>
+
+</html>

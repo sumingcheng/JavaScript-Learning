@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Test() {
+      // var this = {
+      //   __proto__:Test.prototype
+      // }
+      this.name = '123';
+    }
+    var text = new Test();
+
+    // AO = {
+    //   this:window,
+    //   -->this: __proto__:Test.prototype
+    //   -->this: __proto__:Test.prototype
+    //     name = '123',
+
+    // }
+    // GO = {
+    //   Test = function test(){...},
+    //   test:{
+    //     this: __proto__:Test.prototype
+    //     name = '123',
+    //   }
+    // }
+  </script>
+</body>
+
+</html>
