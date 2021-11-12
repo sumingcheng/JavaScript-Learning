@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var arr = [2, 3, 4]
+    // Array.prototype.myPush = function () {
+    //   for (let i = 0; i < arguments.length; i++) {
+    //     this[this.length] = arguments[i];
+    //   }
+    //   return this.length;
+    // }
+    // arr.myPush(1, 2, 3);
+    // console.log(arr);
+
+    // var arr = ['a', 'b', 'c'];
+    // console.log(arr);
+    // arr.pop();
+    // console.log(arr);
+
+    // var arr = ['a', 'b', 'c'];
+    // console.log(arr);
+    // arr.shift();
+    // console.log(arr);
+
+    // var arr = ['1','2','3'];
+    // console.log(arr);
+    // arr.reverse();
+    // console.log(arr);
+
+
+    // var arr = ['a', 'b', 'c', 'e', 'f'];
+    // // 在最后一位（最后一位为-1 依次递减 -2 -3...），添加4，4，4三位
+    // arr.splice(-1, 0, 4, 4, 4);
+    // console.log(arr);
+
+    // var arr = ['a', 'b', 'c', 'e', 'f'];
+
+    // function splice(arr, index) {
+    //   if (index > 0) {
+    //     index += 0;
+    //   } else {
+    //     index += arr.length;
+    //   }
+    //   return index;
+    // }
+    // console.log(arr[splice(arr, -1)]);
+
+
+    // var arr = [-1, -5, 8, 0, 2];
+    // arr.sort();
+    // console.log(arr);
+    // var arr = ['a', 'z', 'e', 'y', 'p'];
+    // arr.sort();
+    // console.log(arr);
+    // var arr = ['27', '49', '5', '7'];
+    // arr.sort();
+    // console.log(arr);.
+
+
+    // 1. 必须有两个参数
+    // 2. 必须有返回值
+    // 负值： a排在前面
+    // 正值： b在前面
+    // 0： 保持不变
+
+    // var arr = ['27', '49', '5', '7'];
+    // // 冒泡排序进行对比
+    // arr.sort(function (a, b) {
+    //   if (a > b) {
+    //     return 1;
+    //   } else {
+    //     return -1;
+
+    //   }
+    // })
+    // console.log(arr);
+
+    // var arr = [{
+    //     son: 'JJ',
+    //     age: 18
+    //   },
+    //   {
+    //     son: 'GG',
+    //     age: 12
+    //   }, {
+    //     son: 'AA',
+    //     age: 3
+    //   }, {
+    //     son: 'WW',
+    //     age: 1
+    //   }, {
+    //     son: 'QQ',
+    //     age: 20
+    //   },
+    // ];
+    // arr.sort(function (a, b) {
+    //   if (a.age > b.age) {
+    //     return 1;
+    //   } else {
+    //     return -1;
+    //   }
+    // });
+
+    // console.log(arr);
+
+    // var arr = ["123", "123213", "213213", "1"];
+    // arr.sort(function (a, b) {
+    //   // if (a.length > b.length) {
+    //   // return 1;
+    //   // } else {
+    //   // return -1;
+    //   // }
+    //   return a.length - b.length;
+    // });
+    // console.log(arr);
+
+    var arr = ["123", "123213", "213213", "1"];
+    var arr2 = ["A", "B", "C", "D"];
+
+
+    Array.prototype.myPush = function () {
+      for (let i = 0; i < arguments.length; i++) {
+        // arr.[最后一位下标]
+        this[this.length] = arguments[i];
+      }
+      return this.length;
+    }
+    arr.myPush('A', 'A');
+
+    console.log(arr);
+  </script>
+
+
+</body>
+
+</html>
