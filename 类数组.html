@@ -32,22 +32,67 @@
     // var arr1 = [1, 2, 3, 4, 5, 6];
     // console.log(arr1);
 
-    var obj = {
-      "0": 1,
-      "1": 2,
-      "2": 3,
-      "3": 4,
-      "4": 5,
-      "5": 6,
-      'length': 6,
+    // var obj = {
+    //   "0": 1,
+    //   "1": 2,
+    //   "2": 3,
+    //   "3": 4,
+    //   "4": 5,
+    //   "5": 6,
+    //   'length': 6,
+    // }
+    // Object.prototype.push = Array.prototype.push;
+    // Object.prototype.splice = Array.prototype.splice;
+    // obj.push(7);
+    // console.log(obj);
+
+    // // 重写 push方法
+    // Array.prototype.push = function (values) {
+    //   this[this.length] = values;
+    //   this.length++;
+    // }
+
+
+
+    // var obj ={
+    //   '2':3,
+    //   '3':4,
+    //   'length':2,
+    //   'splice':Array.prototype.splice,
+    //   'push':Array.prototype.push,
+    // }
+    // obj.push(1);
+    // console.log(obj);
+
+    // obj.push(2);
+    // console.log(obj);
+    // // 下标位置
+    // // 0 1 2 3
+    // //     1 2
+
+    var person = {
+      // 类数组一定要有数组形式，也就是下标对应值
+      '0': '张1',
+      '1': '张2',
+      '2': '张3',
+      'name': '张三',
+      'age': 32,
+      'weight': 140,
+      'height': 180,
+      // 一定要有length属性
+      'length': 3
     }
     Object.prototype.push = Array.prototype.push;
     Object.prototype.splice = Array.prototype.splice;
-    obj.push(7);
-    console.log(obj);
 
+    console.log(person[1]);
+    console.log(person.weight);
 
-    
+    for (let key in person) {
+      if (person.hasOwnProperty(key)) {
+        console.log(person[key]);
+      }
+    }
   </script>
 </body>
 

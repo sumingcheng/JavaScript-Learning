@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var arr = ['d', 'e', 'f'];
+
+    // Array.prototype.myUnfshift = function () {
+    //   var pos = 0;
+    //   for (let i = 0; i < arguments.length; i++) {
+    //     this.splice(pos, 0, arguments[i]);
+    //     pos++;
+    //   }
+    //   return this.length;
+    // }
+
+    // arr.myUnfshift('a', 'b', 'c');
+    // console.log(arr);
+
+
+    // var arr = ['d', 'e', 'f'];
+
+    // Array.prototype.myUnfshift = function () {
+    //   var argArr = 0;
+    // }
+    // var arr = ['d', 'e', 'f'];
+
+    // Array.prototype.myUnfshift = function test() {
+    //   var argArr = Array.prototype.slice.call(arguments);
+    //   var newArr = argArr.concat(this);
+    //   return newArr;
+    // }
+    // var newArr = arr.myUnfshift('a', 'b', 'c');
+    // console.log(newArr);
+
+    // var arr = ['EDG牛逼', 'OK', 'NB', '必胜', '777777'];
+
+    // arr.sort(function (a, b) {
+    //   return getBytes(a) - getBytes(b);
+    // });
+
+    // function getBytes(str) {
+    //   var bytes = str.length;
+    //   for (let i = 0; i < bytes; i++) {
+    //     if (str.charCodeAt(i) > 255) {
+    //       // 如果都是数组或者是字母，那么正常的长度就是字符的长度
+    //       // 如果是中文字或者是特殊字符，那么需要额外的+1
+    //       bytes++;
+    //     }
+    //   }
+    //   return bytes;
+    // }
+    // console.log(arr);
+
+
+    // function myTypeof(val) {
+    //   var res = {
+    //     '[object Array]': 'array',
+    //     '[object Object]': 'object',
+    //     '[object Number]': 'number',
+    //     '[object String]': 'string',
+    //     '[object Boolean]': 'boolean',
+    //   }
+    //   var toStr = Object.prototype.toString;
+    //   var type = typeof (val);
+    //   // 先处理空的情况
+    //   if (val === null) {
+    //     return 'null';
+    //   } else if (type === 'object') {
+    //     // 既然等于object了，就是引用值，继续处理引用值。
+    //     var ret = toStr.call(val);
+    //     return res[ret];
+    //   } else {
+    //     // 不是object就是type能处理的值
+    //     return type;
+    //   }
+    // }
+
+    // console.log(myTypeof(1));
+    // console.log(myTypeof("1"));
+    // console.log(myTypeof([]));
+    // console.log(myTypeof({}));
+    // console.log(myTypeof(new Boolean(1)));
+    // console.log(myTypeof(null));
+    // console.log(myTypeof(undefined));
+
+
+    // var arr = [0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 'a', 'a', 'a', 'a'];
+    // Array.prototype.unqiue = function () {
+    //   var temp = {};
+    //   var newArr = [];
+
+    //   for (let i = 0; i < this.length; i++) {
+    //     if (!temp.hasOwnProtperty(this[i])) {
+    //       // temp[0] = 0;
+    //       temp[this[i]] = this[i];
+    //       newArr.push(this[i]);
+    //     }
+    //   }
+    //   return newArr;
+    // }
+
+    // console.log(arr.unqiue());
+
+    // var str = '1231654561adasd';
+    // String.prototype.unique = function () {
+    //   var temp = {},
+    //     newStr = '';
+    //   for (var i = 0; i < this.length; i++) {
+    //     if (!temp.hasOwnProperty(this[i])) {
+    //       temp[this[i]] = this[i];
+    //       newStr += this[i];
+    //     }
+    //   }
+    //   return newStr;
+    // }
+
+    // console.log(str.unique());
+
+    // var str = 'sjahdspodiqnqwubgiuosdupoiqiwoepwqn';
+
+    // function test(str) {
+    //   var temp = {};
+    //   for (let i = 0; i < str.length; i++) {
+    //     if (temp.hasOwnProperty(str[i])) {
+    //       temp[str[i]]++;
+    //     } else {
+    //       temp[str[i]] = 1;
+    //     }
+    //   }
+    //   for (const key in temp) {
+    //     if (temp[key] === 1) {
+    //       return key;
+    //     }
+    //   }
+    //   return temp;
+    // }
+
+    // console.log(test(str));
+
+    // function Test(a, b, c) {
+    //   var d = 0;
+    //   // this.a = a;
+    //   // this.b = b;
+    //   // this.c = c;
+
+    //   // function e() {
+    //   //   d++;
+    //   //   console.log(d);
+    //   // }
+    //   // this.f = e;
+    //   var this = {
+    //     f: function () {
+    //       d++;
+    //       console.log(d);
+    //     }
+    //   }
+    //   return this
+    // }
+    // var test1 = new Test();
+    // test1.f(); //1
+    // test1.f(); //2
+    // var test2 = new Test();
+    // test2.f(); //1
+
+    // function test() {
+    //   console.log(typeof (arguments));
+    // }
+    // test();
+
+    // var test = function a() {
+    //   return 'a';
+    // }
+    // // 函数表达式 是忽略函数名的。
+    // console.log(typeof(a));//typeof 里放没有声明的变量永远都是 undefined
+    // console.log(a);//报错
+
+    // function test(day) {
+    //   switch (day) {
+    //     case 1:
+    //       console.log('Mon');
+    //       break;
+    //     case 2:
+    //       console.log('Tue');
+    //       break;
+    //     case 3:
+    //       console.log('Wed');
+    //       break;
+    //     case 4:
+    //       console.log('Thu');
+    //       break;
+    //     case 5:
+    //       console.log('Fri');
+    //       break;
+    //     case 6:
+    //       console.log('Sat');
+    //       break;
+    //     case 7:
+    //       console.log('Sun');
+    //       break;
+    //     default:
+    //       console.log('I don\'t know');
+    //   }
+    // }
+    // test(3);
+
+    // function test(day) {
+    //   var weekday = [
+    //     'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'
+    //   ];
+    //   weekday[day - 1] !== undefined ? console.log(weekday[day - 1]) : console.log('I don\'t know');;
+    // }
+    // test(7);
+
+
+
+    
+  </script>
+</body>
+
+</html>
