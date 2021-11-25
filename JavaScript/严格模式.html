@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 'use strict'
+    // var a = '全局';
+    // var obj = {
+    //   a: 'obj里的a',
+    // }
+
+    // function test() {
+    //   var a = 'test函数里的a';
+    //   with(test) {
+    //     console.log(a);
+    //   }
+    //   with(obj) {
+    //     console.log(a);
+    //   }
+    //   with(window) {
+    //     console.log(a);
+    //   }
+    // }
+    // test();
+
+
+    // function test() {
+    //   console.log(1);
+    // }
+
+    // function test() {
+    //   console.log(2);
+    // }
+
+    // test();
+
+    // window.onload = function () {
+    //   init();
+    // }
+    // // 整合功能
+    // function init() {
+    //   initSlider;
+    //   initSliBar;
+    // }
+    // // 页面相互不冲突
+    // var initSlider = (function () {
+    //   var a = 1;
+    //   console.log(a);
+    // })();
+    // // 这就是模块化开发
+    // var initSliBar = (function () {
+    //   var a = 1;
+    //   console.log(a);
+    // })();
+
+    // // 最早的时候多人开发的时候，防止命名冲突
+    // var namespace = {
+    //   header: {
+    //     Jenny: {
+    //       a: 1,
+    //       b: 2,
+    //     },
+    //     Ben: {
+    //       a: 3,
+    //       b: 4
+    //     }
+    //   },
+    //   sideBar: {
+    //     Crystal: {
+    //       a: 5,
+    //       b: 6
+    //     }
+    //   }
+    // }
+    // // 改变作用域
+    // with(namespace.header.Ben.a) {
+    //   console.log(a);
+    // }
+    // 'use strict'
+
+    // function test() {
+    //   console.log(arguments.callee);
+    // }
+    // test(1);
+
+    // 'use strict'
+
+    // function test() {
+    //   console.log(this);
+    // }
+    // test();
+    // test.call(1);
+    // new test();
+    // 'use strict'
+
+    // function test(a, a) {
+    //   console.log(a, a);
+    // }
+    // test(1, 2);
+    // 'use strict'
+    // var obj = {
+    //   a: 1,
+    //   a: 2
+    // }
+    // console.log(obj.a);
+    'use strict'
+    eval('var a = 1 ; console.log(a);');
+    console.log(a);
+  </script>
+</body>
+
+</html>

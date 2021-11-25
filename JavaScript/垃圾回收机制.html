@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function test1() {
+    //   var a = 1;
+
+    //   function test2() {
+    //     a++;
+    //     console.log(a);
+    //   }
+    //   return test2;
+    // }
+
+    // var test = test1();
+    // test();
+    // test();
+    // test = null;
+    // test();
+
+    // mark adn sweep
+    function test() {
+      var a = 0; // 进入环境
+    }
+    test() // 离开环境
+
+    var b = 0;
+    var c = 1;
+
+    console.log(a);
+
+    function test() {
+      var a = new Object(); // a = 1; a 的引用次数等于 1
+      var b = new Object(); // b = 1;
+      var c = a; // a++   a = 2
+      var c = b; // a--   a = 1  b++ b = 2
+    }
+    
+    // a.porp = b; // a = 2
+    // b.porp = a; // b = 2
+    // // 清空引用
+    // a = null;
+    // b = null;
+  </script>
+</body>
+
+</html>
