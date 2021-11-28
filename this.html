@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // console.log(this === window); //true
+    // console.log({} === {}); //false 两个对象的指针地址不一样
+    // // 函数的独立调用
+    // function test() {
+    //   console.log(this === window); //true
+    // }
+    // test(); 
+    // // window.test();
+
+    // var a = 0;
+    // var obj = {
+    //   a: 2,
+    //   foo: function () {
+    //     console.log(this);//指向obj 因为是obj.属性来调用的。
+    //     function test() {
+    //       console.log(this);//函数独立调用，内部的this指向就指向window
+    //     }
+    //     test();
+    //     // 立即执行函数全都指向window
+    //     (function(){
+    //       console.log(this);
+    //     })();
+    //   }
+    // }
+    // obj.foo();
+
+
+    // 当函数执行的时候，导致函数被定义，并抛出
+
+
+    // var a = 0;
+    // var obj = {
+    //   a: 2,
+    //   foo: function () {
+    //     function test() {
+    //       console.log(this); 
+    //     }
+    //     return test;
+    //   }
+    // }
+    // obj.foo()();// window 为什么是 window？
+    // // 因为调用的时候，依旧是独立调用，虽然是在foo这个作用域当中。
+    // // 其实就等于把test()拿出来执行了
+
+
+
+    // var a = 0;
+
+    // function foo() {
+    //   console.log(this);
+    // }
+    // var obj = {
+    //   a: 2,
+    //   foo: foo
+    // }
+    // obj.foo(); //obj
+
+    // // 隐式丢失
+    // var bar = obj.foo;
+    // bar(); // 赋值后执行，独立调用，指向 window
+
+    // bar.call(obj);
+    // bar.apply(obj);
+    // bar.bind(obj)();
+
+
+
+    // var a = 0;
+
+    // function foo() {
+    //   console.log(this);
+    // }
+
+
+    // var obj = {
+    //   a: 2,
+    //   foo: foo
+    //   // foo() 独立调用正常执行
+    //   // foo拿的是 foo函数的引用地址
+    // }
+
+
+    // var arr = [1, 2, 3];
+    // arr.forEach(function (item, idx, arr) {
+    //   console.log(this);
+    // });
+
+    // arr.sort(function (a, b) {
+    //   console.log(this); //winodws
+    //   return a - b;
+    // })
+
+    // // setInterval(function () {
+    // //   console.log(this); //window
+    // // })
+
+    // call(),apply(),bind(),
+
+    // var a = 0;
+
+    // function foo(a, b, c, d, e) {
+    //   console.log(this);
+    // }
+
+    // var obj = {
+    //   a: 2,
+    //   foo: foo
+    // }
+    // var bar = obj.foo;
+
+    // obj.foo(1, 2, 3, 4, 5);
+    // // 绑定失败，采用默认的绑定方式，所以绑定window
+    // bar.call(undefined, 1, 2, 3, 4, 5);
+    // bar.apply(null, [1, 2, 3, 4, 5]);
+    // // bar.bind(obj)(1, 2, 3, 4, 5);
+
+    // function Person() {
+    //   // 实例化的过程，声明空对象
+    //   // var this = {};
+    //   // 赋值
+    //   this.a = 1;
+    //   // 返回this
+    //   return this;
+    // }
+    // // this 指向实例化后的对象
+    // // 构造函数是个函数,this指向的是个对象,this蒙上眼睛指也指不到构造函数去.
+    // // 构造函数的this指向创建的实例对象无疑.
+    // var person = new Person();
+  </script>
+</body>
+
+</html>
