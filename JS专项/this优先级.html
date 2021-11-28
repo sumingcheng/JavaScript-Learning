@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function foo(b) {
+    //   this.a = b;
+    // }
+
+    // var obj1 = {
+
+    // }
+    // console.log(foo.bind(obj1));
+    // var bar = foo.bind(obj1);
+    // bar(2);
+
+    // console.log(obj1.a); //2
+    // // new 把 this 的执行改变成了 baz
+    // var baz = new bar(3);
+    // // obj1.a 的属性没有变化，变化的是实例化后的对象
+    // console.log(obj1.a); //2
+    // console.log(baz.a); //3
+
+    // function test(){
+
+    // }
+    // var test = ()=>{
+
+    // }
+
+    // var a = 0;
+
+    // function foo() {
+    //   console.log(this);
+    //   var test = () => {
+    //     console.log(this);
+    //   }
+    //   return test;
+    // }
+
+    // var obj1 = {
+    //   a: 1,
+    //   foo: ()=>{
+    //     console.log(this);
+    //   }
+    // }
+    // var obj2 = {
+    //   a: 2,
+    //   foo: foo
+    // }
+
+    // // obj1.foo()(); // 默认绑定规则对箭头函数无效。
+    // // var bar = foo().call(obj2); // 显示绑定规则无效
+    // // obj1.foo(); // 隐式绑定无效
+
+    //   var obj = {
+    //     a: 1,
+    //     foo: foo
+    //   }
+    //   foo(); // window
+    //   obj.foo(); // obj
+    // 
+
+
+    // var foo = () => {
+    //   console.log(this);
+    // }
+    // foo();
+
+    // new foo();
+
+    // var name = 'window';
+    // var obj1 = {
+    //   name: '1',
+    //   fn1: function () {
+    //     console.log(this.name);
+    //   },
+    //   fn2: () => console.log(this.name),
+    //   fn3: function () {
+    //     return function () {
+    //       console.log(this.name);
+    //     }
+    //   },
+    //   fn4: function () {
+    //     return () => console.log(this.name);
+    //   }
+    // }
+    // var obj2 = {
+    //   name: '2'
+    // };
+
+    // obj1.fn1();// 对象调用，指向obj1这个对象
+    // obj1.fn1.call(obj2);// call 改变指向 结果2
+
+    // obj1.fn2();// 对象箭头函数，直接看父作用域的值，也就是上一级作用域的值
+    // obj1.fn2.call(obj2);// 箭头函数 call 无效，还是window
+
+    // obj1.fn3()();// 独立调用，指向window
+    // obj1.fn3().call(obj2);// call调用 2
+    // obj1.fn3.call(obj2)();// 自调用，指向window
+
+    // obj1.fn4()();// 箭头函数 找父作用域 fun4是他的父作用域，1
+    // obj1.fn4().call(obj2);// 父作用域 1
+    // obj1.fn4.call(obj2)();// 返回了一个匿名函数到obj2里执行，父作用域是 obj2 结果2
+
+
+
+    // function Foo() {
+    //   getName = function () {
+    //     console.log(1);
+    //   };
+    //   return this;
+    // }
+    // Foo.getName = function () {
+    //   console.log(2);
+    // };
+    // Foo.prototype.getName = function () {
+    //   console.log(3);
+    // };
+    // var getName = function () {
+    //   console.log(4);
+    // };
+
+    // function getName() {
+    //   console.log(5);
+    // };
+    // // 写出输出结果
+    // Foo.getName(); //2 构造函数的静态方法
+    // getName(); //4 全局中的 getName 
+    // Foo().getName(); //1 Foo执行了，返回this指向window，
+    // // window上有一个getName方法。
+    // // 但Foo构造函数里的getName没有证明，变量提升到全局
+    // // getName被覆盖。
+    // getName(); //1 上一条语句执行后，全局的getName被覆盖，所以还是1
+
+    // // new出来的东西是要执行的，所以先看执行的部分。
+    // new Foo.getName(); // 是方法就可以new 执行对象属性的方法。2
+    // new Foo().getName();// 3
+    // new new Foo().getName();// 先看 new Foo 实例后对象 3
+  </script>
+</body>
+
+</html>
