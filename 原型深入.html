@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function test() {
+    //   console.log(1);
+    //   this.a = 1;
+    // }
+    // var t = new test();
+    // t();
+    // // 
+    // console.log(t.a);
+
+    // function Foo(){
+    //   this.a=1;
+    // }
+    // Foo.prototype = {
+    //   age:20,
+    // }
+
+    // var foo=new Foo();
+    // console.log(foo);
+
+    // console.log(foo.__proto__ ===Foo.prototype);//true
+
+    // function Foo() {
+    //   this.aaaaaa = 1;
+    // }
+    // var foo = new Foo();
+    // console.log(foo);
+    // // 尽量不要使用 foo.__proto__ 的方式访问原型
+    // // Foo.prototype 的访问方式去拿原型
+    // console.log(foo.__proto__ === Foo.prototype);
+    // // 如果要通过实例对象去访问原型，可以通过 Object.getPrototypeOf(foo)去访问
+    // console.log(Object.getPrototypeOf(foo) === Foo.prototype);
+    function Foo() {
+      this.name = 'hello';
+    }
+    Foo.prototype = {
+      aa: 11,
+      bb: function a(){
+        console.log(1);
+      },
+      constructor:Foo,
+    }
+    var foo = new Foo();
+
+    console.log(foo);
+  </script>
+</body>
+
+</html>
