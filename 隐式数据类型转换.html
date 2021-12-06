@@ -12,12 +12,77 @@
   <script>
     // console.log({} == !{});
     // console.log([] == ![]);
-    console.log(Number(undefined)); // NAN 
-    console.log(Number(null));  // 0
+    // console.log(Number(undefined)); // NAN 
+    // console.log(Number(null));  // 0
 
-    console.log(Boolean(undefined)); // fales 
-    console.log(Boolean(null));  // fales
-    
+    // console.log(Boolean(undefined)); // fales 
+    // console.log(Boolean(null));  // fales
+
+    // console.log(Number(Infinity));
+
+    // console.log(Boolean([])); //true
+    // console.log(Boolean({})); //true
+    // console.log(Boolean(/d/)); //true
+    // console.log(Boolean(new Error())); //true
+    // console.log(Boolean(Symbol())); //true
+
+    // var obj = {
+    //   // 定义两个方法
+    //   toString() {
+    //     return 1;
+    //   },
+    //   valueOf() {
+    //     return {};
+    //   }
+    // }
+    // console.log(Number(obj)); //2 
+
+
+    function obj_proto_toSting(val) {
+      return console.log(Object.prototype.toString.call(val));
+    }
+    // obj_proto_toSting(123); //[object Number]
+    // obj_proto_toSting('123'); // [object String]
+    // obj_proto_toSting(true); // [object Boolean]
+    // obj_proto_toSting(undefined); // [object Undefined]
+    // obj_proto_toSting(null); // [object Null]
+    // obj_proto_toSting(NaN); // [object Number]
+
+    // obj_proto_toSting(function () {}); //[object Function]
+    // obj_proto_toSting([1, 2, 3]); // [object Array]
+    // obj_proto_toSting({}); // [object Object]
+
+    // obj_proto_toSting(new Error); //[object Error]
+    // obj_proto_toSting(/d/); // [object RegExp]
+    // obj_proto_toSting(Date); // [object Function]
+    // obj_proto_toSting(new Date()); // [object Date]
+    // obj_proto_toSting(Symbol()); // [object Symbol]
+
+    // console.log(null.toString);
+    // console.log(undefined.toString);
+
+    // (function () {
+    //   obj_proto_toSting(arguments);
+    // })();
+    // obj_proto_toSting(document);
+
+    // var obj = {
+    //   // 定义两个方法
+    //   // toString() {
+    //   //   return 1;
+    //   // },
+    //   valueOf() {
+    //     return {};
+    //   }
+    // }
+    // // 这里调用了toSrting方法
+    // // 转换后的字符串，包装完成后的值是NaN
+    // console.log(Number(obj)); //NaN 
+
+      console.log(Number([1,2])); // NAN 引用类型，调用Array.prototype.toString
+      console.log(Number([10])); // 10
+      console.log(Number({}));//NAN 引用类型，调用Object.prototype.toString
+
   </script>
 </body>
 
