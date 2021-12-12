@@ -85,34 +85,6 @@
     // 
     option && myChart.setOption(option);
   </script>
-
-  <script>
-    function Calculate(initialNumber) {
-      var number = Number(initialNumber) >>> 0;
-
-      function add(num) {
-        number += num;
-      }
-
-      function minus(num) {
-        number += num;
-      }
-
-      function value(num) {
-        return number
-      }
-      return {
-        add: add,
-        minus: minus,
-        value: value
-      }
-    }
-    var cal = Calculate(1);
-
-    cal.add(1);
-    cal.minus(1);
-    cal.value;
-  </script>
 </body>
 
 </html>
