@@ -12,15 +12,22 @@
   <script>
     // console.log(Number(undefined)); //NAN
     // console.log(Number(null)); //0
-    var test = {
-      toString() {
-        return 1;
-      },
-      valueOf() {
-        return 2;
-      }
-    }
-    console.log(String(test));
+    // var test = {
+    //   toString() {
+    //     return '123';
+    //   },
+    //   valueOf() {
+    //     return {};
+    //   }
+    // }
+    // console.log(Number(test)); // 123
+
+    // 等效
+    console.log(String([1, 2])); 
+    console.log("" + [1, 2]);
+
+    console.log(String({}));
+    console.log("" + {});
   </script>
 </body>
 
