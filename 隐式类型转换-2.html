@@ -23,11 +23,68 @@
     // console.log(Number(test)); // 123
 
     // 等效
-    console.log(String([1, 2])); 
-    console.log("" + [1, 2]);
+    // console.log(String([1, 2])); 
+    // console.log("" + [1, 2]);
 
-    console.log(String({}));
-    console.log("" + {});
+    // console.log(String({}));
+    // console.log("" + {});
+
+    // function test() {
+    //   console.log(1);
+    // }
+    // console.log(test.toString() === String(test)); //true
+
+    // console.log(typeof Date()); // string
+    // console.log(typeof new Date()); // object
+
+    // console.log(Number(11));
+    // console.log(Number(001));
+    // console.log(Number(0x11));
+
+    // Number('123');
+
+    // function print(a) {
+    //   console.log(a);
+    // }
+    // // Number 的作用是为了把类型转换为数字类型 
+    // print(Number('123')) // 123
+    // print(Number('   123')) // 123
+    // print(Number('.123')) // 0.123
+    // print(Number('aaa')) // NaN
+    // print(Number('123avs')) // NaN
+    // print(Number('1 2 3')) // NaN
+    // // parseInt 拟补number的不足，将字符层转为数字
+    // print(parseInt('-123abc')) // -123
+    // print(parseInt('111', 2)) //  7
+    // print(parseInt('111', 6)) //  43
+    // print(parseInt('111', 8)) //  73
+    // print(parseInt('111', 10)) //  111
+    // print(parseInt('111', 16)) //  273
+    // print(parseInt('.123')) // 0. NaN
+    // print(parseInt('aaa')) //  NaN
+    // print(parseInt('123avs')) //  123
+    // print(parseInt('1 2 3')) //  1
+
+
+    // parseFloat
+
+    // console.log([1] == 1); // true
+    // console.log(['1'] == true); //  true
+    // console.log([] == false); //  true
+
+    // console.log([] == null); //  false
+    // console.log([] == undefined); //  false
+    // // 1,2肯定不能转换成数，结果是NAN，但是NAN不等于NAN
+    // console.log([1, 2] == NaN); //  false
+
+
+
+
+
+
+
+    console.log([] == ![]);
+    console.log({} == !{});
   </script>
 </body>
 
