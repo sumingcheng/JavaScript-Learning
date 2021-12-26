@@ -82,9 +82,16 @@
 
 
 
-
-    console.log([] == ![]);
-    console.log({} == !{});
+    // [] = 0  ![] 非真就是假，![] 非的不是undefined null 0 NaN '' false里的任何一个。所以[]是真
+    // false -> Number(false) -> 0  
+    // Number([]) -> Array.prototype.toString -> '' -> Number('') -> 0
+    console.log(![]); // false
+    console.log(Number([])); // 0
+    console.log([] == ![]); // true
+    // 左边是NAN 右边是 false
+    console.log(Number({})); // NAN
+    console.log(!{}); // false
+    console.log({} == !{}); // false
   </script>
 </body>
 
