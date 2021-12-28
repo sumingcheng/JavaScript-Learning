@@ -94,6 +94,17 @@
     //   str = 'abcd';
     // console.log(str.match(reg)); // ['abc']
 
+    // var reg = /\w{1,2}/g,
+    // str ='abcdefg';
+    // console.log(str.match(reg)); // ['ab', 'cd', 'ef', 'g']
+
+    // var reg = /^ab/g,
+    // str ='ab989asabsdababcde';
+    // console.log(str.match(reg)); // ['ab']
+
+        var reg = /cd$/g,
+        str ='ab989asabsdababcd';
+        console.log(str.match(reg)); // ['cd']
   </script>
 
 </body>

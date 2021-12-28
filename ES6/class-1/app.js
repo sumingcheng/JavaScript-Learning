@@ -48,14 +48,42 @@
 // }
 // console.log(i); // 10
 
-var arr = [];
+// var arr = [];
 
-for (var i = 0; i < 10; i++) {
-  arr[i] = function () {
-    console.log(i);
+// for (var i = 0; i < 10; i++) {
+//   arr[i] = function () {
+//     console.log(i);
+//   }
+// }
+
+// for (var i = 0; i < 10; i++) {
+//   arr[i](); // 0~9
+// }
+
+
+// for (let i = 0; i < 10; i++) {
+//   // let 和 var 在同一作用域下 , 因为var可以提升到全局
+//   let i = 'a';
+//   console.log(i); // SyntaxError: Identifier 'i' has already been declared
+// }
+
+// if (1) {
+//   let a = 1; {
+//     a = 10;
+//     console.log(a); //10
+//   }
+// }
+
+// if (1) {
+//   let abc = function a() {
+//     // 不建议在块级作用域中声明函数
+//   }
+// }
+
+
+{
+  let a = function test(){
+    console.log("123");
   }
-}
-
-for (var i = 0; i < 10; i++) {
-  arr[i](); // 0~9
+  a()
 }
