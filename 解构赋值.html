@@ -1,12 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
 </head>
+
 <body>
-  
+  <script type="text/javascript">
+    // var x = 1;
+    // {
+    //   let x = x;
+    //   // 不可以在赋值前引用
+    //   console.log(x); // Uncaught ReferenceError: Cannot access 'x' before initialization
+    // }
+
+    // function foo(x, y) {
+    //   // x = x || 1,
+    //   //   y = y || 2;
+    //   var x = typeof (arguments[0]) !== "undefined" ? arguments[0] : 1;
+    //   var y = typeof (arguments[1]) !== "undefined" ? arguments[1] : 2;
+
+    //   console.log(x + y);
+    // }
+    // foo(); // 3
+    // foo(5, 6); // 11
+    // foo(5); // 7
+    // foo(null, 6); // 6
+    // foo(0, 5); // 5
+
+    // function foo(x = 1, y = 2) {
+    //   console.log(x + y);
+    // }
+    // foo(); // 3
+    // foo(5, 6); // 11
+    // foo(5); // 7
+    // foo(null, 6); // 6
+    // foo(0, 5); // 5
+
+    // let x = 1;
+    // function test(x) {
+    //   console.log(x); // Uncaught ReferenceError: Cannot access 'x' before initialization
+    // }
+    // test()
+
+    // let a = 99;
+
+    // function foo(b = a + 1) {
+    //   console.log(b);
+    // }
+    // foo(); //100
+    // a = 100;
+    // foo(); //101
+
+    // let [a, c] = [1, 2, 3];
+    // console.log(a, c); // 1 2
+
+    // let [a,[b,[c,[e]],[f]]] =[1,[2,[3,[4]],[5]]]
+    // console.log(a,b,c,e,f); //1 2 3 4 5
+    // let [a, b = 2] = [1, undefined]
+
+    // console.log(a, b); // 1 2
+
+    // let [x = y, y = 1] = [];
+    // console.log(x, y); // Uncaught ReferenceError: Cannot access 'y' before initialization
+    // let obj = {
+
+    // }
+    // let obj2 = Object.create(null)
+
+    // // ES5
+    // var name = 'zhang'
+    // var age = '14'
+    // var person = {
+    //   // ES6
+    //   name,
+    //   age,
+    //   sex: "man",
+    //   // eat: function () {
+    //   //   console.log(1);
+    //   // }
+    //   // ES6
+    //   eat() {
+    //     console.log(1);
+    //   }
+    // }
+    // console.log(person);
+    // person.eat();
+
+    // let firstName = 'ai';
+    // let secondName = 'xiaoye';
+    // let name = 'ai xiao ye'
+    // let person = {
+    //   [firstName + 'XY']: name
+    // }
+    // console.log(person);
+
+    // let { a = 2, b: b, c: c } = { c: 3, b: 2 };
+    // console.log(a, b, c); // 2 2 3
+
+    // let a = [{
+    //   id: "2"
+    // }, {
+    //   id: "23"
+    // }, {
+    //   id: "12"
+    // }, {
+    //   id: "45"
+    // }, {
+    //   id: "8"
+    // }];
+    // let [{
+    //   id: id1
+    // }, {
+    //   id: id2
+    // }, {
+    //   id: id3
+    // }, {
+    //   id: id4
+    // }, {
+    //   id: id5
+    // }] = a;
+    // console.log(id1, id2, id3, id2, id5); // 2 23 12 23 8
+
+    // var person = {
+    //   name: 'zhangshan',
+    //   age: 50,
+    //   son: {
+    //     name: "lisi",
+    //     age: 30,
+    //     son: {
+    //       name: "wangwu",
+    //       age: 12
+    //     }
+    //   }
+    // }
+
+    // let {
+    //   son: {
+    //     son: son2
+    //   }
+    // } = person;
+    // console.log(son2);
+
+      
+
+    //
+  </script>
 </body>
+
 </html>
