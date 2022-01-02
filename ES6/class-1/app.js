@@ -80,10 +80,88 @@
 //   }
 // }
 
+// var arr = [];
 
-{
-  let a = function test(){
-    console.log("123");
-  }
-  a()
-}
+// for (let i = 0; i < 10; i++) {
+//   arr[i] = function () {
+//     console.log(i);
+//   }
+// }
+// for (var k = 0; k < 10; k++) {
+//   arr[k]();
+// }
+
+
+// {
+//   let a = 1;
+//   function a (){
+
+//   }
+//   console.log(a);
+//   // SyntaxError: Identifier 'a' has already been declared
+// }
+
+// {
+//   let a = 1;
+//   {
+//     function a(){
+
+//     }
+//   }
+//   console.log(a); //1 
+// }
+
+// const a = 1;
+// a = 10;
+// console.log(a);
+// // TypeError: Assignment to constant variable.
+
+// {
+//   const a = 10;
+//   let a = 12;
+//   // SyntaxError: Identifier 'a' has already been declared
+// }
+
+// const obj = []
+// Object.freeze(obj)
+// obj[0] = "zhangsan"
+// console.log(obj); // []
+
+// const ibje = {}
+// Object.freeze(ibje)
+// ibje.name = "zhangsan"
+// console.log(ibje); // {}
+
+// const obj = []
+// Object.myFreeze(obj)
+// obj[0] = "zhangsan"
+
+// function myFreeze(obj) {
+//   Object.freeze(obj)
+//   for (var key in obj) {
+//     if (typeof (obj[key] === 'object') && obj[key] !== null) {
+//       Object.freeze(obj[key]);
+//     }
+//   }
+// }
+// const person = {
+//   son: {
+//     lisi: 18,
+//     zhangshan: 19
+//   },
+//   car: ['benze', 'BMW', 'mazda']
+// }
+// myFreeze(person)
+// person.son.wangwu = 20;
+// person.car[3] ='toyout'
+
+// console.log(person);
+// { son: { lisi: 18, zhangshan: 19 }, 
+// car: [ 'benze', 'BMW', 'mazda' ] }
+// a = 1
+// console.log(a);
+
+// console.log(window.a);
+
+
+
