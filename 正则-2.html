@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var str = "abcdef123123abcd",
+    // // 以abcd开头，以abcd结尾，中间任意字符串任意数量。
+    //   reg = /^abcd.*abcd$/g;
+    // console.log(str.match(reg));
+
+    // var str = "abcdef123123abcd",
+    //   // 以abcd开头，以abcd结尾，中间任意字符串任意数量。
+    //   reg = /^abcd|abcd$/g;
+    // console.log(str.match(reg));
+
+    // var str = "abcd123123abcd",
+    //   reg = /^abcd[\d]+abcd$/g;
+    // console.log(str.match(reg));
+
+    // var str = '13812345679',
+    // reg = /^138[\d]{8}/g
+    // console.log(str.match(reg));
+
+    // var str = 'abcdabcd',
+    //   reg = /a(?=b)/g;
+    // console.log(str.match(reg));
+
+    // var str = 'abcdabcd',
+    //   reg = /a(?!b)/g;
+    // console.log(str.match(reg));
+
+    // var str = 'aabbccddddddeeffrrtt',
+    // // \1 反向引用第1个子表达式，\2 反向引用第2个子表达式，就可以匹配4个a
+    //   reg = /(\w)\1(\w)\2/g;
+    // console.log(str.match(reg));
+
+    // var reg = /123/g;
+    // str = '123123123123';
+
+    // reg.lastIndex = 4;
+    // console.log(reg.lastIndex); // 4
+    // console.log(reg.exec(str)); // index: 6
+    // console.log(reg.lastIndex); // 9
+    // console.log(reg.exec(str)); // index: 9
+
+    var reg = /(\w)\1(\w)\2/g;
+    str = "aabbccddeeff";
+    console.log(str.match(reg)); //['aabb', 'ccdd', 'eeff']
+    // exec 会输出你匹配的字符，使用了哪些子表达式
+    console.log(reg.exec(str)); // ['aabb', 'a', 'b', index: 0, input: 'aabbccddeeff', groups: undefined]
+    console.log(reg.exec(str)); // ['ccdd', 'c', 'd', index: 4, input: 'aabbccddeeff', groups: undefined]
+    console.log(reg.exec(str)); // ['eeff', 'e', 'f', index: 8, input: 'aabbccddeeff', groups: undefined]
+    console.log(reg.exec(str)); // null
+  </script>
+</body>
+
+</html>
