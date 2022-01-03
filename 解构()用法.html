@@ -1,12 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            // let a1 = [1, 2, 3],
+            //   obj2 = {};
+            // [obj2.a, obj2.b, obj2.c] = a1;
+            // console.log(obj2);
+
+            // let [a] = [1];
+            // console.log(a);
+
+            // let ({a:b})={};
+            // let {(a):b}={};
+            // let {a:(b)}={};
+            // function foo(([z])) {
+            //   return z;
+            // }
+            // console.log(foo([1]));
+
+            // let arr = [1, 2, 3];
+            // let { 0: first, [arr.length - 1]: last } = arr;
+            // console.log(first, last); // 1 3
+
+            // [(b)] = [3];
+            // ([b]) = [3];
+
+            // ({ a: (b)= {}});
+
+            // [(a.b)] = [3];
+            // console.log(b);
+
+            // let a = 10,
+            //   b = 20;
+            // [b, a] = [a, b];
+            // console.log(a, b); // 20 10
+
+            // let { a: x, a: y } = {a: 1};
+            // console.log(x, y); // 1 1
+
+            // let person = {
+            //   name: 'zhangsan',
+            //   age: 50,
+            //   son: {
+            //     name: 'lisi',
+            //     ageLi: 30,
+            //     son: {
+            //       name: 'wangwu',
+            //       agewang: 18,
+            //       son: {
+            //         name: 'zhaoliu',
+            //         agezhao: 0,
+            //       }
+            //     }
+            //   }
+            // }
+
+            // let {
+            //   son: {
+            //     son: {
+            //       son
+            //       // 属性和属性名相同，简写为son
+            //     }
+            //   }
+            // } = person;
+            // console.log(son);
+
+            // var x = 200,
+            //     y = 300,
+            //     z = 100;
+            // var obj1 = {
+            //     x: {
+            //         y: 42,
+            //     },
+            //     z: {
+            //         y: z,
+            //     },
+            // };
+            // // 第一个y是函数的属性，x是值，这里想给x一个默认值，因为obj1里没有y.y，所以值只能取300
+            // ({ y: x = { y: y } } = obj1); // x = {y : 300}
+
+            // ({ z: y = { y: z } } = obj1); // y = {y: 100}
+
+            // ({ x: z = { y: x } } = obj1); // z = {y: 42}
+            // console.log(x, y, z);
+
+            // function test(x = a + b) {
+            //   console.log(x);
+            // }
+            // console.log(1);
+            // x 初始值是 10 打印10，y没有初始值，但可以解构对象里的10，打印10
+            // function foo({ x = 10 } = {}, { y } = { y: 10 }) {
+            //     console.log(x, y);
+            // }
+            // foo({},{}); // 10 undefined
+
+            // ({ x = 10 } = {});
+            // console.log(x);
+            // ({ y } = { y: 10 });
+            // console.log(y);
+            // // 等价写法
+            // ({ x: x = 10 } = {});
+            // console.log(x);
+            // ({ y: y } = { y: 10 });
+            // console.log(y);
+
+            // const [a, b, c, d, e] = "hello";
+            // console.log(a, b, c, d, e);
+            // let { toString: s } = 123;
+            // console.log(s === Number.prototype.toString); // true
+
+            // let { prop } = undefined;
+            // console.log(prop);
+
+            //
+        </script>
+    </body>
 </html>
