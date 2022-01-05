@@ -15,7 +15,8 @@
       height: 100%;
       width: 100%;
     }
-    .main{
+
+    .main {
       width: 100%;
       height: 500px;
     }
@@ -24,8 +25,8 @@
 
 <body>
   <div class="main">
-  <div id="char"></div>
-</div>
+    <div id="char"></div>
+  </div>
   <script>
     // 1. 获取容器的DOM元素,获取的必须有宽高
     const chartDom = document.getElementById('char');
@@ -48,18 +49,41 @@
         ]
       },
       title: {
-        text: "ECharts 使用"
+        text: "ECharts 使用",
+        subtext: '副标题'
       },
       // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
       xAxis: {
         type: 'category'
       },
+      // 传奇，图例组件
+      legend: {
+        data: [{
+          name: '分类',
+          icon: 'circle',
+          textStyle: {
+            color: 'blue'
+          }
+        }, '折线图', '柱状图'],
+        // 百分比要加引号
+        left: '30%'
+      },
+      toolbox:{
+        feature:{
+          saveAsImage:{},
+          dataZoom:{},
+          restore:{}
+        }
+      },
       yAxis: {},
       // 系列,一个系列是一个图表类型
       series: [{
+          name: '分类',
           type: 'pie', //饼图
-          radius: 10, //半径
-          center: [200, 50], //位置 可以是像素 也可以是百分比
+          radius: 50, //半径
+          center: [400, '10'], //位置 可以是像素 也可以是百分比
+          top:'10%',
+          left:'20%',
           // 使用dataset的数据
           encode: {
             itemName: 'kind',
@@ -67,6 +91,7 @@
           }
         },
         {
+          name: '折线图',
           type: 'line',
           // 使用dataset的数据
           encode: {
@@ -74,6 +99,7 @@
             y: 'v1'
           }
         }, {
+          name: '柱状图',
           type: 'bar',
           encode: {
             x: 'quarter',
