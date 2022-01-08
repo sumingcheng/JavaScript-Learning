@@ -5,12 +5,11 @@
 </template>
 
 <script>
-  import CommonCard from "../CommonCard/index.vue"
-  export default {
-    components: {
-      CommonCard
-    }
-  }
+import common from "../CommonCard/common";
+export default {
+    mixins:[common],
+ 
+};
 </script>
 
 <style>

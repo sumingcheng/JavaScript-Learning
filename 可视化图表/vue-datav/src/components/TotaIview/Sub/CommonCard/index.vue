@@ -1,38 +1,49 @@
 <template>
   <div class="common-card">
-    <div class="title">累计交易销售额</div>
-    <div class="count">￥ 3,000,000</div>
-    <div class="chart"></div>
+    <div class="title">{{title}}</div>
+    <div class="count">{{count}}</div>
+    <div class="chart">
+      <slot name="chart"></slot>
+    </div>
     <div class="line"></div>
-    <div class="total">昨日销售额度:￥ 3,000</div>
+    <div class="total">
+      <slot name="total"></slot>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+  export default {
+    props: {
+      title: String,
+      count: String
+    }
+  }
 </script>
 
 <style scoped>
-  .title{
+  .title {
     font-size: 14px;
   }
-  .count{
+
+  .count {
     height: 30px;
     font-size: 25px;
     line-height: 30px;
     color: #424242;
     margin-top: 5px;
   }
-  .chart{
+
+  .chart {
     height: 60px;
   }
-  .line{
-    border-top:1px solid #eee ;
+
+  .line {
+    border-top: 1px solid #eee;
     margin: 10px 0;
   }
-  .total{
+
+  .total {
     display: flex;
     color: #333;
     font-size: 14px;
@@ -40,4 +51,3 @@ export default {
     line-height: 27px;
   }
 </style>
-
