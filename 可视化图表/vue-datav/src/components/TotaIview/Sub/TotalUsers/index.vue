@@ -1,11 +1,16 @@
 <template>
-  <div>4</div>
+  <div class="today-users">
+    <CommonCard></CommonCard>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+  import CommonCard from "../CommonCard/index.vue"
+  export default {
+    components: {
+      CommonCard
+    }
+  }
 </script>
 
 <style>

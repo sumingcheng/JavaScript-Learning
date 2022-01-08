@@ -1,9 +1,27 @@
 <template>
   <div class="total-view">
-    <TodayUsers></TodayUsers>
-    <TotalOrders></TotalOrders>
-    <TotalSales></TotalSales>
-    <TotalUsers></TotalUsers>
+    <el-row :gutter="20">
+      <el-col :span="6">
+        <el-card shadow="hover">
+          <TodayUsers></TodayUsers>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover">
+          <TotalOrders></TotalOrders>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover">
+          <TotalSales></TotalSales>
+        </el-card>
+      </el-col>
+      <el-col :span="6">
+        <el-card shadow="hover">
+          <TotalUsers></TotalUsers>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 
 </template>
