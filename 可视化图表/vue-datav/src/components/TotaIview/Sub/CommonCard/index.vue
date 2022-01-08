@@ -22,6 +22,7 @@
 </script>
 
 <style scoped>
+
   .title {
     font-size: 14px;
   }
@@ -51,3 +52,4 @@
     line-height: 27px;
   }
 </style>
+

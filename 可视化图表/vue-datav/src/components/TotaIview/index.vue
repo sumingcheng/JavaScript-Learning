@@ -44,5 +44,7 @@
 </script>
 
 <style>
-
+.total-view{
+  margin: 1%;
+}
 </style>
