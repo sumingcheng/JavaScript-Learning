@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <title>Document</title>
+  <style type="text/css">
+    html {
+      height: 100%
+    }
+
+    body {
+      height: 100%;
+      margin: 0px;
+      padding: 0px
+    }
+
+    #container {
+      height: 100%
+    }
+
+    .anchorBL {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script>
+    // 异步加载百度地图
+    function init() {
+      var map = new BMapGL.Map("container");
+      var point = new BMapGL.Point(116.404, 39.915);
+      map.centerAndZoom(point, 15);
+      map.enableScrollWheelZoom(true);
+      // 通过倾斜达到3D的效果
+      map.setHeading(70);
+      // 倾斜
+      map.setTilt(50);
+    }
+    window.onload = function(){
+      const script = document.createElement('script');
+      script.src = "https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=API";
+      // callback=init 回调init 增加首屏渲染速度
+      document.body.appendChild(script)
+    }
+  </script>
+</body>
+
+</html>

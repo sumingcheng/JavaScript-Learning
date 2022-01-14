@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
-    
-    console.log(str.match(reg));
+    // var str ='1231231231';
+    // var reg = /1(?!2)/g;
+    // console.log(str.match(reg)); //['1']
+
+    // var str = 'abcd{{efg}}abcd{{xzy}}'
+    // var reg = /{{.*?}}/g
+    // console.log(str.match(reg)); // '{{efg}}', '{{xzy}}'
+
+    // var str = 'aaaaaa'
+    // var reg=/\w??/g
+    // console.log(str.match(reg)); // ['', '', '', '', '', '', '']
+
+    // var str = 'JS123123';
+    // var reg = /123/g;
+    // var str1 = str.replace(reg, "$+");
+    // console.log(str1); // JS$+$+
+
+    var str = 'aabbccdd';
+    var reg = /(\w)\1(\w)\2/g;
+    var str1 = str.replace(reg, '$2$2$1$1') //bbaaddcc
+    console.log(str1);
   </script>
 </body>
+
 </html>
