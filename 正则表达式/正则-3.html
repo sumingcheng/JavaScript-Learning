@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var str ='1231231231';
+    // var reg = /1(?!2)/g;
+    // console.log(str.match(reg)); //['1']
+
+    // var str = 'abcd{{efg}}abcd{{xzy}}'
+    // var reg = /{{.*?}}/g
+    // console.log(str.match(reg)); // '{{efg}}', '{{xzy}}'
+
+    // var str = 'aaaaaa'
+    // var reg=/\w??/g
+    // console.log(str.match(reg)); // ['', '', '', '', '', '', '']
+
+    // var str = 'JS123123';
+    // var reg = /123/g;
+    // var str1 = str.replace(reg, "$+");
+    // console.log(str1); // JS$+$+
+
+    // var str = 'aabbccdd';
+    // var reg = /(\w)\1(\w)\2/g;
+    // var str1 = str.replace(reg, function ($, $1, $2) {
+    //   return $2 + $2 + $1 + $1;
+    // });
+    // console.log(str1); //bbaaddcc
+
+    // var srt = 'js-plus-plus'
+    // var reg = /-(\w)/g;
+    // console.log(srt.match(reg));
+    // var str1 = srt.replace(reg, function ($, $1) {
+    //   return $1.toUpperCase();
+    // })
+    // console.log(str1); // jsPlusPlus
+
+    // var str = 'jsPlusPlus',
+    //   reg = /([A-Z])/g;
+    // var str1 = str.replace(reg, function ($, $1) {
+    //   return '_' + $1.toLowerCase();
+    // })
+    // console.log(str1); // js_plus_plus
+
+    // var str = 'xxyyzz';
+    // var reg = /(\w)\1(\w)\2(\w)\3/g;
+    // var str1 = str.replace(reg, function ($, $1, $2, $3) {
+    //   return $1.toUpperCase() + $1 + $2.toUpperCase() + $2 + $3.toUpperCase() + $3;
+    // });
+    // console.log(str1); // js_plus_plus
+
+    // aabbcc变成a$b$c$ 
+    // var str = 'aabbcc';
+    // var reg = /(\w)\1(\w)\2(\w)\3/g;
+    // var str1 = str.replace(reg, '$1$$*2$$*3$*');
+    // console.log(str1); // a$*2$*3$*
+
+    // var str = 'aa?bb+cc'
+    // console.log(str);
+    // var reg = /\?|\+/g;
+    // console.log(str.match(reg)); // ['?', '+']
+
+
+    // var str = 'aabbcc' 
+    // var reg = /(\w)\1*/g;
+    // var str1 = str.replace(reg, "$1");
+    // console.log(str1); //abc
+
+    // var str = "1000000000";
+    // var reg = /(?=(\B)(\d{3})+$)/g
+    // var srt1 = str.replace(reg, ',');
+    // console.log(srt1); // 1,000,000,000
+  </script>
+
+  <div class="artical">
+    <script type="text/html" id="tpl">
+      <div class="wrap">
+        <h1>{{title}}</h1>
+        <h3>{{author}}</h3>
+        <p>{{content}}</p>
+      </div>
+    </script>
+  </div>
+
+
+  <script type="text/javascript">
+    var tpl = document.getElementById('tpl').innerHTML;
+    var oArtical = document.getElementsByClassName('artical')[0];
+    var reg = /{{(.*?)}}/g;
+    oArtical.innerHTML = tpl.replace(reg, function (node, key) {
+      return {
+        title: '标题',
+        author: "作者",
+        content: "内容"
+      } [key];
+    });
+  </script>
+
+
+</body>
+
+</html>
