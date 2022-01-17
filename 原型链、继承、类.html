@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Foo() {}
+    var foo = new Foo();
+    // console.log(Foo.__proto__ === Function.prototype); // true
+
+    // console.log(Object.__proto__ === Function.prototype); // true
+
+    // console.log(Function.prototype.constructor === Object); //false
+    // console.log(Function.prototype.constructor === Function); //true
+
+    // console.log(Object.constructor === Object); //false
+    // console.log(Object.constructor === Function); //true
+    // console.log(Object.prototype );
+    // console.log(Function.__proto__===Function.prototype); //true
+    // console.log(foo.__proto__===Foo.prototype); //true
+    // // 通常的说法是，Object.prototype
+    // console.log(Object.prototype); // 终点
+    // // 还有一种说法是，Object.prototype.__proto__ 再往后就没有原型了，所以是null
+    // console.log(Object.prototype.__proto__); // null
+
+    // // 所有的__proto__ != prototype
+    // console.log(Object.__proto__===Object.prototype); //false
+    // // 唯一的例外
+    // console.log(Function.__proto__===Function.prototype); //true
+
+
+    // console.log(Object.prototype);
+    // console.log(Object.__proto__ === Function.prototype);
+    // console.log(Object.__proto__ === Function.prototype.constructor);
+    function Super() {
+      this.a = [1, 2, 3, 4, 5];
+    }
+    Super.prototype.say = function () {
+      console.log(1);
+    }
+
+    function Sub() {
+      Super.call(this);
+    }
+    Sub.prototype = Object.create(Super.prototype);
+    // Sub.prototype.__proto__ = Super.prototype;
+    var sub1 = new Sub();
+    var sub2 = new Sub();
+
+    sub1.a.push(6);
+    console.log(sub1.a); //[1, 2, 3, 4, 5, 6]
+    console.log(sub2.a); //[1, 2, 3, 4, 5]
+    
+  </script>
+</body>
+
+</html>
