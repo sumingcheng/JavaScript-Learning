@@ -55,15 +55,84 @@
     // foo();
     // console.log('x3=' + x); //1
 
-    var f = a => a;
-    var f = function (a) {
-      return a;
-    }
+    // var f = (a)=> a;
+
+    // var f = function (a) {
+    //   return a;
+    // }
 
 
+    // var f = () => 5;
+    //   // 等价于
+    // function f() {
+    //   return 5;
+    // }
 
+    // let f = (a, b) => a + b;
+    // // 等价
+    // function f(a, b) {
+    //   return a + b;
+    // }
+
+    // let a = f(1, 2);
+    // console.log(a);
+
+    // let f = (a, b) => {
+    //   // 如果使用大括号的形式，想要有返回值就需要写return
+    //   return a + b;
+    // }
+    // console.log(f(5, 5));
+
+    // var arr = [12, 321, 321, 3123, 123, 2];
+    // var arr1 = arr.sort((a, b) => a - b)
+    // console.log(arr1); // [2, 12, 123, 321, 321, 3123]
+
+    // var sum = (a, b) => {
+    //   console.log(arguments);
+    //   return a + b;
+    // }
+    // sum(1, 2); // Uncaught ReferenceError: arguments is not defined
+
+
+    // var sum = (...args)=>{
+    //   // 收集实参的值
+    //   console.log(args);
+    //   console.log(args[0]+args[1]);
+    // }
+    // sum(1,2);
+
+    // function foo(x, y, z) {
+    //   console.log(x, y, z);
+    // }
+
+    // // ... 展开数据，相当于传了123
+    // foo(...[1, 2, 3, 4, 5]);
+
+    // let a = [2, 3, 4];
+    // let b = [1, ...a, 5];
+    // console.log(b); // [1, 2, 3, 4, 5]
+
+    // let fn = (a, b, ...c) => {
+    //   console.log(a, b, c);
+    // }
+    // // 收集后面所有省下的实参
+    // fn(1, 2, 3, 4, 5, 6, 7, ); //1 2 (5) [3, 4, 5, 6, 7]
+
+    // function sortNum() {
+    //   return Array.prototype.slice.call(arguments).sort(function (a, b) {
+    //     return a - b
+    //   })
+    // }
+    // console.log(sortNum(1, 3123, 213, 2134, 412, 4215, 125, 12, 321));
+    // // [1, 12, 125, 213, 321, 412, 2134, 3123, 4215]
+
+    // const sortNum = (...args) => args.sort((a, b) => a - b)
+    // console.log(sortNum(1, 3123, 213, 2134, 412, 4215, 125, 12, 321));
+
+    // console.log((function (b,...a){}).length);
+
+    
   </script>
-
 </body>
 
 </html>
