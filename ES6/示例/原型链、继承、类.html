@@ -38,24 +38,59 @@
     // console.log(Object.prototype);
     // console.log(Object.__proto__ === Function.prototype);
     // console.log(Object.__proto__ === Function.prototype.constructor);
-    function Super() {
-      this.a = [1, 2, 3, 4, 5];
-    }
-    Super.prototype.say = function () {
-      console.log(1);
-    }
+    // function Super() {
+    //   this.a = [1, 2, 3, 4, 5];
+    // }
+    // Super.prototype.say = function () {
+    //   console.log(1);
+    // }
 
-    function Sub() {
-      Super.call(this);
-    }
-    Sub.prototype = Object.create(Super.prototype);
-    // Sub.prototype.__proto__ = Super.prototype;
-    var sub1 = new Sub();
-    var sub2 = new Sub();
+    // function Sub() {
+    //   Super.call(this);
+    // }
+    // Sub.prototype = Object.create(Super.prototype);
+    // // Sub.prototype.__proto__ = Super.prototype;
+    // var sub1 = new Sub();
+    // var sub2 = new Sub();
 
-    sub1.a.push(6);
-    console.log(sub1.a); //[1, 2, 3, 4, 5, 6]
-    console.log(sub2.a); //[1, 2, 3, 4, 5]
+    // sub1.a.push(6);
+    // console.log(sub1.a); //[1, 2, 3, 4, 5, 6]
+    // console.log(sub2.a); //[1, 2, 3, 4, 5]
+
+
+    // 圣杯
+    // var inherit = (function () {
+    //   var Buffer = function () {}
+    //   function inherit(Target, Origin) {
+    //     Buffer.prototype = Origin.prototype;
+    //     Target.prototype = new Buffer();
+    //     Target.prototype.constructor = Target;
+    //     Target.prototype.super_class = Origin;
+    //   }
+    // })();
+    // class Super {
+    //   constructor() {
+    //     this.a = [1, 2, 3, 4];
+    //   }
+    //   say2() {
+    //     console.log(2222);
+    //   }
+    // }
+    // class Sub extends Super {
+    //   say1() {
+    //     console.log('11111');
+    //   }
+    // }
+    // var sub1 = new Sub();
+    // var sub2 = new Sub();
+
+    // // sub1.a = '3333';
+    // sub1.a.push(5);
+    // console.log(sub1.a);
+    // console.log(sub2.a);
+    // sub1.say1();
+    // sub1.say2();
+
     
   </script>
 </body>
