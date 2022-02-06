@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生成器和迭代器</title>
+</head>
+
+<body>
+  <script>
+    // var arr = [1, 2, 3, 4, 5];
+
+    // function* gengrator() {
+    //   yield '姓名，素明诚';
+    //   yield '年龄: 26';
+    //   yield '爱好:旅游';
+    //   return '喜欢JavaScript';
+    // }
+
+    const arr = ['姓名，素明诚', '年龄: 26', '爱好:旅游'];
+
+    function gengrator(arr) {
+      var nextIndex = 0;
+      return {
+        next: function () {
+          return nextIndex < arr.length ? {
+            value: arr[nextIndex ++],
+            done: false
+          } : {
+            value: arr[nextIndex ++],
+            done: true
+          }
+        }
+      }
+    }
+
+    const iterator = gengrator(arr);
+    console.log(iterator.next()); 
+  </script>
+</body>
+
+</html>

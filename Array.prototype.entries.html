@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+</head>
+
+<body>
+  <script>
+    const arr = [1, 2, 3, 4, 5];
+    const iterator1 = arr.entries();
+
+    console.log(iterator1.next().value);
+    // Object.prototype[Symbol.iterator]=Array.prototype[Symbol.iterator]
+
+    // var o = {
+    //     0: 1,
+    //     1: 2,
+    //     2: 3,
+    //     length: 3,
+    //     [Symbol.iterator]: Array.prototype[Symbol.iterator],
+    // };
+    // for (let v of o) {
+    //     console.log(v);
+    // }
+
+    // var obj = {
+    //   0: 1,
+    //   1: 2,
+    //   2: 3,
+    //   length: 3
+    // }
+    // for (let v of Array.from(obj)) {
+    //   console.log(v);
+    // }
+
+    // var newArr = [];
+    // for (var i = 0; i < arr.length + 1; i++) {
+    //   var item = it.next();
+    //   !item.done && (newArr[i] = item.value);
+    // }
+    // console.log(newArr);
+
+    // ES6  entries
+    // const newArr = [
+    //   [56, 34],
+    //   [123, 123, 12, 1],
+    //   [12, 3, 213]
+    // ]
+
+    // function sortArr(arr) {
+    //   var _it = arr.entries();
+    //   var _doNext = true;
+
+    //   while (_doNext) {
+    //     var _r = _it.next();
+    //     if (!_r.done) {
+    //       _r.value[1].sort(function (a, b) {
+    //         return a - b;
+    //       });
+    //       _doNext = true;
+    //     } else {
+    //       _doNext = false;
+    //     }
+    //   }
+    //   return arr;
+    // }
+    // console.log(sortArr(newArr));
+  </script>
+</body>
+</html>

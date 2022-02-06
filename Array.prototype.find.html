@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>find</title>
+</head>
+
+<body>
+  <script>
+    // const arr = [1, 2, 3, 4, 5];
+    // const item = arr.find(itme => itme > 3);
+    // console.log(item);
+
+    // const arr = [1, 2, 3, 4, 5];
+
+    // const item = arr.find(function (item) {
+    //   return item > 5;
+    // });
+    // const arr = [{
+    //   id: 1,
+    //   name: '张三'
+    // }, {
+    //   id: 2,
+    //   name: '张三'
+    // }, {
+    //   id: 3,
+    //   name: '李四'
+    // }, {
+    //   id: 4,
+    //   name: '张三'
+    // }, {
+    //   id: 5,
+    //   name: '张三'
+    // }]
+    // const item = arr.find(item => item.name === '李四');
+    // console.log(item);
+    // console.log(item === arr[2]);
+    // const arr = [{
+    //   id: 1,
+    //   name: '张三'
+    // }, {
+    //   id: 2,
+    //   name: '张三'
+    // }, {
+    //   id: 3,
+    //   name: '李四'
+    // }, {
+    //   id: 4,
+    //   name: '张三'
+    // }, {
+    //   id: 5,
+    //   name: '张三'
+    // }]
+    // // 回调函数的返回值是bool，第一个返回true的对应数组元素作为find的返回值
+    // const item = arr.find(function (item) {
+    //   return item.id > 1;
+    // })
+    // console.log(item)
+
+    // const item = arr.find(function (item, index, arr) {
+    //   console.log(item, index, arr);
+    //   console.log(this);
+    // }, {
+    //   a: 1
+    // })
+
+    // const arr = Array(5);
+
+    // arr[0] = 1;
+    // arr[2] = 3;
+    // // const item = arr.find(function (item) {
+    // //   console.log('Gone');
+    // //   return false;
+    // // })
+
+
+    //   arr.forEach(function(item){
+    //     console.log('1');
+    //   })
+
+    // const arr = [1, 2, 3, 4, 5];
+    // const itme = arr.find(function (item, index) {
+    //   if (index === 0) {
+    //     arr.splice(1, 1);
+    //     // 删除了对应项，该项位置保留不变，在数据最后补上 undefined
+    //     delete arr[2];
+    //     // 删除该项的值并填入 undefined 
+    //     arr.pop();
+    //     // 删除该项的值并填入 undefined
+    //   }
+    //   console.log(item);
+    // })
+
+    Array.prototype.myFind = function (cb) {
+      if (this === null) {
+        throw new TypeError('"this" is null');
+      }
+      if (typeof cb !== 'function') {
+        throw new TypeError('Callback must be a function type');
+      }
+
+      var obj = Object(this),
+        len = obj.length >>> 0,
+        arg2 = arguments[1],
+        step = 0;
+
+      while (step < len) {
+        var value = obj[step];
+        if (cb.apply(arg2, [value, step, obj])) {
+          return value;
+        }
+        step++;
+      }
+      return undefined;
+    }
+
+    const arr = [1, 2, 3, 4, 5];
+
+    const item = arr.myFind(function (item) {
+      return item > 4;
+    });
+    console.log(item);
+  </script>
+</body>
+
+</html>
