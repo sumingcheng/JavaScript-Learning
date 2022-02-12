@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    // 不建议使用，Js把整个HTML文档看成document
+    // 替换掉了
+    window.onload = function () {
+      document.write('<h1>标签</h1>');
+    }
+    // document.readyState ='loading'
+    // document.readyState='interactive'
+    // document.readyState='complete'
+
+
+    // console.log(document.readyState);
+    // // 基于JS引擎的事件，监听readyState
+    // document.onreadystatechange = function () {
+    //   console.log(document.readyState);
+    // }
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   console.log('DOMContentLoaded');
+    // }, false);
+
+    // window.onload = function () {
+    //   init();
+    // }
+
+    // function init() {
+    //   test();
+    // }
+    // var test = (function () {
+    //   function init() {
+    //     console.log('test');
+    //   }
+    //   return function () {
+    //     init();
+    //   }
+    // })();
+
+    // domReady(text);
+
+    // function text() {
+    //   console.log('domReady');
+    // }
+
+    // function domReady(fn) {
+    //   if (document.addEventListener) {
+    //     document.addEventListener('DOMContentLoaded', function () {
+    //       document.removeEventListener('DOMContentLoaded', arguments.callee, false);
+    //     }, false);
+    //   } else if (document.attachEvent) {
+    //     // IE 句柄
+    //     document.attachEvent('onreadystatechange', function () {
+    //       // 
+    //       if (this.readyState === 'complete') {
+    //         document.attachEvent('onreadystatechange', arguments.callee);
+    //         fn();
+    //       }
+    //     })
+    //   }
+    //   // IE6~7 存在doScroll
+    //   if (document.documentElement.doScroll && typeof (window.frameElement === 'undefined')) {
+    //     try {
+    //       document.documentElement.doScroll('left');
+    //     } catch (e) {
+    //       return setTimeout(arguments.callee, 20);
+    //     }
+    //     fn();
+    //   }
+    // }
+
+  //   function init_Index_Modules() {
+
+  //   }
+  //   var test = (function () {
+  //     console.log('立即执行');
+  //   })();
+  // </script>
+</body>
+
+</html>
