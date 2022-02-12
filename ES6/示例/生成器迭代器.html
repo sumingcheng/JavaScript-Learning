@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // Symbol(Symbol.iterator)
+    // var arr = [1, 2, 3, 4];
+    // var srt = '123';
+    // var obj = {
+    //   a: 1,
+    //   b: 2
+    // };
+    // console.log(Object.getPrototypeOf(srt));
+
+    // var inter = arr[Symbol.iterator]();
+    // // 迭代器对象，具备next方法，通过next方法逐步调用。
+    // console.log(inter.next());
+    // console.log(inter.next());
+    // console.log(inter.next());
+    // console.log(inter.next());
+    // console.log(inter.next());
+
+    // for (const i of arr) {
+    //   console.log(i);
+    // }
+    // for (const i of srt) {
+    //   console.log(i);
+    // }
+    // // 对象不可以
+    // for (const i of obj) {
+    //   console.log(i);
+    // }
+
+    // var arr = [1, 2, 3, 4];
+
+    // function makeIterator(arr) {
+    //   var index = 0;
+    //   return {
+    //     next() {
+    //       if (index < arr.length) {
+    //         return {
+    //           value: arr[index++],
+    //           done: false
+    //         }
+    //       }
+    //       return {
+    //         value: undefined,
+    //         done: true
+    //       }
+    //     }
+    //   }
+    // }
+    // var inter = makeIterator(arr);
+    // console.log(inter.next());
+
+    // var obj = {
+    //   a: 1,
+    //   b: 2,
+    //   c: 3,
+    //   [Symbol.iterator]() {
+    //     var index = 0;
+    //     let map = new Map();
+    //     // 添加obj里的数据
+    //     map.set('a', 1);
+    //     map.set('b', 2);
+    //     map.set('c', 4);
+    //     return {
+    //       next() {
+    //         // ...可以调用for of entries 拿到键值对
+    //         var mapEntries = [...map.entries()];
+    //         // map.size = length
+    //         if (index < map.size) {
+    //           return {
+    //             value: mapEntries[index++],
+    //             done: false
+    //           }
+    //         }
+    //         return {
+    //           value: undefined,
+    //           done: true
+    //         }
+    //       }
+    //     }
+    //   }
+    // };
+
+    // for (let i of obj) {
+    //   console.log(i);
+    // }.
+
+    // function* test() {
+    //   let value1 = yield 1;
+    //   console.log(value1);
+    //   let value2 = yield 2;
+    //   console.log(value2);
+    //   let value3 = yield 3;
+    //   console.log(value1);
+    //   let value4 = yield 4;
+    //   console.log(value4);
+    // }
+
+    // var iter = test();
+    // console.log(iter.next('one'));
+    // console.log(iter.next('two'));
+    // console.log(iter.next('three'));
+    // console.log(iter.next('four'));
+    // console.log(iter.next());
+    // for (let i of iter) {
+    //   console.log(i);
+    // }
+
+    var obj = {
+      a: 1,
+      b: 2,
+      c: 3,
+      [Symbol.iterator]: function* () {
+        var index = 0;
+        let map = new Map();
+        map.set('a', 1);
+        map.set('b', 2);
+        map.set('c', 3);
+        var mapEntries = [...map.entries()];
+        while (index < mapEntries.length) {
+          yield mapEntries[index++];
+        }
+      }
+    }
+
+    for (let i of obj) {
+      console.log(i);
+    }
+  </script>
+</body>
+
+</html>
