@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/posts',
+      type: 'GET',
+      dataType: "JSON",
+      success: function (data) {
+        console.log(data);
+      }
+    })
+
+    var ajax1 = $.ajax('https://jsonplaceholder.typicode.com/posts');
+    ajax1.done(function (data) {
+      console.log(data);
+    }).fail(function (err) {
+      console.log(err);
+    })
+
+    var ajax2 = $.ajax('https://jsonplaceholder.typicode.com/posts');
+    ajax2.then(function (data) {
+      console.log(data);
+    }, function (err) {
+      console.log(err);
+    })
+  </script> -->
+
+  <script>
+    // // sort 是高阶函数
+    // arr.sort(function(a,b){
+    //   // 参数作为函数出现，这个参数就是回调函数
+    // })
+
+    // let promise = new Promise(function (resove, reject) {
+    //   // 宏任务
+    //   console.log('promise');
+    //   resove('resove');
+    // })
+
+    // // 异步任务
+    // setTimeout(function () {
+    //   console.log('timeout');
+    // }, 0); // 0 =4ms
+
+    // // 宏任务
+    // console.log('hi');
+
+    // promise.then(function (data) {
+    //   // 微任务
+    //   console.log('data');
+    // });
+
+    // let p1 = Promise.resolve(1);
+    // let p2 = Promise.reject(2);
+
+    // p1.then(function (data) {
+    //   console.log(data);
+    // })
+
+    // // p2.then(function () {}, function (err) {
+    // //   console.log(err);
+    // // })
+
+    // //只关注失败的回调函数,简单的写法
+    // p2.catch(function (err) {
+    //   console.log('err' + err);
+    // })
+
+    // // thenable 对象
+    // let obj = {
+    //   // 调用对象的then方法
+    //   then(resolve, reject) {
+    //     resolve(11);
+    //   }
+    // }
+
+    // let p1 = Promise.resolve(obj);
+
+    // p1.then(function (data) {
+    //   console.log(data);
+    // })
+
+    // Promise.resolve().then(function () {
+    //   console.log('promise1');
+    //   setTimeout(() => {
+    //     console.log('setTimeout2');
+    //   }, 0)
+    // })
+
+    // setTimeout(() => {
+    //   console.log('setTimeout1');
+    //   Promise.resolve().then(function () {
+    //     console.log('promise2');
+    //   })
+    // }, 0)
+
+    // let p1 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(10);
+    //   }, 1000)
+    // });
+    // p1.then(res => {
+    //   console.log(res + 1);
+    //   return res + 1
+    // });
+    // p1.then(res => {
+    //   console.log(res + 1);
+    //   return res + 1
+    // });
+    // p1.then(res => {
+    //   console.log(res + 1);
+    //   return res + 1
+    // });
+    // 11 11 11
+
+    // p1.then(res => {
+    //   console.log(res + 1);
+    //   return res + 1
+    // }).then(res => {
+    //   console.log(res + 1);
+    //   return res + 1
+    // }).then(res => {
+    //   console.log(res + 1);
+    //   return res + 1
+    // })
+    // // 11 12 13
+
+    // let p1 = new Promise((resolve, reject) => {
+    //   resolve(1);
+    //   reject(10);
+    // });
+    // p1.then(res => console.log(res)) //1
+    // .then() //忽略
+    // .then() //忽略
+    // .then(res => console.log(res)) //undefined
+    // .catch(err => console.log(err));
+
+    // 
+    // const p1 = new Promise((resole, reject) => {
+    //   setTimeout(() => {
+    //     reject('10000');
+    //   }, 3000);
+    // })
+    // const p2 = new Promise((resole, reject) => {
+    //   setTimeout(() => {
+    //     resole(p1)
+    //   }, 1000)
+    //   // resole(p1);
+    // })
+    // p2.then(res => console.log(res)).catch(err => console.log(err));
+
+    // Promise.all  
+    // let p1 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(10)
+    //   }, 1000)
+    // });
+
+    // let p2 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(20)
+    //   }, 2000)
+    // });
+
+    // let p3 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(30)
+    //   }, 3000)
+    // });
+
+    // let p4 = Promise.race([p1, p2, p3]);
+
+    // p4.then(res => {
+    //   console.log(res);
+    // },err=>{
+    //   console.log(err+'err');
+    // })  //10
+
+    
+
+  </script>
+</body>
+
+</html>
