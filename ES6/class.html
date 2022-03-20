@@ -2,31 +2,102 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
 </head>
 
 <body>
   <script>
-    function Person(name = 'zhangsan', age = 18) {
-      this.name = name;
-      this.age = age;
-    };
+    // function Person(name = 'zhangsan', age = 18) {
+    //   this.name = name;
+    //   this.age = age;
+    // };
 
-    Person.prototype.say = function () {
-      console.log(`my name is ${this.name},my age is ${this.age}`);
+    // Person.prototype.say = function () {
+    //   console.log(`my name is ${this.name},my age is ${this.age}`);
+    // }
+
+    // new Person('lisi', 19).say();
+
+    // let person = new Person('wangwu', 20)
+
+    // // 原型上的属性，全等于这个构造器
+    // console.log(Object.getPrototypeOf(person).constructor === Person); // true
+    // console.log(Person.prototype.constructor === Person); // true
+
+    // class Person {
+    //   // 构造器
+    //   constructor(name = 'zhangshan', age = '18') {
+    //     // 实例化的属性：私有属性
+    //     this.name = name;
+    //     this.age = age;
+    //   }
+    //   // 构造函数原型上的方法：公有属性
+    //   say() {
+    //     console.log(`my name is ${this.name},my age is ${this.age}`);
+    //   }
+    // }
+    // console.log(new Person);
+    // console.log(typeof Person);
+
+    // let person = new class {
+    //   constructor(name = 'zhangsan', age = 19) {
+    //     this.name = name;
+    //     this.age = age;
+    //   }
+    //   say() {
+    //     console.log(1);
+    //   }
+    // }('lisi', 19);
+    // console.log(person);
+
+    // // 独一无二值
+    // const eat = Symbol();
+    // class Person {
+    //   // 私有属性
+    //   a = 1;
+    //   // 公有属性
+    //   say() {
+    //     console.log(1);
+    //   }
+    //   // 私有方法
+    //   [eat]() {
+    //     console.log(2);
+    //   }
+    // }
+
+    // console.log(new Person().say());
+    // console.log(new Person().eat());
+
+    // class Person {
+    //   static a() {
+    //     console.log(1);
+    //   }
+
+    // }
+    // console.log(Person.a()); // 1
+
+    // 父类
+    class Parent {
+      constructor(name = "zs") {
+        this.name = name;
+      }
     }
+    // extends 继承
+    // 派生类
+    class Child extends Parent {
+      constructor(name = 19, age) {
+        super(name);
+        this.age = age;
+        this.type = '儿子'
+      }
+    }
+    // 继承了父级 Parent
+    console.log(new Child());
 
-    new Person('lisi', 19).say();
-
-    let person = new Person('wangwu', 20)
-
-    // 原型上的属性，全等于这个构造器
-    console.log(Object.getPrototypeOf(person).constructor === Person); // true
-    console.log(Person.prototype.constructor === Person); // true
-
+    
   </script>
 </body>
 
