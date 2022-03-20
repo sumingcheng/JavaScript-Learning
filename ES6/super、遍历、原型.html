@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function Person() {
+    //   this.name = "z3";
+    //   this.age = '18';
+    // }
+
+    // var person = new Person();
+    // console.log(person.__proto__);
+
+
+    // // 修改原型
+    // Object.setPrototypeOf();
+    // // 读取原型
+    // Object.getPrototypeOf();
+    // // 创建原型对象
+    // Object.create(obj, {
+    //   a: 1
+    // });
+    // // 
+
+    // let proto = {
+    //   y: 20,
+    //   z: 40
+    // }
+
+    // let obj = {
+    //   x: 10
+    // };
+
+    // let obj1 = Object.setPrototypeOf(1, proto);
+    // console.log(obj1 === obj, obj1);
+    // console.log(Object.getPrototypeOf(obj2));
+
+
+    // let obj2 = Object.setPrototypeOf(1, {
+    //   c: 3
+    // });
+    // console.log(Object.getPrototypeOf(obj2));
+
+    // let a = 1;
+    // console.log(Object.getPrototypeOf(a));
+    // console.log(Number.prototype === Object.getPrototypeOf(obj2));
+
+
+    // Object.keys();
+    // Object.values();
+    // Object.entries();
+
+    // const foo = {
+    //   a: 1,
+    //   b: 2,
+    //   c: 3,
+    // }
+
+    // Object.defineProperties(foo, {
+    //   d: {
+    //     value: 4,
+    //     enumerable: false,
+    //   },
+    //   f: {
+    //     value: 5,
+    //     enumerable: true
+    //   }
+    // })
+
+    // let obj = '134'
+    // console.log(Object.entries(obj));
+
+    // let proto = {
+    //   x: 20,
+    //   y: 30,
+    // }
+
+    // let obj = {
+    //   x: 10,
+    //   foo(){
+    //     // 对象的简写写法才能生效
+    //     console.log(super.y);
+    //   }
+    // }; 
+
+    // var result = Object.setPrototypeOf(obj, proto);
+    // console.log(result);
+    // console.log(obj.foo());
+
+    // let s1 = Symbol('foo');
+    // let s2 = Symbol('obj');
+
+    // console.log(s1 === s2); // false
+    // console.log(typeof s1); // symbol
+
+    // var obj = {
+    //   a: 1
+    // };
+    // let s1 = Symbol(obj); 
+    // console.log(s1.toString);  // ƒ toString() { [native code] }
+    // console.log(!s1);  // false
+    // console.log(String(s1));  // Symbol([object Object])
+    // console.log(Boolean(s1)); // true
+    // console.log(Number(s1));  // 无效
+
+    // let name = Symbol();
+    // let person = {};
+    // person[name] = 'zhangsan';
+
+    // console.log(person); // {Symbol(): 'zhangsan'}
+
+    // let name = Symbol();
+    // let person = {
+    //   [name]: 'zhangsan',
+    // }
+    // console.log(person);
+
+    // let person = {};
+    // let name = Symbol();
+    // Object.defineProperty(person, name, {
+    //   value: 'z3',
+    // })
+    // console.log(person[name]);  //z3
+
+    // let name = Symbol();
+    // let person = {};
+    // person[name] = 'zhangsan';
+    // console.log(person);
+
+    // let name = Symbol();
+    // let eat = Symbol();
+    // let person = {
+    //   [name]: 'zhangsan',
+    //   [eat]() {
+    //     console.log(this[name]);
+    //   }
+    // }
+    // person[eat]()
+
+    // Symbol.for()
+    // Symbol.keyFor()
+
+    let s1 = Symbol
+    console.log(s1);
+    
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Person(name = 'zhangsan', age = 18) {
+      this.name = name;
+      this.age = age;
+    };
+
+    Person.prototype.say = function () {
+      console.log(`my name is ${this.name},my age is ${this.age}`);
+    }
+
+    new Person('lisi', 19).say();
+
+    let person = new Person('wangwu', 20)
+
+    // 原型上的属性，全等于这个构造器
+    console.log(Object.getPrototypeOf(person).constructor === Person); // true
+    console.log(Person.prototype.constructor === Person); // true
+
+  </script>
+</body>
+
+</html>

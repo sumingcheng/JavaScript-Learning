@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // let p1 = new Promise((resolve, reject) => {
+    //   resolve("fulfilled");
+    // });
+
+    // // then 返回一个promise对象
+    // let p2 = p1.then(
+    //   val => console.log(val),
+    //   res => console.log(res)
+    // )
+    // // 异步任务内执行打印，可以等P2获取到返回值后改变的状态
+    // // setTimeout(() => {
+    // //   console.log(p1); // Promise {<fulfilled>: 'fulfilled'}
+    // //   console.log(p2); // Promise {<fulfilled>: undefined}
+    // // }, 0);
+    // // 同步任务直接打印，可以P2的状态暂时没有被改变
+    // console.log(p1); // Promise {<fulfilled>: 'fulfilled'}
+    // console.log(p2); // Promise {<pending>}
+
+    //   const arr = [, , , , , , , 2];
+    // const index = arr.findIndex(function (item) {
+    //   console.log(item); // undefined*7  2
+    //   return item === 2;
+    // });
+    // // 2的下标是7
+    // console.log(index);  // 7
+
+    // let arr = [1, 2];
+
+    // const idx = arr.findIndex(function (item, index, arr) {
+    //   console.log(item, index, arr);
+    //   console.log(this);
+    // }, {
+    //   a: 1
+    // })
+
+    // let p1 = new Promise((resolve, reject) => {
+    //     resolve("fulfilled");
+    //   })
+    //   .then(
+    //     value => {
+    //       return "成功"
+    //     },
+    //     reason => console.log('error' + reason)
+    //   )
+    //   .then(
+    //     value => console.log("成功2"),
+    //   )
+
+    // // then方法在类中会自动包装成一个Promise
+    // class Person {
+    //   constructor() {}
+    //   then(resolve, reject) {
+    //     //改变状态
+    //     resolve();
+    //   }
+    // }
+
+    // async function get() {
+    //   await new Person();
+    //   //只有给变状态后,才会输出下面的文字
+    //   console.log("6666");
+    // }
+
+    // get();
+
+    // console.log(``);
+
+
+    let arr = [1, 1, 2, 3, 4, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 0, 0, ];
+
+    // for 循环
+    function uniqueArr(arr) {
+      // 内部数组，用于保存
+      let _arr = [],
+        // 监测重复
+        isRepeat;
+      // 外层循环，执行数组长度次，遍历所有元素
+      for (let i = 0; i < arr.length; i++) {
+        // 每次执行给isRepeat赋初值
+        isRepeat = false;
+        // 内层循环，用来比较_arr和arr是否一样
+        for (let j = 0; j < _arr.length; j++) {
+          // 比较
+          if (_arr[j] == arr[i]) {
+            // 如果一样，修改 isRepeat
+            isRepeat = true;
+            break;
+          }
+        }
+        // 如果不一样，要把找到的元素push到_arr里
+        if (!isRepeat) {
+          _arr.push(arr[i]);
+        }
+      }
+      // 返回处理后的数组
+      return _arr;
+    }
+      arr.push
+    console.log(uniqueArr(arr));
+  </script>
+</body>
+
+</html>

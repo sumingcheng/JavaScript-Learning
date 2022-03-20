@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // const obj = {
+    //   get foo() {},
+    //   // set 最少要有一个参数
+    //   set foo(x) {
+
+    //   }
+    // }
+    // console.log(obj.foo);
+
+    // var Descriptor = Object.getOwnPropertyDescriptor(obj, 'foo')
+    // console.log(Descriptor.get.name);
+    // console.log(Descriptor.set.name);
+
+    // var obj = {
+    //   a: 2
+    // };
+
+    // // 通过增加的方式定义，b的属性描述符都是true
+    // // obj.b = 3 ;
+
+    // // 通过 defineProperty 方法增加b属性,属性描述符都是false
+    // Object.defineProperty(obj, 'b', {
+    //   value: 6
+    // })
+
+    // console.log(Object.getOwnPropertyDescriptor(obj, 'b'));
+
+    // // Object.preventExtensions // 禁止对象拓展
+
+
+    // var obj = {
+    //   a: 1
+    // };
+    // console.log(Object.freeze(obj));
+    // console.log(Object.isFrozen(obj));
+
+    // // 对象的密封 
+    // console.log(Object.seal(obj));
+    // // 判断对象是否被密封
+    // console.log(Object.isSealed(obj));
+
+    // console.log(Object.getOwnPropertyDescriptor(obj), 'obj')
+
+    // 深度冻结，处理对象上依然是对象的情况
+    // function myFreeze(obj) {
+    //   // 先冻结当前对象
+    //   Object.freeze(obj)
+    //   // 循环冻结对象里的对象
+    //   for (var key in obj) {
+    //     // 如果是对象，或者是null，让他直接执行一次当前函数。
+    //     if (typeof (obj[key]) === 'object' && obj[key] !== null) {
+    //       myFreeze(obj[key]);
+    //     }
+    //   }
+    // }
+    // console.log(Object.prototype);
+    // // sameValue算法处理三等
+    // console.log(NaN === NaN); //false
+    // console.log(+0 === -0); //true
+    // // 数据类型转换
+    // console.log(NaN == NaN); //false
+    // console.log(+0 == -0); //true
+    // // Object.is
+    // console.log(Object.is(NaN, NaN)); //true
+    // console.log(Object.is(+0, -0)); //false
+    // console.log({}==={}); //false
+    // console.log(Object.is({}==={})); //false
+
+    // Object.assign();
+
+    // console.log(Object.assign(目标对象,源对象));
+    // let obj = {
+    //   a: 1,
+    // };
+    // let tar = {
+    //   b: 1,
+    // };
+    // // 目标对象，源对象
+    // let copy = Object.assign(tar, obj);
+    // // 方法返回拷贝对象
+    // console.log(copy);
+    // // 拷贝对象和目标对象是同一个引用
+    // console.log(copy === tar);
+    // // obj 不变 tar 改变
+    // console.log(obj, tar);
+
+    // let a = {
+    //   a: 1,
+    //   c: 2,
+    //   b: 3
+    // }
+    // console.log(a);
+    // let b = {};
+    // Object.assign(b, a);
+    // console.log(b);
+
+    // const tar1 = {
+    //   a: 1,
+    //   b: 1
+    // }
+    // const tar2 = {
+    //   b: 2,
+    //   c: 2
+    // }
+    // const tar3 = {
+    //   c: 3
+    // }
+
+    // Object.assign(tar1, tar2, tar3);
+    // console.log(tar1);
+
+    // var test = Object.assign({
+    //   a: 1
+    // }, 'a');
+    // 
+    // console.log(test);
+
+    // const test1 = 'abc';
+    // const test2 = true;
+    // const test3 = 10;
+
+    // // 检查属性是否可枚举，不可枚举
+    // const obj = Object.assign({}, test1, test2, test3);
+
+    // console.log(obj);
+    // console.log(new Object('abc')); // 可遍历
+    // console.log(new Boolean(true)); // 原始值，不可以遍历
+    // console.log(new Number(10)); // 原始值，不可以遍历
+
+    // var obj = {
+    //   a: 3
+    // };
+    // Object.defineProperty(obj, 'b', {
+    //   value: 4
+    // });
+    // console.log(Object.getOwnPropertyDescriptor(obj, 'b'));
+
+
+    // var obj = Object.create({
+    //   foo: 1
+    // }, {
+    //   bar: {
+    //     value: 2
+    //   },
+    //   baz: {
+    //     value: 3,
+    //     enumerable: true
+    //   }
+    // })
+
+    // console.log(obj);
+    // // 继承属性和不可枚举属性不能拷贝
+    // var copy = Object.assign({}, obj);
+    // console.log(copy);
+
+
+    // var a = Symbol('a');
+    // var b = Symbol('a');
+
+    // console.log(a === b);
+
+    // var test = Object.assign({
+    //   a: 'b'
+    // }, {
+    //   [Symbol('c')]: 'd'
+    // })
+
+    // console.log(test);
+
+    // const obj1 = {
+    //   a: {
+    //     b: 1
+    //   }
+    // }
+    // const obj2 = Object.assign({}, obj1);
+    // obj1.a.b = 2;
+    // console.log(obj2);
+
+
+    // const target = {
+    //   a: {
+    //     b: 'c',
+    //     d: 'e'
+    //   }
+    // };
+    // const sourses = {
+    //   a: {
+    //     b: "hello"
+    //   }
+    // };
+
+    // var copy = Object.assign(target, sourses);
+    // console.log(copy);
+
+
+    // var a = Object.assign([1, 2, 3], [4, 5]);
+    // // [4, 5, 3]
+    // console.log(a);
+
+    // const sourse = {
+    //   get foo() {
+    //     return 1;
+    //   }
+    // };
+    // const target = {}
+    // var copy = Object.assign(target, sourse);
+    // console.log(copy); //foo: 1
+
+    // function person() {}
+    // var age = 1;
+    // Object.assign(person.prototype, {
+    //   eat() {},
+    //   age
+    // })
+
+    // console.log(person.prototype);
+    // // age: 1
+    // // eat: ƒ eat()
+
+    // const defa = {
+    //   url: {
+    //     host: 'www.baidu.com',
+    //     prot: 8080,
+    //   }
+    // }
+
+    // function test(option) {
+    //   // 设置默认值
+    //   option = Object.assign({}, defa, option);
+    //   console.log(option);
+    // }
+
+    // test({
+    //   url: {
+    //     prompt: 8080
+    //   }
+    // });
+
+    // console.log();
+
+    // var obj = {};
+    // Object.defineProperties(obj, {
+    //   a: {
+    //     value: true,
+    //     writable: true,
+    //   },
+    //   b: {
+    //     value: "hello",
+    //     writable: false
+    //   }
+    // });
+    // console.log(obj);
+    // console.log(Object.getOwnPropertyDescriptors(obj));
+
+    // const sourse = {
+    //   set foo(value) {
+    //     console.log(value);
+    //   }
+    // }
+
+    // const tar = {};
+    // Object.defineProperties(tar, Object.getOwnPropertyDescriptors(sourse));
+    // console.log(Object.getOwnPropertyDescriptors(tar));
+
+    // var obj = {
+    //   a: 1,
+    //   b: 2,
+    //   c: 3,
+    //   d:{
+    //     e:{
+    //       f:{}
+    //     }
+    //   }
+    // };
+
+    // const clone = (obj) => Object.create(
+    //   Object.getPrototypeOf(obj),
+    //   Object.getOwnPropertyDescriptors(obj)
+    // );
+
+
+    // console.log(clone(obj));
+
+    // 方式1
+    const obj1 = {
+      a: 1
+    };
+    console.log(obj1);
+
+    // 方式2
+    var prot = {
+      a: '原型绑定'
+    }
+    const obj2 = Object.create(prot);
+    obj2.foo = 123;
+    console.log(obj2);
+
+    // 方式3 指定原型，部署属性
+    const obj3 = Object.assign(Object.create(prot), {
+      foo1: '123'
+    });
+    console.log(obj3);
+
+    // 方式4
+    const obj4 = Object.create(prot, Object.getOwnPropertyDescriptors({
+      foo: '345'
+    }));
+
+    console.log(obj4);
+  </script>
+</body>
+
+</html>

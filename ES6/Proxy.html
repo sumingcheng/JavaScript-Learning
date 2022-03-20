@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // const myMap = new Map();
+    // myMap.set(true, 7)
+    // .set({
+    //   foo: 3
+    // }, ['abc'])
+    // console.log([...myMap]);
+
+    // const myMap = new Map();
+    // myMap.set('true', 7)
+    //   .set('a', 'abc');
+
+    // function strMaoToObj(strMap) {
+    //   let obj = Object.create(null);
+    //   for (let [key, val] of strMap.entries()) {
+    //     obj[key] = val;
+    //   }
+    //   return obj;
+    // }
+
+    // let resolve = strMaoToObj(myMap);
+    // console.log(resolve);
+
+    // function ObjToStrMap(obj) {
+    //   let map = new Map();
+    //   // 处理传入的参数
+    //   for (let key of Object.keys(obj)) {
+    //     map.set(key, obj[key]);
+    //   }
+    //   return map
+    // }
+    // let resolve = ObjToStrMap({
+    //   a: 1,
+    //   b: 2
+    // });
+    // console.log(resolve);
+
+    // let map = new Map();
+    // let arr = new Array();
+
+    // // 增
+    // map.set('t', 1);
+    // arr.push({
+    //   't': 1
+    // });
+    // console.log(map, arr);
+    // // 查
+    // let map_exist = map.get('t');
+    // let arr_exist = arr.find(item => item.t);
+    // console.log(map_exist, arr_exist);
+    // // 改
+    // let mapSet = map.set('t', 2);
+    // arr.forEach(item => item.t ? item.t = 2 : "");
+    // console.log(mapSet, arr);
+    // // 删
+    // map.delete('t');
+    // let index = arr.findIndex(item => item.t)
+    // arr.splice(index, 1);
+    // console.log(map, index);
+
+    // console.log(new WeakMap());
+    // console.log(new WeakSet());
+
+    // let star = {
+    //   name: "zhangsan",
+    //   age: 25,
+    //   phone: '1234576'
+    // }
+
+    // let agent = new Proxy(star, {
+    //   // 目标函数，键名
+    //   has: function (target, key) {
+    //     if (key === 'nb') {
+    //       return target[key];
+    //     }else{
+    //       console.error("问问别人");
+    //     }
+    //   }
+    // })
+
+    // agent.nb = "nb";
+    // console.log("nb" in agent);
+
+    // console.log( Reflect);
+
+    var obj = {
+      a: 1,
+      b: 2,
+      c: 3
+    }
+
+    console.log(Reflect.get(obj, 'a'));
+    console.log(Reflect.set(obj, 'b', 10));
+    console.log(Reflect.has(obj, 'a'));
+
+    console.log(obj, 'a');
+    
+  </script>
+
+</body>
+
+</html>

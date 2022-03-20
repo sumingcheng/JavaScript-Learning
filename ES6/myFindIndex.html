@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 必填 回调函数
+    Array.prototype.myFindIndex = function (cb) {
+      // this 不能为null 
+      if (this == null) {
+        throw new TypeError("'this' is null");
+      }
+      // 判断传入的回调函数必须是个函数
+      if (typeof cb !== 'function') {
+        throw new TypeError("Callback must be a function");
+      }
+      // 如果是原始值用Object转成一个对象
+      var obj = Object(this),
+        // 正整数的长度
+        len = obj.length >>> 0,
+        // 第二个参数，更改this指向
+        arg2 = arguments[1],
+        // 循环去找符合条件的值的下标
+        step = 0;
+
+      while (step < len) {
+        // 从0开始，保存找到的step
+        var value = obj[step];
+        // 判断当前回调函数指向的对象，返回了true，就说明找到了满足条件的下标
+        if (cb.apply(arg2, [value, step, obj])) {
+          // 直接返回下标
+          return step;
+        }
+        // 否自step++ 继续找
+        step++
+      }
+      // 如果循环结束，没有找到，就返回-1
+      return -1;
+    }
+
+    const arr = [1, 2, 4, 5];
+    const idx = arr.myFindIndex(function (item, index, arr) {
+      console.log(this);
+    }, {
+      a: 1
+    })
+    console.log(idx);
+  </script>
+</body>
+
+</html>

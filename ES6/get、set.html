@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数名/对象拓展、描述符、getter/setter</title>
+</head>
+
+<body>
+  <script>
+    // console.log(new Function().name);
+    // // 匿名的 anonymous
+
+    // function foo() {};
+    // console.log(foo.bind({}, ).name); //bound foo
+    // console.log(foo.call({}, ).name);
+    // const foo = "bar";
+    // const baz = {
+    //   foo
+    // };// {foo： foo};
+
+    // console.log(baz);
+
+    // function foo(a, b) {
+    //   console.log({
+    //     a,
+    //     b
+    //   });
+    // }
+    // foo(1, 2);
+    // let age = '12';
+    // const person = {
+    //   age,
+    //   // 方法
+    //   say() {
+    //     console.log(this.age);
+    //   },
+    // }
+    // person.say();
+
+    // var arr = [1, 2, 3, 4, 5];
+    // console.log(arr[0]);
+
+    // const obj = {
+    //   class(){
+
+    //   }
+    // }
+
+    // let obj = {};
+    // obj.foo = true;
+    // obj['f' + 'o' + 'o'] = false;
+    // console.log(obj);
+
+    // let a = 'hello';
+    // let b = 'world';
+    // let obj = {
+    //   [a + b]: true,
+    //   ["hello2" + b]: 123,
+    //   ["hello3"]: undefined
+    // }
+    // console.log(obj);
+
+    // var myObject = {};
+    // myObject[true] = 'foo';
+    // myObject[3] = 'bar';
+    // myObject['myObject'] = 'baz';
+
+    // console.log(myObject);
+    // // {3: 'bar', true: 'foo', [object Object]: 'baz'}
+
+
+    // const a = {
+    //   a: 1
+    // };
+    // const b = {
+    //   b: 1
+    // };
+    // // 后一个覆盖前一个
+    // const obj = {
+    //   [a]: 'valueA',
+    //   [b]: 'valueB'
+    // }
+
+    // console.log(obj);
+
+    // const person = {
+    //   sayName() {
+    //     console.log('hello');
+    //   }
+    // }
+
+    // console.log(person.sayName.name);
+
+    // let obj = {};
+
+    // console.log(Object.defineProperty(obj, 'a', {
+    //   value: 2,
+    //   enumerable: true,
+    //   writable: true,
+    //   configurable: true
+    // }));
+
+    // console.log(Object.getOwnPropertyDescriptor(obj, 'a'));
+
+
+    // let obj = {
+    //   a: 1
+    // };
+    // obj.a = 3;
+    // // [[Put]] 默认操作：
+
+    // var obj = {
+    //   log: ['example', 'text'],
+    //   // 通过get方式来定义，查找的方式
+    //   get latest() {
+    //     if (this.log.length === 0) {
+    //       return undefined
+    //     }
+    //     return this.log[this.log.length - 1];
+    //   }
+    // }
+    // // 通过get的方式重写了属性返回值的结果
+    // console.log(obj.latest); 
+
+
+    // var myObject = {
+    //   get a() {
+    //     return 2;
+    //   }
+    // }
+
+    // Object.defineProperty(myObject, 'b', {
+    //   get: function () {
+    //     return this.a * (2);
+    //   },
+    //   enumerable: true,
+    //   // value 和 writable 这两个属性不可以使用
+    // });
+
+    // console.log(myObject.a);
+    // console.log(myObject.b);
+
+
+    // var language = {
+    //   set current(name) {
+    //     this.log.push(name)
+    //   },
+    //   log: []
+    // }
+
+    // language.current = 'EN';
+    // language.current = 'ZN';
+
+    // console.log(language.log);
+
+    var obj = {
+      get a() {
+        return this._a;
+      },
+      set a(val) {
+        return this._a = val * 2;
+      }
+    }
+
+    obj.a = 3;
+    console.log(obj.a);
+    
+  </script>
+</body>
+
+</html>

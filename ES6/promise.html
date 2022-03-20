@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function queue(num) {
+    //   let promise = Promise.resolve();
+    //   num.map(v => {
+    //     promise = promise.then(_ => {
+    //       return new Promise(resolve => {
+    //         setTimeout(() => {
+    //           console.log(v);
+    //           resolve();
+    //         }, 1000);
+    //       })
+    //     })
+    //   })
+    // }
+    // queue([1, 2, 3, 4, 5]);
+
+    // function queue(num) {
+    //   num.reduce((promise, n) => {
+    //     return promise.then((_) => {
+    //       return new Promise((resolve) => {
+    //         setTimeout(() => {
+    //           console.log(n);
+    //           resolve();
+    //         }, 1000);
+    //       });
+    //     });
+    //   }, Promise.resolve());
+    // }
+    // queue([1, 2, 3, 4, 5]);
+
+    // Promise
+    new Promise((resolve) => {
+      console.log(1);
+      resolve("2");
+    }).then((v) => {
+      console.log(v);
+    });
+
+    // async await
+    async function asy() {
+      let a = await new Promise(resolve => {
+        setTimeout(() => {
+          resolve('1')
+        }, 1000)
+      });
+      console.log(a);
+      let b = await new Promise(resolve => {
+        setTimeout(() => {
+          resolve('2')
+        }, 1000)
+      });
+      console.log(b);
+      let c = await new Promise(resolve => {
+        setTimeout(() => {
+          resolve('3')
+        }, 1000)
+      });
+      console.log(c);
+      let d = await new Promise(resolve => {
+        setTimeout(() => {
+          resolve('4')
+        }, 1000)
+      });
+      console.log(d);
+    }
+    asy();
+    
+  </script>
+</body>
+
+</html>

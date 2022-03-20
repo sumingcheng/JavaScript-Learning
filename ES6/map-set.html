@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // // 方式1
+    // let set = new Set();
+    // set.add(5);
+    // set.add(7);
+    // console.log(set);
+    // // 方式2
+    // let set1 = new Set([4, 2, 3]);
+    // console.log(set1);
+    // // 注意，多个相同的值保留一个
+    // let set2 = new Set([5,"5"]);
+    // console.log(set2);
+
+    // let set = new Set([
+    //   [],
+    //   [], {}, {},
+    //   NaN, NaN
+    // ]);
+    // console.log(set);
+
+    // let y = {
+    //     id: 1,
+    //   },
+    //   x = {
+    //     id: 2,
+    //   };
+    // let set = new Set([x, y]);
+    // // 清空
+    // console.log(set);
+    // let setIf = set.clear(x);
+
+
+    // for (let values of set) {
+    //   console.log(values);
+    // }
+
+    // console.log(Set.prototype[Symbol.iterator] === Set.prototype.values);  // ture
+
+
+    // let set = new Set([1, 2, 3, 1, 11, 1, 1, ]);
+
+    // let set1 = new Set([...set].map(value => value * 2));
+    // console.log(set1);
+
+    // var arr = [1, 2, 3, 4, 5];
+    // // var arr1 = arr.map(parseInt);
+    // var arr1 = arr.map((value,idx)=> console.log(value,idx))
+    // console.log(arr1);
+
+    // let a = new Set([1, 2, 3]);
+    // let b = new Set([4, 3, 2]);
+
+    // // 收集a和b
+    // let union = new Set([...a, ...b]);
+    // console.log(union);
+    // // 拿到a，判断b里是否有a里的值
+    // let intersect = new Set([...a].filter(x => b.has(x)));
+    // console.log(intersect);
+    // // 没有的部分取反
+    // let difference = new Set([...a].filter(x => !b.has(x)));
+    // console.log(difference);
+
+    // 映射出一个新的结构
+    // let set = new Set([1, 2, 3]);
+    // let set1 = new Set(Array.from(set, v => v * 2));
+    // console.log(set1);
+
+    // let m = {};
+    // let x = {
+    //     id: 1
+    //   },
+    //   y = {
+    //     id: 2
+    //   };
+
+    // // {[object Object]: 'foo'}
+    // m[x] = "foo";
+    // // {[object Object]: 'bar'}
+    // m[y] = "bar";
+
+    // console.log(m); // {[object Object]: 'bar'}
+    // console.log(m[x]); // bar
+    // console.log(m[y]); // bar
+
+    // let x = {
+    //     id: 1
+    //   },
+    //   y = {
+    //     id: 2
+    //   };
+
+    // let m = new Map();
+    // // 设置键名
+    // m.set(x, "foo");
+    // m.set(y, "bar");
+    // console.log(m.get(x));
+    // console.log(m.get(y));
+    // console.log(m);
+
+    // map 具备 iterator 接口
+    // let m = new Map([['1键名', '1键值'], ['2键名', '2键值'], ['3键名', '3键值']]);
+    // console.log(m);
+
+    // let m = new Map();
+    // m.set('name','zhangsan');
+    // m.set('title','bar');
+    // console.log(m);
+
+    // var items = []
+
+    // let item = [
+    //   ["name1", "nb1"],
+    //   ["name2", 'nb2']
+    // ];
+    // let m = new Map();
+    // item.forEach(([key, value]) => m.set(key, value));
+    // console.log(m);
+    // console.log(m.get("name1"));
+
+      let map = new Map();
+      console.log(map);
+      let set = new Set();
+      console.log(set);
+  </script>
+</body>
+
+</html>
