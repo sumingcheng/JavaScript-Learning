@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="button">add</button>
+  <script>
+    // 
+    // let count = 0,
+    //   button = document.getElementById("button");
+
+    // function buttonClick() {
+    //   count += 1;
+    //   console.log(count)
+    // }
+    // button.addEventListener("click", buttonClick);
+    // button.removeEventListener("click", buttonClick);
+    // // 清除
+    // button = null, count = null;
+    // weakmap
+    // var button = document.getElementById("button");
+    // wm = new WeakMap();
+    // wm.set(button, {
+    //   count: 0
+    // });
+
+    // function buttonClick() {
+    //   let data = wm.get(button);
+    //   data.count += 1;
+    //   console.log(data.count);
+    // }
+    // button.addEventListener("click", buttonClick);
+    // button.removeEventListener("click", buttonClick);
+    // button = null;
+
+
+
+
+    var Stack = (function () {
+      let weakmap = new WeakMap();
+      return class {
+        constructor() {
+          weakmap.set(this, []);
+        }
+        // 放入元素
+        push(elem) {
+          weakmap.get(this).push(elem);
+        }
+        // 访问元素，查看私有成员
+        toString() {
+          console.log(weakmap.get(this));
+        }
+      };
+    })();
+
+    var stack = new Stack();
+
+    stack.push(1);
+    stack.push(2);
+    // 外界看不到私有成员
+    console.log(stack);
+    stack.toString();
+
+
+  </script>
+
+</body>
+
+</html>
