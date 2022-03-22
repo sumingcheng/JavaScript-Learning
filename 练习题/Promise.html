@@ -83,16 +83,109 @@
     //   .then(res => console.log(res))
     //   .catch(err => console.log(err));
     // ————————————————————————————————————————————————————
-    function runAsync(x) {
-      const p = new Promise(r => {
-        setTimeout(() => r(x, console.log(x)), 1000)
-      });
-      return p;
-    }
+    // function runAsync(x) {
+    //   const p = new Promise(r => {
+    //     setTimeout(() => r(x, console.log(x)), 1000)
+    //   });
+    //   return p;
+    // }
+    // // 123一起执行，启动三个定时器，123都会打印，1最先返回成功
+    // Promise.race([runAsync(1), runAsync(2), runAsync(3)])
+    //   // res的结果，接收返回最快的值
+    //   .then(res => console.log("result:", res))
+    //   .catch(err => console.log(err));
+    // ————————————————————————————————————————————————————
+    // async function async1() {
+    //   // async没有await，剩下的代码都是同步代码
+    //   console.log("1"); // 同步1
+    //   // promise 的参数是个函数，这个函数是同步执行的
+    //   new Promise(resolve => {
+    //     // 直接执行
+    //     resolve();
+    //     console.log("2"); // 同步 2
+    //   });
+    //   console.log("3"); // 同步3
+    // }
+    // async1();
+    // console.log("4"); // 同步4
+    // ————————————————————————————————————————————————————
+    // async function async1() {
+    //   console.log("1"); // 同步1
+    //   await async2(); // 等待 async2 执行完，包括里面的异步
+    //   console.log("2"); // 微任务1
+    // }
+    // async function async2() {
+    //   setTimeout(() => {
+    //     console.log("3"); // 异步 1 
+    //   }, 0);
+    //   console.log("4"); // 同步2
+    // }
+    // async1();
+    // console.log(5); // 同步4
+    // ————————————————————————————————————————————————————
 
-    Promise.race([runAsync(1), runAsync(2), runAsync(3)])
-      .then(res => console.log("result:", res))
-      .catch(err => console.log(err));
+    // async function async1() {
+    //   console.log(1); // 同步1
+    //   await async2(); // 等待async2()
+    //   /* 微任务区域 */
+    //   console.log(2); // async2了就执行
+    //   setTimeout(() => {
+    //     console.log(3); // 异步3
+    //   }, 0);
+    //   /* 微任务区域 */
+    // }
+    // async function async2() {
+    //   // 最先注册的计时器
+    //   setTimeout(() => {
+    //     console.log(4); // 异步1
+    //   }, 0);
+    //   console.log(5); // 同步2
+    // }
+
+    // async1(); // 从这里开始执行
+    // // async1();卡住了就继续执行当前宏任务
+    // setTimeout(() => {
+    //   console.log(6); // 异步2
+    // }, 0);
+    // console.log(7); // 同步3
+
+    // ————————————————————————————————————————————————————
+
+    // async function async1() {
+    //   console.log("1"); // 同步 2
+    //   /* 这里的 Promise 是 pending 状态所以下面的代码不回执行 */
+    //   await new Promise(resolve => {
+    //     console.log("2"); // 同步3 因为是在括号里的
+    //   });
+
+    //   /* ↓是微任务 */
+    //   console.log("3");
+    //   return "4";
+    // }
+    // console.log("5"); // 同步1
+    // async1().then(res => console.log(res));
+    // console.log("6"); // 同步 4
+
+    // ————————————————————————————————————————————————————
+
+    // async function async1() {
+    //   console.log("1"); // 同步2
+    //   await new Promise(resolve => {
+    //     console.log("2"); // 同步3
+    //     resolve("3");
+    //     // 继续按照代码顺序执行
+    //   }).then(res => console.log(res)); // 微1
+    //   console.log("4"); // 微2
+    //   return "5";
+    // }
+    // console.log("6"); // 同步1
+    // async1().then(res => console.log(res)); // 微3
+    // console.log("7"); // 同步4
+
+    
+    // ————————————————————————————————————————————————————
+
+    
     // ————————————————————————————————————————————————————
   </script>
 </body>
