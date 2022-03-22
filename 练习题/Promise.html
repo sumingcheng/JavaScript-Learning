@@ -1,12 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
 </head>
+
 <body>
-  
+  <script>
+    // ————————————————————————————————————————————————————
+    // const first = () =>
+    //   new Promise((resolve, reject) => {
+    //     console.log(3); // 同步1 3
+    //     let p = new Promise((resolve, reject) => {
+    //       console.log(7); //同步2 7
+    //       setTimeout(() => {
+    //         console.log(5); // 异步1 5
+    //         resolve(6);
+    //         console.log(p); // 异步2 fulfilled 1
+    //       }, 0);
+    //       resolve(1);
+    //     });
+    //     resolve(2);
+    //     p.then(arg => {
+    //       console.log(arg); // 微任务1 1
+    //     });
+    //   });
+
+    // first().then(arg => {
+    //   console.log(arg); //微任务2 2
+    // });
+
+    // console.log(4); //同步3 4
+    // ————————————————————————————————————————————————————
+
+    // let a;
+    // const b = new Promise((resolve, reject) => {
+    //   console.log("promise1"); // 同步1 promise1
+    //   resolve();
+    // }).then(() => {
+    //   console.log("promise2"); // 微1 promise2
+    // }).then(() => {
+    //   console.log("promise3") // 微2 promise3
+    // }).then(() => {
+    //   console.log("promise4") // 微3 promise4
+    // });
+    // a = new Promise(async (resolve, reject) => {
+    //   console.log(a); // 同步2 undefined
+    //   console.log(b); // Promise fulfilled
+    //   await b; // 等待b执行结束后，代码继续往下执行
+    //   console.log(a); // 在等待b的时候 new Promise已经完成，promise pending
+    //   console.log("after1"); // after1
+    //   await a; // 等待a的处理结果，a 的结果在await之后，所以会一直等待
+    //   resolve(true);
+    //   console.log("after2");
+    // });
+    // console.log("end"); // 同步3 end
+
+    // ————————————————————————————————————————————————————
+    // function runAsync(x) {
+    //   const p = new Promise(resolve => {
+    //     setTimeout(() => {
+    //       resolve(x, console.log(x));
+    //     }, 1000);
+    //   })
+    //   return p;
+    // }
+
+    // function runReject(x) {
+    //   const p = new Promise((res, rej) => {
+    //     setTimeout(() => {
+    //       rej(`Error:${x}`, console.log(x))
+    //     }, 1000 * x);
+    //   });
+    //   return p;
+    // }
+
+    // // 所有的Promise都成功了，res才会打印成功的值
+    // Promise.all([runAsync(1), runReject(4), runAsync(3), runReject(2)])
+    //   // 13 一起出现，因为时间一样，先2后4，2的错误先到，打印错误2
+    //   .then(res => console.log(res))
+    //   .catch(err => console.log(err));
+    // ————————————————————————————————————————————————————
+    function runAsync(x) {
+      const p = new Promise(r => {
+        setTimeout(() => r(x, console.log(x)), 1000)
+      });
+      return p;
+    }
+
+    Promise.race([runAsync(1), runAsync(2), runAsync(3)])
+      .then(res => console.log("result:", res))
+      .catch(err => console.log(err));
+    // ————————————————————————————————————————————————————
+  </script>
 </body>
+
 </html>
