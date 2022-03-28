@@ -12,7 +12,12 @@
     // // 读取
     // document.cookie
     // // 新增
-    // document.cookie = "name=z3"
+    // document.cookie = "name=z3 ; max-age=5000"
+    // 设置具体的日期
+    // var d = new Date();
+    // day = d.getDate();
+    // d.setDate(day + 10);
+    // document.cookie = "name=xiaohong;expires=" + d;
 
     // // 设置
     // localStorage.setItem('早餐', '牛奶');
@@ -24,7 +29,39 @@
     // // 访问
     // sessionStorage.getItem('姓名');
 
-    
+    // 方法
+    var manageCookies = {
+      set: function (key, value, expTime) {
+        document.cookie = key + '=' + value + ';max-age' + expTime;
+        return this;
+      },
+      delete: function (key) {
+        // 时间为负值自动删除
+        return this.set(key, '', -1)
+      },
+      get: function (key, cb) {
+        var cookieArray = document.cookie.split(';');
+        for (var i = 0; i < cookieArray.length; i++) {
+          var cookieItem = cookieArray[i];
+          var cookieItemArray = cookieItem.split('=');
+          if (cookieItemArray[0] == key) {
+            cb(cookieItemArray[1]);
+            return this;
+          }
+        }
+        cb(undefined);
+        return this;
+      }
+    }
+
+    manageCookies.set('name', 'xiaohong', 1000)
+      .set('age', 20, 1000)
+      .set('hobby', 'baskerball', 1000)
+      .set('sex', 'male')
+      .delete('name')
+      .get('age', function (data) {
+        console.log(data);
+      });
   </script>
 </body>
 
