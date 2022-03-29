@@ -8,9 +8,24 @@
 </head>
 
 <body>
-  <div>
-    <div></div>
-  </div>
+  <script>
+    if (window.Worker) {
+      // 实例化worker
+      var myWorker = new Worker('worker.js');
+      // 声明信息
+      var message = {
+        addThis: { num1: 1, num2: 1 }
+      }
+      // 传递信息
+      myWorker.postMessage(message);
+      // 接收信息
+      myWorker.onmessage = function (e) {
+        console.log(e);
+        myWorker.terminate();
+      }
+    }
+
+  </script>
 </body>
 
 </html>
