@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  #progressBar {
+    width: 500px;
+    margin: 10px 0;
+    padding: 3px;
+    border: 1px solid #000;
+    font-size: 14px;
+    opacity: 1;
+    transition: opacity 1s linear;
+  }
+
+  .loading {
+    opacity: 0;
+  }
+  
+  .percent {
+    background-color: #99ccff;
+    height: auto;
+    width: 500px;
+  }
+</style>
+
+<body>
+  <input type="file" id="files">
+  <button onclick="abortRead()">终止读取</button>
+  <div id="progressBar">
+    <div class="percent">未读取</div>
+  </div>
+  <script>
+    var files = document.getElementById('files');
+    var percent = document.getElementsByClassName('percent')[0];
+    var progressBar = document.getElementById('progressBar');
+    var reader;
+    // 选择文件 change 事件
+    files.addEventListener('change', handleFileSelect, false);
+
+    // 更新进度
+    function updateProgress(e) {
+      if (e.lengthComputable) {
+        var percentLoaded = Math.round((e.loaded / e.total) * 100);
+        console.log(percentLoaded);
+        // 进度条
+        if (percentLoaded < 100) {
+          percent.style.width = percentLoaded + '%';
+          percent.textContent = percentLoaded + '%';
+        }
+      }
+    }
+    // 处理一些错误
+    function errHandler() {
+      var errCode = e.target.error.code;
+      var err = e.target.error;
+
+      switch (errCode) {
+        case err.NOT_FONUD_ERR:
+          console.log('文件未找到');
+          break;
+        case err.NOT_READABLE_ERR:
+          console.log('文件不可读取');
+          break;
+        case err.ABORT_ERR:
+          break;
+        default:
+          console.log('在读取文件时发生了错误');
+      }
+    }
+    // 终止读取
+    function abortRead() {
+      reader.abort();
+      console.log('读取已取消');
+    }
+    // 选择文件
+    function handleFileSelect(e) {
+      // 选择文件的时候清零
+      percent.style.width = '0%';
+      percent.textContent = '0%';
+      // 创建一个读取器
+      reader = new FileReader();
+      // 开始读取的时候添加一个样式类
+      reader.onloadstart = function (e) {
+        progressBar.className = 'loading';
+      }
+
+      reader.onprogress = updateProgress;
+
+      // 手动设置100%
+      reader.onload = function (e) {
+        percent.style.width = 100 + '%';
+        percent.textContent = 100 + '%';
+      }
+      // 错误处理
+      reader.onerror = errHandler
+
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+  </script>
+</body>
+
+</html>

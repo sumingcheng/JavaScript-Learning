@@ -8,7 +8,46 @@
 </head>
 
 <body>
+  <input type="file" name="" id="fileInput" />
+  <script>
+    var fileInput = document.getElementById('fileInput');
+    // 选择文件的时候触发 change 事件
+    fileInput.addEventListener('change', function (e) {
+      var reader = new FileReader();
+      // 文件加载后
+      reader.onload = function () {
+        // 读取器
+        var img = new Image();
+        // 图片加载后
+        img.onload = function () {
+          // 画布
+          var canvas = document.createElement('canvas'),
+            // 画笔
+            ctx = canvas.getContext('2d');
+          // 绘制图片
+          ctx.drawImage(img, 0, 0);
+          // 获取像素信息
+          var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          var data = imgData.data;
+          // 每四个一处理
+          for (var i = 0; i <= data.length; i += 4) {
+            // R G B 三个值相等则是灰色
+            var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+            data[i] = avg;
+            data[i + 1] = avg;
+            data[i + 2] = avg;
+          }
+          ctx.putImageData(imgData, 0, 0);
+          document.body.appendChild(canvas);
+        }
+        img.src = reader.result;
+      }
+      reader.readAsDataURL(fileInput.files[0]);
+    }, false);
 
+
+
+  </script>
 </body>
 
 </html>
