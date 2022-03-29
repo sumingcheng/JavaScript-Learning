@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <input type="text" id="inputKwd" />
+  <button id="btn">查询</button>
+  <div class="output"></div>
+  <script>
+    var data = [
+      { name: 'VueJS0' },
+      { name: 'VueJS1' },
+      { name: 'VueJS2' },
+      { name: 'VueJS3' },
+      { name: 'VueJS4' },
+      { name: 'VueJS5' },
+    ];
+    var outputArea = document.getElementsByClassName('output')[0],
+      btn = document.getElementById('btn'),
+      inputKwd = document.getElementById('inputKwd');
+
+    btn.addEventListener("click", function () {
+      // 过滤
+      var showData = data.filter(function (item) {
+        return item.name.indexOf(inputKwd.value) !== -1;
+      })
+      // 重新渲染
+      renderDom(showData);
+      history.pushState({ value: inputKwd.value }, null, '#' + inputKwd.value);
+    });
+
+    // 初始化渲染
+    function renderDom(data) {
+      var outputStr = '';
+      for (let i = 0; i < data.length; i++) {
+        outputStr += '<p>' + data[i].name; +'</p>';
+      }
+      outputArea.innerHTML = outputStr;
+    }
+    renderDom(data);
+
+    window.addEventListener('popstate', function (e) {
+      var value = e.state ? e.state.value : '';
+
+      var showData = data.filter(function (item) {
+        return item.name.indexOf(value) !== -1;
+      })
+
+      inputKwd.value = value;
+      renderDom(showData);
+    }, false)
+  </script>
+</body>
+
+</html>

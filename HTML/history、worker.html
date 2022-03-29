@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
 </head>
+<style>
+  div {
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 800px;
+    height: 200px;
+  }
+
+  .box {
+    float: left;
+    margin: 20px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 150px;
+    text-align: center;
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    transition: all 0.2s ease-out;
+  }
+
+  .box:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .red {
+    background-color: red;
+    border: 5px solid red;
+  }
+
+  .green {
+    background-color: green;
+    border: 5px solid green;
+  }
+
+  .blue {
+    background-color: blue;
+    border: 5px solid blue;
+  }
+
+  .black {
+    background-color: black;
+    border: 5px solid black;
+  }
+
+  .box.selected {
+    transform: scale(1.2);
+  }
+</style>
+
 <body>
-  
+  <div class="container">
+    <div class="box red" id="box-1">1</div>
+    <div class="box green" id="box-2">2</div>
+    <div class="box blue" id="box-3">3</div>
+    <div class="box black" id="box-4">4</div>
+  </div>
+  <script>
+    let boxes = Array.from(document.getElementsByClassName('box'));
+    function selectBox(id) {
+      boxes.forEach(item => {
+        item.classList.toggle('selected', item.id === id);
+      })
+    }
+    boxes.forEach(item => {
+      item.addEventListener('click', e => {
+        let id = item.id;
+        history.pushState({ id }, null, `selected=${id}`);
+        selectBox(id);
+      })
+    })
+    window.addEventListener('popstate', e => {
+      let id = e.state.id;
+      selectBox(id);
+    })
+  </script>
 </body>
+
 </html>
