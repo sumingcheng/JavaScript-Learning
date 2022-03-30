@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div id="geography"></div>
+  <script>
+    // function success(e) {
+    //   console.log('位置获取成功', e);
+    // }
+    // function failure(e) {
+    //   console.log('位置获取失败', e);
+    // }
+
+    // window.navigator.geolocation.getCurrentPosition(success, failure);
+
+    // // 实时的获取设备的位置
+    // window.navigator.geolocation.watchPosition(success, failure, {
+    //   timeout: 500
+    // });
+    // var geo = document.getElementById('geography');
+
+    // window.addEventListener('devicemotion', function (e) {
+    //   // 获取 X 轴的方向
+    //   geo.innerHTML = 'acc' + e.acceleration.x;
+    // });
+
+
+    var geo = document.getElementById('geography');
+    window.addEventListener('deviceorientation', function (e) {
+      // XYZ 轴
+      geo.innerHTML = `<p>'orientation.alpha' + ${e.alpha}</p>
+      <p>'orientation.alpha' + ${e.beta}</p>
+      <p>'orientation.alpha' + ${e.gamma}</p>`
+    });
+
+  </script>
+</body>
+
+</html>
