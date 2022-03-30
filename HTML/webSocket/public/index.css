@@ -8,6 +8,56 @@ h2 {
   max-width: 600px;
   margin: 30px auto;
   border: 1px solid #ddd;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.05);
   border-radius: 2px;
+}
+
+#chatWindow {
+  height: 400px;
+  overflow: auto;
+  background-color: aliceblue;
+}
+
+#outputArea p {
+  padding: 14px 0;
+  margin: 0 20px;
+  border-bottom: 1px solid #e9e9e9;
+  color: #555;
+}
+
+#feedbackArea {
+  color: #aaa;
+  padding: 14px 0;
+  margin: 0 20px;
+}
+
+#outputArea strong {
+  color: aquamarine;
+}
+
+lable {
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+
+input {
+  padding: 10px 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  background-color: #eee;
+  background: #eee;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  background-color: aquamarine;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 0;
+  border: none;
 }

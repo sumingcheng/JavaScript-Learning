@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,20 @@
   <title>聊天室</title>
   <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
-  <h1>111</h1>
+  <div id="mswChat">
+    <div id="chatWindow">
+      <div id="outputArea"></div>
+      <div id="feedbackArea"></div>
+    </div>
+    <input type="text" name="" id="username" placeholder="username">
+    <input type="text" name="" id="message" placeholder="message">
+    <button id="sendBtn">发送</button>
+  </div>
+  <!-- 引入 socket.io CDN -->
+  <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+  <script type="text/javascript" src="./chat.js"></script>
 </body>
+
 </html>
