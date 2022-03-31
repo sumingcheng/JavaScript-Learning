@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  .mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: (0, 0, 0, .6);
+  }
+
+  button,
+  input {
+    width: 100px;
+    height: 60px;
+    border: 1px solid #ccc;
+  }
+</style>
+
+<body>
+  <div class="mask"></div>
+  <button id="btn">btn</button><br />
+  <a href="www.baidu.com" id="lk">link</a><br />
+  <input type="text">
+  <script>
+    var oBtn = document.getElementById('btn');
+    var oMask = document.getElementsByClassName('mask')[0];
+
+    oMask, addEventListener('touchstart', function () {
+      this.style.display = 'none';
+    });
+  </script>
+</body>
+
+</html>
