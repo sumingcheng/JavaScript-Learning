@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  body {
+    margin: 0;
+  }
+
+  /* 去除列表样式 */
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* 去除元素的文本修饰： */
+  a {
+    text-decoration: none;
+  }
+
+  /* 图片大小继承与父级盒子 */
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .slider-wrap {
+    width: 996px;
+    height: 480px;
+    margin: 50px auto;
+    border: 1px solid #000;
+    background-color: #000;
+  }
+
+  .sider {
+    float: left;
+    position: relative;
+    width: 853px;
+    height: 480px;
+  }
+
+  .sider .slider-item {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 480px;
+  }
+
+  .sider .slider-item.active {
+    display: block;
+  }
+
+  .thumbs {
+    float: left;
+    width: 142px;
+    height: 480px;
+  }
+
+  .thumbs-itme {
+    height: 80px;
+    opacity: .5;
+  }
+
+  .thumbs .thumbs-itme.cur {
+    opacity: 1;
+  }
+</style>
+
+<body>
+  <div class="slider-wrap">
+    <div class="sider">
+      <ul class="slider-list">
+        <li class="slider-item active">
+          <a href="">
+            <img src="./image/img (1).jpg" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="./image/img (2).jpg" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="./image/img (3).jpg" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="./image/img (4).jpg" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="./image/img (5).jpg" />
+          </a>
+        </li>
+        <li class="slider-item">
+          <a href="">
+            <img src="./image/img (6).jpg" />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="thumbs">
+      <ul class="thumbs-list">
+        <li class="thumbs-itme cur">
+          <a href="javascript:;">
+            <img src="./image/img (1).jpg" />
+          </a>
+        </li>
+        <li class="thumbs-itme">
+          <a href="javascript:;">
+            <img src="./image/img (2).jpg" />
+          </a>
+        </li>
+        <li class="thumbs-itme">
+          <a href="javascript:;">
+            <img src="./image/img (3).jpg" />
+          </a>
+        </li>
+        <li class="thumbs-itme">
+          <a href="javascript:;">
+            <img src="./image/img (4).jpg" />
+          </a>
+        </li>
+        <li class="thumbs-itme">
+          <a href="javascript:;">
+            <img src="./image/img (5).jpg" />
+          </a>
+        </li>
+        <li class="thumbs-itme">
+          <a href="javascript:;">
+            <img src="./image/img (6).jpg" />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    var thumbsItem = document.getElementsByClassName('thumbs-itme');
+    var sliderItem = document.getElementsByClassName('slider-item');
+
+    console.log(thumbsItem);
+    for (var i = 0; i < thumbsItem.length; i++) {
+      (function (j) {
+        thumbsItem[i].onclick = function () {
+          for (var k = 0; k < thumbsItem.length; k++) {
+            // 去掉所有的 cur 类
+            thumbsItem[k].className = 'thumbs-itme';
+            // 去掉所有的 active 类
+            sliderItem[k].className = 'slider-item';
+          }
+          // 再把自己本身加上 cur;
+          this.className += ' cur';
+          // 添加上active
+          sliderItem[j].className += ' active';
+        }
+      })(i)
+    }
+  </script>
+</body>
+
+</html>
