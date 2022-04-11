@@ -1,26 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
 
-    <body>
-        <script>
-            function foo() {
-                return () => {
-                    return () => {
-                        return () => {
-                            console.log("id:", this.id);
-                        };
-                    };
-                };
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <script>
+    // function foo() {
+    //     return () => {
+    //         return () => {
+    //             return () => {
+    //                 console.log("id:", this.id);
+    //             };
+    //         };
+    //     };
+    // }
+    // var f = foo.call({ id: 1 }); // 
+    // var t1 = f.call({ id: 2 })()(); //
+    // var t2 = f.call({ id: 3 })(); //
+    // var t4 = f()().call({ id: 4 }); //
+    // var obj = { a: 1, b: 2, c: 3 }
+    // var obj1 = { a: 3, d: 5, e: 6 }
+
+    // var obj2 = { ...obj1, ...obj }
+    // // Object.assign(obj2, obj, obj1);
+    // console.log(obj2);
+
+    // var s = Symbol();
+    // console.log(Object.getPrototypeOf(s));
+
+    // let arr = [1, 2, 3, 4];
+    // console.log(arr);
+
+    // // 访问数组上的 Symbol.iterator 方法
+    // let iter = arr[Symbol.iterator]();
+    // console.log(iter.next());
+    // console.log(iter.next());
+    // console.log(iter.next());
+    // console.log(iter.next());
+    // console.log(iter.next());
+
+
+    // function makeIterator(array) {
+    //   // 初始值
+    //   var nextIndex = 0;
+    //   return {
+    //     // 返回一个函数
+    //     next: function () {
+    //       // 如果指针小于长度，那么就继续迭代
+    //       return nextIndex < array.length ?
+    //         // 调用一次加一次
+    //         { value: array[nextIndex++], done: false }
+    //         : { value: undefined, done: true }
+    //     }
+    //   }
+    // }
+
+    // var it = makeIterator([1, 2, 3, 4]);
+    // console.log(it.next());
+    // console.log(it.next());
+    // console.log(it.next());
+    // console.log(it.next());
+    // console.log(it.next());
+
+    // console.log(TypeArray);
+
+    // // 八进制数据
+    // const tArray = new Int8Array(8);
+    // tArray[0] = 100;
+    // console.log(tArray);
+
+    let obj = {
+      a: [2],
+      b: [3],
+      c: [1],
+      [Symbol.iterator]() {
+        let index = 0;
+        arr = [...this.a, ...this.b],
+          len = arr.length;
+        return {
+          next() {
+            if (index < len) {
+              return {
+                value: arr[index++],
+                done: false
+              }
+            } else {
+              return {
+                value: undefined,
+                done: true
+              }
             }
-            var f = foo.call({ id: 1 }); // 
-            var t1 = f.call({ id: 2 })()(); //
-            var t2 = f.call({ id: 3 })(); //
-            var t4 = f()().call({ id: 4 }); //
-        </script>
-    </body>
+          }
+        }
+      }
+    }
+
+    for (let i of obj) {
+      console.log(i);
+    }
+  </script>
+</body>
+
 </html>

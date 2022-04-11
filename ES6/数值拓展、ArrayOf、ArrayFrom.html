@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <script>
+    // let obj = {
+    //   start: [12, 3, 4, 5],
+    //   end: [7, 8, 9],
+    //   [Symbol.iterator]() {
+    //     let index = 0;
+    //     let arr = [...this.start, ...this.end],
+    //       len = arr.length;
+    //     return {
+    //       next() {
+    //         if (index < len) {
+    //           return {
+    //             value: arr[index++],
+    //             done: false
+    //           }
+    //         } else {
+    //           return {
+    //             value: undefined,
+    //             done: true
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    // // 可以 传入多个参数
+    // console.log(Array.from(obj, function map(val, index) {
+    //   return val * 2;
+    // }));
+    // //  [12, 3, 4, 5, 7, 8, 9]
+
+    // let z = {
+    //   a: 1,
+    //   b: 2,
+    //   c: () => {
+    //     console.log(this);
+    //   }
+    // }
+    // z.c();
+
+    // // 填充的是有歧义的值，不是我们预期的3
+    // console.log(Array(3));
+    // // 填充的是数值的参数
+    // console.log(Array.of(3));
+
+    // var oList = document.querySelectorAll('p');
+    // console.log(Array.from(oList));
+    // Array.of();
+    // // 往数组中填充制定的值到数组当中
+    // arr.fill(value, start, end);
+
+    // let arr1 = [1, 2, 3, 4, 5];
+
+    // console.log([].fill.call({ length: 3 }, 4));
+    // // {0: 4, 1: 4, 2: 4, length: 3}
+
+    // let obj = {
+    //   a: 1,
+    //   b: 2,
+    //   c: 3
+    // }
+    // // 遍历所有的键名 -> 数组的形式输出
+    // console.log(Object.keys(obj));
+    // // 遍历所有的值 -> 数组的形式输出
+    // console.log(Object.values(obj));
+    // // 键值对 -> 数组的形式输出
+    // console.log(Object.entries(obj));
+
+    // let arr = ['a', 'b', 'c'];
+
+    // // 以下三者都返回迭代器对象
+    // console.log(arr.keys());
+    // console.log(arr.values());
+    // console.log(arr.entries());
+
+    // var iter = arr.entries();
+    // // 可以进行迭代
+    // console.log(iter.next());
+    // console.log(iter.next());
+    // console.log(iter.next());
+    // console.log(iter.next());
+
+    // for (i of iter) {
+    //   console.log(i);
+    // }
+
+    // var arr = [1, 2, 3, 4, 5];
+    // // 参数 target(0),start(0),end(this.length)
+    // console.log(arr.copyWithin(2));
+    // //  [1, 2, 1, 2, 3]
+
+    // 长度是5 放入3 位
+    // console.log([].copyWithin.call({ length: 5, 1: 2, 2: 3, 3: 4 }, 0, 3));
+
+
+    // var arr = [1, 2, 3, 4, 5];
+    // // 找出符合回调函数的成员
+    // let arr1 = arr.find(function (value, index, arr) {
+    //   return value >= 10;
+    // });
+    // console.log(arr1); // 2
+    // console.log([NaN].findIndex(y => Object.is(NaN, y))); // 0
+    // let arr = [1, 2, 3, 4, 5, NaN];
+    // console.log(arr.includes(NaN)); //true
+
+    // console.log(0Xff); // 255
+    // console.log(0O775); // 509
+    // console.log(0B111); // 7
+    // // 10 转 2
+    // console.log(Number.prototype.toString.call(509, 2)); // 111111101
+    // // 2 转 10
+    // console.log(parseInt(111111101, 2)); // 509
+
+    // // NaN 隐式转换
+    // console.log(isNaN("NaN"));  // true
+    // console.log(Number.isNaN("NaN"));  // false
+
+    // 隐式转换
+    // console.log(isFinite("1")); // true
+    // // 新方法不会进行隐式转换
+    // console.log(Number.isFinite("1")); // false
+
+    // console.log(Number.isInteger(20)); // true
+    // console.log(Number.isInteger(20.0)); // true
+    // console.log(Number.isInteger(20.1)); // false
+
+
+    // // 安全整数
+    // console.log(Number.MAX_SAFE_INTEGER === Math.pow(2, 53) - 1);  // true
+  </script>
+</body>
+
+</html>
