@@ -146,38 +146,51 @@
 
 
   <script type="text/javascript">
-
+    // 插件写法
     ; (function () {
+      // 构造函数
       var Slider = function (opt) {
+        // 取出传入的对象，找到对应的类名，保存下来
         this.sliderItem = document.getElementsByClassName(opt.sliderItem);
         this.thumbsItem = document.getElementsByClassName(opt.thumbsItem);
+        // 执行原型上的方法
         this.bindClick();
       }
+      // 原型
       Slider.prototype = {
+        // 循环绑定事件
         bindClick: function () {
-          var slider = this.sliderItem,
-            thumbs = this.thumbsItem;
+          // 拿到两个类数组
+          var slider = this.sliderItem;
+          var thumbs = this.thumbsItem;
 
           for (var i = 0; i < thumbs.length; i++) {
+            // 为每个dom节点绑定点击事件，使用立即执行函数，解决闭包的问题
             (function (j) {
+              // 为第 j 项绑定方法
               thumbs[j].onclick = function () {
+                // 遍历全部的项，先清空所有的cur和active 
                 for (var k = 0; k < thumbs.length; k++) {
                   thumbs[k].className = 'thumbs-itme';
                   slider[k].className = 'slider-item';
                 }
+                // 给第当前点击的这项，添加 cur
                 this.className += ' cur';
+                // 给第 j 项添加 active
                 slider[j].className += ' active';
               }
             })(i);
           }
         }
       }
+      // 执行的时候，挂到window
       window.Slider = Slider;
     })();
 
+    // 访问window 传入对象
     var slider = new Slider({
       sliderItem: "slider-item",
-      thumbsItem: "thumbs-itme",
+      thumbsItem: "thumbs-itme"
     });
 
     // var thumbsItem = document.getElementsByClassName('thumbs-itme');
