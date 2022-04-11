@@ -146,26 +146,62 @@
 
 
   <script type="text/javascript">
-    var thumbsItem = document.getElementsByClassName('thumbs-itme');
-    var sliderItem = document.getElementsByClassName('slider-item');
 
-    console.log(thumbsItem);
-    for (var i = 0; i < thumbsItem.length; i++) {
-      (function (j) {
-        thumbsItem[i].onclick = function () {
-          for (var k = 0; k < thumbsItem.length; k++) {
-            // 去掉所有的 cur 类
-            thumbsItem[k].className = 'thumbs-itme';
-            // 去掉所有的 active 类
-            sliderItem[k].className = 'slider-item';
+    ; (function () {
+      var Slider = function (opt) {
+        this.sliderItem = document.getElementsByClassName(opt.sliderItem);
+        this.thumbsItem = document.getElementsByClassName(opt.thumbsItem);
+        this.bindClick();
+      }
+      Slider.prototype = {
+        bindClick: function () {
+          var slider = this.sliderItem,
+            thumbs = this.thumbsItem;
+
+          for (var i = 0; i < thumbs.length; i++) {
+            (function (j) {
+              thumbs[j].onclick = function () {
+                for (var k = 0; k < thumbs.length; k++) {
+                  thumbs[k].className = 'thumbs-itme';
+                  slider[k].className = 'slider-item';
+                }
+                this.className += ' cur';
+                slider[j].className += ' active';
+              }
+            })(i);
           }
-          // 再把自己本身加上 cur;
-          this.className += ' cur';
-          // 添加上active
-          sliderItem[j].className += ' active';
         }
-      })(i)
-    }
+      }
+      window.Slider = Slider;
+    })();
+
+    var slider = new Slider({
+      sliderItem: "slider-item",
+      thumbsItem: "thumbs-itme",
+    });
+
+    // var thumbsItem = document.getElementsByClassName('thumbs-itme');
+    // var sliderItem = document.getElementsByClassName('slider-item');
+
+    // console.log(thumbsItem);
+    // for (var i = 0; i < thumbsItem.length; i++) {
+    //   (function (j) {
+    //     thumbsItem[i].onclick = function () {
+    //       for (var k = 0; k < thumbsItem.length; k++) {
+    //         // 去掉所有的 cur 类
+    //         thumbsItem[k].className = 'thumbs-itme';
+    //         // 去掉所有的 active 类
+    //         sliderItem[k].className = 'slider-item';
+    //       }
+    //       // 再把自己本身加上 cur;
+    //       this.className += ' cur';
+    //       // 添加上active
+    //       sliderItem[j].className += ' active';
+    //     }
+    //   })(i)
+    // }
+    // 插件写法
+
   </script>
 </body>
 
