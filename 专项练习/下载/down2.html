@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <input type="file" id="fileInput" />
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    fileInput.addEventListener('change', (e) => {
+      // 保存导入的图片
+      const file = e.target.files[0];
+      const url = URL.createObjectURL(file);
+      const img = document.createElement('img');
+      img.src = url;
+      document.body.appendChild(img);
+      // 销毁创建的URL
+      img.onload = function () {
+        URL.revokeObjectURL(url);
+      }
+    })
+  </script>
+</body>
+
+</html>

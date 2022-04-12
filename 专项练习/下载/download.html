@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <a id="a1">点击下载</a>
+  <script>
+    const a1 = document.getElementById('a1');
+    // 下载的内容
+    const content = `<div><h1>这是一段文字</h1></div>`
+    // 接收一个数组，因为普通类型的内容是没办法下载的，我们需要转化成二进制文件流
+    const blob = new Blob([content], {
+      // 类型
+      type: 'text/html'
+    })
+    // 使用 createObjectURL blob传入进去，赋值给a1
+    a1.href = URL.createObjectURL(blob);
+    // 增加下载的属 增加下载的名字
+    a1.setAttribute('download', 'index.html');
+    
+  </script>
+</body>
+
+</html>

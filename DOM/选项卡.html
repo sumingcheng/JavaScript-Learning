@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  body {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .tab-wrap {
+    width: 500px;
+    margin: 50px auto;
+  }
+
+  .tab-item {
+    float: left;
+    width: 80px;
+  }
+
+  .tab-item a {
+    display: block;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    color: #000;
+  }
+
+  .page {
+    height: 450px;
+    border: 1px solid #000;
+  }
+
+  .tab-item.cur {
+    background-color: #000;
+  }
+
+  .tab-item.cur a {
+    color: #fff;
+  }
+
+  .page-itme {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 450px;
+    font-size: 100px;
+  }
+
+  .page-itme.active {
+    display: block;
+  }
+
+  .page {
+    position: relative;
+  }
+</style>
+
+<body>
+  <div class="tab-wrap">
+    <div class="tab clearfix">
+      <div class="tab-item cur"><a href="javascript:;">选项卡1</a></div>
+      <div class="tab-item"><a href="javascript:;">选项卡2</a></div>
+      <div class="tab-item"><a href="javascript:;">选项卡3</a></div>
+    </div>
+    <div class="page">
+      <div class="page-itme active">1</div>
+      <div class="page-itme">2</div>
+      <div class="page-itme">3</div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    // var tabItem = document.getElementsByClassName('tab-item');
+    // var pageItem = document.getElementsByClassName('page-itme');
+
+    // for (var i = 0; i < tabItem.length; i++) {
+    //   // 闭包，点击后才执行，i循环结束已经是3
+    //   (function (j) {
+    //     tabItem[j].onclick = function () {
+    //       for (var k = 0; k < tabItem.length; k++) {
+    //         tabItem[k].className = 'tab-item';
+    //         pageItem[k].className = 'page-itme';
+    //       }
+    //       this.className = 'tab-item cur';
+    //       pageItem[j].className = 'page-itme active';
+    //     }
+    //   })(i);
+    // }
+
+    !(function () {
+      var Tab = function (opt) {
+        this.tabs = document.getElementsByClassName(opt.tabItem);
+        this.pages = document.getElementsByClassName(opt.pageItem);
+        this.bindClick(opt.tabItem, opt.pageItem, opt.cur, opt.active);
+      }
+      // 方法都要放在原型上
+      Tab.prototype = {
+        bindClick: function (tabItem, pageItem, cur, active) {
+          var tabs = this.tabs;
+          var pages = this.pages;
+
+          for (var i = 0; i < tabs.length; i++) {
+            (function (j) {
+              tabs[j].onclick = function () {
+                for (var k = 0; k < tabs.length; k++) {
+                  tabs[k].className = tabItem;
+                  pages[k].className = pageItem;
+                }
+                this.className = tabItem + " " + cur;
+                pages[j].className = pageItem + " " + active;
+              }
+            })(i);
+          }
+        }
+      }
+      // 抛出到window上
+      window.Tab = Tab;
+    })();
+
+    var tab = new Tab({
+      tabItem: "tab-item",
+      pageItem: "page-itme",
+      cur: "cur",
+      active: "active"
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="box" id="box">123</div>
+  <div class="box" id="box">234</div>
+  <div class="box" id="box">345</div>
+  <script>
+    // // IE 8 以下box不分大小写
+    // var box = document.getElementsByTagName('div');
+    // console.log(box);
+    // // IE 8 没有该方法
+    // document.getElementsByClassName('box');
+    // // 代替方法
+    // document.querySelector('box');
+
+    // // IE 4 都支持，兼容性很好
+    // document.getElementsByTagName();
+
+    // // 可以选择元素名 只返回第一个
+    // var div1 = document.querySelector('div');
+    // // 可以选择类名，写法和CSS选择器一样 只返回第一个
+    // var div2 = document.querySelector('.box');
+    // console.log(div1);
+    // console.log(div2);
+
+    // // 选择div下的所有p元素
+    // var p1 = document.querySelector('div > p');
+    // console.log(p1);
+    // // 选择 div h1 p元素
+    // var p2 = document.querySelector('div h1 p');
+    // console.log(p2);
+
+    // // 选择id
+    // var box = document.querySelector('#box');
+
+    // // 选择所有的div
+    // var divs = document.querySelectorAll('div')[0];
+    // // 选择所有类为box的
+    // var box = document.querySelectorAll('.box')[1];
+    // // 选择id为box的
+    // var box2 = document.querySelectorAll('#box')[0];
+
+    // var dis = document.getElementsByTagName('div');
+    // console.log(divs);
+    // div[0].remove();
+    // console.log(divs);
+
+    var dis = document.querySelectorAll('div');
+    console.log(divs);
+    div[0].remove();
+    console.log(divs);
+
+  </script>
+</body>
+
+</html>
