@@ -36,7 +36,44 @@
     // console.log(reg.source); // \wabed
     // console.log(reg.flags); // giy
 
-    
+    // // UTF-16
+    // console.log('\u20bb7');
+    // // 浏览器能识别的表示方式，用四个字节表示的方式
+    // console.log('\uD842\uDFB7');
+    // // 用{}包起来，浏览器也可以识别
+    // console.log('\u{20bb7}');
+
+    // // 只能匹配2个字节
+    // console.log(/^\uD83D/.test('\uD83D\uDC2A'));  // true
+    // // 可以匹配4个字节
+    // console.log(/^\uD83D/u.test('\uD83D\uDC2A')); // false
+
+
+    // var s = '\uD842\uDFB7';
+    // console.log(s);
+    // // 使用点来匹配 ES5 匹配不上
+    // console.log(/^.$/.test(s)); // false
+    // // ES6
+    // console.log(/^.$/u.test(s)); // true
+
+    // // {} 匹配量词
+    // console.log(/a{2}/.test('aa')); // true
+    // // u 匹配编码
+    // console.log(/\u{20bb7}/u.test('𠮷')); // true
+
+    console.log(/foo.bar/.test('foo\nbar'));// false
+    // ES6 让点代表一切的方法 2018正式推出
+    console.log(/foo.bar/s.test('foo\nbar'));// true
+    // 老版本使用点代表一切的方法
+    console.log(/foo.bar/s.dotAll);// true
+    var reg = new RegExp()
+    console.log(reg);
+
+
+
+
+
+
   </script>
 </body>
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    // console.log(String.prototype);
+    // var a = "\u0004"
+    // var s = "\u{20bb7}";
+    // console.log(a.length); // 长度为1 代表一个字符
+    // console.log(s.length); // 长度为2 代表一个字符
+    // // charAt 返回对应的字符
+    // console.log(s.charAt(0)); // � 单个字符 但无法正确的表示一个字符
+    // console.log(s.charAt(1)); // � 单个字符 但无法正确的表示一个字符
+    // // ES5 返回对应的字符编码，第几位字符对应的码点是多少
+    // console.log(s.charCodeAt(0)); // 55362
+    // console.log(s.charCodeAt(1)); // 57271
+    // // 转换成16进制
+    // console.log(Number.prototype.toString.call(55362, 16)); // d842
+    // console.log(Number.prototype.toString.call(57271, 16)); // dfb7
+
+    // var s = "𠮷a";
+    // console.log(s.length); // 3
+    // console.log(s.codePointAt(0)); // 134071
+    // console.log(Number.prototype.toString.call(134071, 16)); // 20bb7
+    // console.log(s.codePointAt(1)); // 57271 可以拿到第二位，但是是乱码字符
+    // console.log(Number.prototype.toString.call(57271, 16)); // 20bb7
+    // console.log(s.codePointAt(2)); // 97
+    // console.log(Number.prototype.toString.call(97, 16)); // 20bb7
+    // console.log("\u{61}"); // a
+
+    var s = "𠮷a";
+
+    // for (let i of s) {
+    //   console.log(i); // 可以迭代
+    // }
+
+    function is32bit(code) {
+      // 如果为真，就说明他大于ffff
+      return code.codePointAt(0) > 0xffff;
+    }
+    console.log(is32bit("𠮷")); // true
+
+
+  </script>
+</body>
+
+</html>
