@@ -8,9 +8,14 @@
 </head>
 
 <body>
-  <div class="box" id="box">123</div>
-  <div class="box" id="box">234</div>
-  <div class="box" id="box">345</div>
+  <ul>
+    <li>
+      <!-- 注释节点 -->
+      <a href="">超链接</a>
+      <p>段落</p>
+      <h1>标题</h1>
+    </li>
+  </ul>
   <script>
     // // IE 8 以下box不分大小写
     // var box = document.getElementsByTagName('div');
@@ -52,10 +57,27 @@
     // div[0].remove();
     // console.log(divs);
 
-    var dis = document.querySelectorAll('div');
-    console.log(divs);
-    div[0].remove();
-    console.log(divs);
+    // var dis = document.querySelectorAll('div');
+    // console.log(dis); // NodeList(3) [div, div, div]
+    // dis[0].remove();
+    // console.log(dis); // NodeList(3) [div, div, div]
+
+    // var a = document.getElementsByTagName('a')[0];
+
+    // console.log(a); 
+
+    // var li = document.getElementsByTagName('li')[0];
+    // console.log(li.childNodes);
+
+    // // 上一个兄弟节点
+    // console.log(p.previousSibling);
+    // // 下一个兄弟节点
+    // console.log(p.nextSibling);
+
+    var p = document.getElementsByTagName('p')[0];
+    // 选择子元素
+    // console.log(li.children);
+
 
   </script>
 </body>
