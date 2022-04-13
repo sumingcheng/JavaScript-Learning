@@ -34,18 +34,55 @@
     // console.log(Number.prototype.toString.call(97, 16)); // 20bb7
     // console.log("\u{61}"); // a
 
-    var s = "𠮷a";
+    // var s = "𠮷a";
 
-    // for (let i of s) {
-    //   console.log(i); // 可以迭代
+    // // for (let i of s) {
+    // //   console.log(i); // 可以迭代
+    // // }
+
+    // function is32bit(code) {
+    //   // 如果为真，就说明他大于ffff
+    //   return code.codePointAt(0) > 0xffff;
+    // }
+    // console.log(is32bit("𠮷")); // true
+
+
+    // console.log(String.prototype);
+
+
+    // ES5
+    // console.log(String.fromCharCode(0x20bb7));
+    // // ES6
+    // console.log(String.fromCodePoint(0x20bb7));
+
+    // for (let code of "𠮷𠮷𠮷") {
+    //   console.log(code); // 𠮷𠮷𠮷
+    // }
+    // let str = "𠮷𠮷𠮷";
+    // for (let i = 0; i < str.length; i++) {
+    //   console.log(str[i]); // 乱码
     // }
 
-    function is32bit(code) {
-      // 如果为真，就说明他大于ffff
-      return code.codePointAt(0) > 0xffff;
-    }
-    console.log(is32bit("𠮷")); // true
 
+    // let s = 'main.js!';
+    // // 是否以main开始
+    // console.log(s.startsWith('main'));  // true
+    // // 是否以！结尾
+    // console.log(s.endsWith('!'));  // true
+    // // 是否包含.
+    // console.log(s.includes('.'));  // true
+
+
+    // console.log('x'.repeat(3)); // xxx
+    // console.log('x'.repeat(2.9)); // xx
+    // console.log('x'.repeat(NaN)); // 
+    // console.log('x'.repeat(0)); // 
+    // console.log('x'.repeat("3")); // xxx
+
+    // 从前开始填充，填充五位
+    console.log("x".padStart(5, "*")); // ****x
+    // 从末尾开始填充
+    console.log("x".padEnd(5, "*")); // x****
 
   </script>
 </body>
