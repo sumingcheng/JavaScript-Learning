@@ -65,30 +65,7 @@
 
     // console.log(div.getAttribute('id'));
 
-    Function.prototype.new = function () {
-      // this指向调用new方法的构造函数对象
-      var fn = this;
-      // 为obj添加原型
-      var obj = Object.create(fn.prototype);
-      // 修改this指向，指向obj,传入arguments
-      // 执行一遍当前函数，才能在obj上面去赋值
-      var res = fn.apply(obj, arguments);
-      // 判断res是否继承与Object
-      return res instanceof Object ? res : obj;
-    };
 
-    function Person(name, age) {
-      this.name = name;
-      this.age = 18;
-    }
-
-    Person.prototype.say = function () {
-      console.log("hello");
-    }
-
-    var p = Person.new("zhangsan", 18);
-    console.log(p);
-    p.say();
   </script>
 </body>
 

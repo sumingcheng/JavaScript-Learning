@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    Function.prototype.new = function () {
+      // this指向调用new方法的构造函数对象
+      var fn = this;
+      // 为obj添加原型
+      var obj = Object.create(fn.prototype);
+      // 修改this指向，指向obj,传入arguments
+      // 构造函数，执行把传入的参数赋值到obj上，成为obj的属性
+      var res = fn.apply(obj, arguments);
+      // 判断res是否继承与Object
+      return res instanceof Object ? res : obj;
+    };
+
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    Person.prototype.say = function () {
+      console.log("hello");
+    }
+
+    var p = Person.new("zhangsan", 18);
+    console.log(p);
+    p.say();
+  </script>
+</body>
+
+</html>
