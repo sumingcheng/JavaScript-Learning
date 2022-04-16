@@ -8,13 +8,82 @@
 </head>
 
 <body>
+  <div>
+    <p>段落</p>
+  </div>
   <script>
-    // window.pageXOffset
-    // window.pageYOffset
+    // var div = document.getElementsByTagName('div')[0];
+    // console.log(div.nodeName);
+    // console.log(document.nodeName);
 
-    // 横轴
-    document.body.scrollLeft
-    document.body.scrollTop
+    // var str = 'Str';
+    // console.log(str.toUpperCase()); // STR
+    // console.log(str.toLowerCase()); // str
+
+    // 通过名字
+    // console.log(div.getAttributeNode('id').nodeValue); // box
+
+    // // 传入父级dom节点
+    // function elemChildren(node) {
+    //   var arr = [],
+    //     // 缓存所有的子节点
+    //     children = node.childNodes;
+    //     // 有多少个子节点判断多少次
+    //   for (var i = 0; i < children.length; i++) {
+    //     // 保存每个子节点
+    //     var childItem = children[i];
+    //     // 判断子节点的类型
+    //     if (childItem.nodeType === 1) {
+    //       // 如果该类型是元素节点
+    //       arr.push(childItem);
+    //     }
+    //   }
+    //   return arr;
+    // }
+
+    // console.log(elemChildren(div)); // [h1, a, p]
+
+    // function elemChildren(node) {
+    //   var temp = {
+    //     length: 0,
+    //     push: Array.prototype.push,
+    //     splice: Array.prototype.splice
+    //   }
+    //   var len = node.childNodes.length;
+    //   for (var i = 0; i < len; i++) {
+    //     var childItem = node.childNodes[i];
+    //     if (childItem.nodeType === 1) {
+    //       // temp[temp['length']] = childItem;
+    //       // temp['length']++;
+    //       // 也可以使用push
+    //       temp.push(childItem);
+    //     }
+    //   }
+    //   return temp;
+    // }
+    // console.log(elemChildren(div));
+
+    // console.log(div.getAttribute('id'));
+
+    // function Person() {
+    //   this.name = 'zhangsan'
+    // }
+
+    // Person.prototype = {
+    //   age: 18
+    // }
+
+    // var p = new Person();
+    // console.log();
+
+    // var document = new Document();
+
+    // var div = document.getElementsByTagName('div')[0];
+
+    // console.log(Object.prototype.toString.call(div)); //[object HTMLDivElement]
+
+
+    
   </script>
 </body>
 
