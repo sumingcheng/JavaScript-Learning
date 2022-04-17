@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style type="text/css">
+
+</style>
+
+<!-- <body>
+  <div class="grandPa">
+    <div class="parent">
+      <dic class="son"></dic>
+    </div>
+  </div> -->
+
+<script>
+  // // 查看滚动条距离
+  // // 常规
+  // window.pageXOffset
+  // window.pageYOffset
+  // // IE9及IE8以下
+  // document.body.scrollLeft
+  // document.body.scrollTop
+  // document.documentElement.scrollLeft
+  // document.documentElement.scrollTop
+  // // 不常见
+  // window.scrollY
+  // window.scrollX
+
+  // var div = document.getElementsByTagName('btn')[0];
+
+  // div.onclick = function () {
+  //   window.scrollTo(0, 400);
+  // }
+
+  // function getScrollOffset() {
+  //   // IE9以上
+  //   if (window.pageXOffset) {
+  //     return {
+  //       left: window.pageXOffset,
+  //       top: window.pageYOffset
+  //     }
+  //   } else {
+  //     // IE9及以下
+  //     return {
+  //       letf: document.body.scrollLeft + document.documentElement.scrollLeft,
+  //       top: document.body.scrollTop + document.documentElement.scrollTop,
+  //     }
+  //   }
+  // }
+  // 查看兼容模式
+  // document.compatMode
+
+  // // 常规的写法
+  // window.innerHeight
+  // window.innerHeight
+  // // IE9/IE8以下 标准模式
+  // document.documentElement.clientHeight
+  // document.documentElement.clientWidth
+  // // IE9/IE8以下 怪异模式
+  // document.body.clientHeight
+  // document.body.clientWidth
+
+
+  // function getViewPortSize() {
+  //   // 常用的模式
+  //   if (window.innerHeight) {
+  //     return {
+  //       width: window.innerWidth,
+  //       height: window.innerHeight
+  //     }
+  //   } else {
+  //     // 怪异模式
+  //     if (document.compatMode === 'BackComapt') {
+  //       return {
+  //         width: document.body.clientWidth,
+  //         height: document.body.clientHeight,
+  //       }
+  //     } else {
+  //       return {
+  //         width: document.documentElement.clientWidth,
+  //         height: document.documentElement.clientHeight
+  //       }
+  //     }
+  //   }
+  // }
+
+  // 整个html文档的宽度，不包含滚动条
+  // document.body.scrollHeight
+  // document.body.scrollWidth
+  // // IE678
+  // document.documentElement.scrollHeight
+  // document.documentElement.scrollWidth
+
+  // function getScrollSize() {
+  //   if (document.body.scrollHeight) {
+  //     return {
+  //       width: document.body.scrollWidth,
+  //       height: document.body.scrollHeight
+  //     }
+  //   } else {
+  //     return {
+  //       width: document.documentElement.scrollWidth,
+  //       height: document.documentElement.scrollHeight
+  //     }
+  //   }
+  // }
+
+  // // offset 如果父级没定位，会继续向上找父级。如果都没有直接找到body
+  // console.log(son.offsetTop);
+  // console.log(son.offsetHeight);
+  // console.log(son.offsetParent);
+
+  // var son = document.getElementsByClassName('son')[0];
+
+  // function getEleDocPostion(el) {
+  //   var parent = el.offsetParent,
+  //     offsetLeft = el.offsetLeft,
+  //     offsetTop = el.offsetTop;
+
+  //   while (parent) {
+  //     offsetLeft += parent.offsetLeft;
+  //     offsetTop += parent.offsetTop;
+  //     parent = parent.offsetParent
+  //   }
+  //   return {
+  //     left: offsetLeft,
+  //     top: offsetTop
+  //   }
+  // }
+
+  // console.log(getEleDocPostion(son));
+
+  // 滚动到X/Y轴的距离，默认返回undefined
+  window.scroll(x, y);
+  window.scrollTo(x, y);
+  // 每次执行都会滚动
+  window.scrollBy(x, y);
+</script>
+</body>
