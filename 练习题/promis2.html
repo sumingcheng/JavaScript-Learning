@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    let n = 0;
+    // async 如果里面没有await 就是一个普通函数
+    (async function a(num) {
+      console.log('1-', num); // 同步1 —— 1 0
+      // 先传参后加减
+      b(num++);
+      console.log('2-', num); // 同步5 —— 2 1
+    })(n);
+
+    async function b(num) {
+      console.log('3-', num); // 同步2 —— 3 0
+      // 先传参后加减
+      await c(num++);  // 相当于 Promise.resolve().then(res => console.log('4-',++num);)
+      console.log('4-', ++num); // 微任务1 —— 4 1
+    }
+
+    async function c(num) {
+      console.log('5-', num); // 同步3 —— 5 0
+      // 异步任务 注册
+      setTimeout(() => {
+        console.log('6-', num); // 异步任务 —— 6 1
+      })
+      console.log('7-', ++num); // 同步4 —— 7 1
+    }
+
+    new Promise((resolve) => {
+      console.log(('8-', n)); // 同步6 —— 8 0
+      resolve(n);
+    }).then(res => {
+      console.log('9-', n++); // 微任务2 —— 9 1
+    })
+
+    console.log('10-', n++ > n); // 同步7 —— 10 false
+    console.log('11-', n);   // 同步8 —— 11 1
+  </script>
+</body>
+
+</html>
