@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  .wrapper {
+    width: 300px;
+    height: 300px;
+    background-color: green;
+  }
+
+  .outer {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+  }
+
+  .inner {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+  }
+</style>
+
+<body>
+  <a href="">跳转</a>
+  <script>
+    var a = document.getElementsByTagName("a")[0];
+    a.onclick = function (e) {
+      e.preventDefault();
+    }
+
+    // var wrapper = document.getElementsByClassName('wrapper')[0],
+    //   outer = wrapper.getElementsByClassName('outer')[0],
+    //   inner = outer.getElementsByClassName('inner')[0];
+
+    // wrapper.addEventListener('click', function () {
+    //   console.log('bubbleWrapper');
+    // }, false);
+
+    // outer.addEventListener('click', function () {
+    //   console.log('bubbleOuter');
+    // }, false);
+
+    // inner.addEventListener('click', function (e) {
+    //   // 兼容性写法
+    //   var e = e || window.event;
+    //   // 阻止事件冒泡
+    //   // e.stopPropagation()
+    //   e.cancelBubble = true;
+    //   console.log('bubbleInner');
+    // }, false);
+
+
+    // function cancelBubble(e) {
+    //   var e = e || window.event;
+    //   if (e.stopPropagation()) {
+    //     e.stopPropagation();
+    //   } else {
+    //     e.cancelBubble = true;
+    //   }
+    // }
+
+    // document.oncontextmenu = function (e) {
+    //   var e = e || window.event;
+    //   // W3C推荐
+    //   e.preventDefault();
+    //   // IE9 以下
+    //   e.returnValue = false;
+    //   // 常用
+    //   return false;
+    // }
+
+
+  </script>
+  <script type="text/javascript">
+    // // 句柄绑定
+    // elem.onclick = function () { }
+    // // 第二次绑定会将第一次覆盖
+    // elem.onclick = function () { }
+
+    // // 第一个事件
+    // oDiv.addEventListener('click', function () {
+    //   console.log(1);
+    // }, false);
+    // // 第二个事件
+    // oDiv.addEventListener('click', function () {
+    //   console.log(2);
+    // }, false);
+
+    // 两次绑定使用的都是同一个引用，所以只执行一次
+    // oDiv.addEventListener('click', test, false);
+    // oDiv.addEventListener('click', test, false);
+
+    // function test() {
+    //   console.log(1);
+    // }
+
+
+    // oDiv.attachEvent('onclick', function () {
+    //   // this -> window
+    //   console.log(1);
+    // })
+
+    // var oLi = document.getElementsByTagName('li'),
+    //   len = oLi.length,
+    //   item;
+
+    // for (var i = 0; i < len; i++) {
+    //   (function (i) {
+    //     item = oLi[i];
+    //     item.addEventListener('click', function () {
+    //       console.log(i);
+    //     }, false);
+    //   })(i);
+    // }
+
+
+    // oBtn.onclick = function () {
+    //   console.log(this); // 自己
+    // }
+    // oBtn.addEventListener('click', function () {
+    //   console.log(this); // 自己
+    // }, false);
+
+    // oBtn.attachEvent('onclick', function () {
+    //   console.log(this); // window
+    // });
+
+    // 元素，事件类型，函数
+    // function addEvent(el, type, fn) {
+    //   if (el.addEventListener) {
+    //     el.addEventListener(type, fn, false)
+    //   } else if (el.attachEvent) {
+    //     el.attachEvent('on' + type, function () {
+    //       // fn指向el
+    //       fn.call(el);
+    //     });
+    //   } else {
+    //     el['on' + type] = fu;
+    //   }
+    // }
+
+    // addEvent(oBtn, 'click', function () {
+    //   console.log(1);
+    // })
+
+    // oBtn.onclick = null;
+    // oBtn.onclick = false;
+
+    // oBtn.addEventListener('click', test, false);
+    // // 移除的函数引用必须相同
+    // oBtn.removeEventListener('click', test, false);
+
+    // oBtn.detachEvent('onclick', test);
+
+    // 函数内删除
+    // oBtn.addEventListener('click', function () {
+    //   console.log(1);
+    //   this.removeEventListener('click', arguments.callee, false);
+    // }, false);
+
+
+    // var oBtn = document.getElementsByTagName('button')[0];
+  </script>
+</body>
+
+</html>
