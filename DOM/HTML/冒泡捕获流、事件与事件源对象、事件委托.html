@@ -6,38 +6,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<style>
-  .wrapper {
-    width: 300px;
-    height: 300px;
-    background-color: green;
-  }
-
-  .outer {
-    width: 200px;
-    height: 200px;
-    background-color: pink;
-  }
-
-  .inner {
-    width: 100px;
-    height: 100px;
-    background-color: orange;
-  }
-</style>
 
 <body>
-  <div class="wrapper">
-  </div>
+  <button>增加li</button>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+  </ul>
   <script>
-    var wrapper = document.getElementsByClassName('wrapper')[0];
+    var oList = document.getElementsByTagName('ul')[0],
+      oLi = oList.getElementsByTagName('li'),
+      oBtn = document.getElementsByTagName('button')[0],
+      len = oLi.length,
+      item;
 
-    // 浏览器会把事件对象包装成形参传递过来
-    wrapper.onclick = function (e) {
-      console.log(e);
+
+    oList.onclick = function (e) {
+      // 点击的参数
+      var e = e || window.event,
+        // 访问事件源
+        tar = e.target || e.srcElement;
+      var index = Array.prototype.indexOf.call(oLi, tar);
+      console.log(index);
     }
-
-
+    
   </script>
 </body>
 
