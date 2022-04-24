@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../utils.js"></script>
+</head>
+<style>
+  .box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+  }
+</style>
+
+<body>
+  <div class="box"></div>
+  <script>
+    var box = document.getElementsByClassName('box')[0];
+
+    // 元素拖拽函数封装
+    function elemDrag(elem) {
+      var x, y;
+      addEvent(elem, 'mousedown', function (e) {
+        var e = e || window.event;
+        x = pagePos(e).X - parseInt(getStyles(elem, 'left'));
+        y = pagePos(e).Y - parseInt(getStyles(elem, 'top'));
+        addEvent(document, 'mousemove', mouseMove);
+        addEvent(document, 'mouseup', mouseUp);
+        cancelBubble(e);
+        preventDefaultEvent(e);
+
+        function mouseMove(e) {
+          var e = e || window.event;
+          var page = pagePos(e);
+          elem.style.left = page.X - x + 'px';
+          elem.style.top = page.Y - y + 'px';
+        }
+
+        function mouseUp(e) {
+          var e = e || window.event;
+          removeEvent(document, 'mousemove', mouseMove);
+          removeEvent(document, 'mouseup', mouseUp);
+        }
+      })
+    }
+
+    elemDrag(box);
+
+    // box.onmousedown = function (e) {
+    //   var e = e || window.event;
+    //   // 点击的x/y - 盒子当前的x/y = 点击时当前元素距离鼠标的距离(就offset)
+    //   x = pagePos(e).X - parseInt(getStyles(box, 'left'));
+    //   y = pagePos(e).Y - parseInt(getStyles(box, 'top'));
+    //   document.onmousemove = function (e) {
+    //     var e = e || window.event,
+    //       page = pagePos(e);
+    //     // 点击的X/Y - offsetX/Y
+    //     box.style.left = page.X - x + 'px';
+    //     box.style.top = page.Y - y + 'px';
+    //   }
+
+    //   document.onmouseup = function (e) {
+    //     this.onmousemove = null;
+    //     // 鼠标移动过快，移动到以外的区域，也可以抬起
+    //     this.onmouseup = null;
+    //   }
+    // }
+
+
+    // document.onmousemove = function (e) {
+    //   var e = e || window.event,
+    //     page = pagePos(e);
+
+    //   box.style.left = page.X + 'px';
+    //   box.style.top = page.Y + 'px';
+    //   console.log(page);
+    // }
+
+
+
+    // function pagePos(e) {
+    //   var sLeft = getScrollOffset().left,
+    //     sTop = getScrollOffset().top,
+    //     cLeft = document.documentElement.clientLeft || 0,
+    //     cTop = document.documentElement.clientTop || 0;
+
+    //   return {
+    //     X: e.clientX + sLeft - cLeft,
+    //     Y: e.clientY + sTop - cTop
+    //   }
+    // }
+
+    // function getScrollOffset() {
+    //   if (window.pageXOffset) {
+    //     return {
+    //       left: window.pageXOffset,
+    //       top: window.pageYOffset
+    //     }
+    //   } else {
+    //     return {
+    //       left: document.body.scrollLeft + document.documentElement.scrollLeft,
+    //       top: document.body.scrollTop + document.documentElement.scrollTop
+    //     }
+    //   }
+    // }
+  </script>
+</body>
+
+</html>
