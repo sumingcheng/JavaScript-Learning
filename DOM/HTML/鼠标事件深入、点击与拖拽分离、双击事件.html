@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../utils.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    a {
+      /* 内联元素变块级元素 */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 协议限定符，防止href生效，跳转和刷新 -->
+  <a href="javascript:;"></a>
+  <!-- 模块函数 -->
+  <script>
+    Element.prototype.dragNclick = (function (elemClick) {
+      var bTime = 0, eTime = 0, oPos = [];
+      var _this = this;
+      drag.call(this);
+      function drag() {
+        var x, y;
+        addEvent(_this, 'mousedown', function (e) {
+          var e = e || window.event;
+          // 按下时间
+          bTime = new Date().getTime();
+          // 记录初始位置
+          oPos = [parseInt(getStyles(_this, 'left')), parseInt(getStyles(_this, 'top'))];
+          x = pagePos(e).X - parseInt(getStyles(_this, 'left'));
+          y = pagePos(e).Y - parseInt(getStyles(_this, 'top'));
+          addEvent(document, 'mousemove', mouseMove);
+          addEvent(document, 'mouseup', mouseUp);
+          cancelBubble(e);
+          preventDefaultEvent(e);
+
+          function mouseMove(e) {
+            var e = e || window.event;
+            var page = pagePos(e);
+            _this.style.left = page.X - x + 'px';
+            _this.style.top = page.Y - y + 'px';
+          }
+
+          function mouseUp(e) {
+            var e = e || window.event;
+            eTime = new Date().getTime();
+            // 判断点击
+            if (eTime - bTime < 100) {
+              // 跳转后归位
+              _this.style.left = oPos[0] + 'px';
+              _this.style.top = oPos[1] + 'px';
+              elemClick();
+            }
+            removeEvent(document, 'mousemove', mouseMove);
+            removeEvent(document, 'mouseup', mouseUp);
+          }
+        })
+      }
+    });
+
+  </script>
+  <!-- 传入 -->
+  <script>
+    var oLink = document.getElementsByTagName('a')[0];
+    oLink.dragNclick(function () {
+      window.open('http://www.baidu.com')
+    }); 
+  </script>
+
+</body>
+
+</html>

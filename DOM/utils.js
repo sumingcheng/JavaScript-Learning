@@ -1,3 +1,4 @@
+// 兼容性封装
 // 封装childNodes，获取元素的子元素节点方法
 function elemChildren(node) {
     var temp = {
@@ -180,7 +181,7 @@ function pagePos(e) {
     }
 }
 
-// 元素拖拽函数封装
+// 元素拖拽函数封装（无边界）
 function elemDrag(elem) {
     var x, y;
     addEvent(elem, 'mousedown', function(e) {
