@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    let user = {
+      name: "John",
+      sizes: {
+        height: 182,
+        width: 50,
+        user: {
+          list: "苹果"
+        }
+
+      }
+    };
+
+    // ES5
+    // function deepClone(origin, target) {
+    //   var tar = target || {};
+    //   // 判断是对象还是数组
+    //   var toStr = Object.prototype.toString;
+    //   var arrType = '[object Array]';
+    //   // 遍历这个对象，判断每个K
+    //   for (var k in origin) {
+    //     // 如果是自己的属性，才继续进行，原型上的排除掉
+    //     if (origin.hasOwnProperty(k)) {
+    //       // 判断是否是对象
+    //       if (typeof origin[k] === 'object' && origin[k] !== null) {
+    //         // 判断迭代到的值的类型，对象就赋值对象，数组就赋值数组
+    //         tar[k] = toStr.call(origin[k]) === arrType ? [] : {};
+    //         // 继续递归，直到不是引用值
+    //         deepClone(origin[k], tar[k]);
+    //       } else {
+    //         // 不是对象就直接赋值
+    //         tar[k] = origin[k];
+    //       }
+    //     }
+    //   }
+    //   return tar;
+    // }
+
+    // const newObj = deepClone(user, {});
+    // console.log(newObj);
+
+    // // WeakMap 
+    // const oBtn1 = document.querySelector('#btn1');
+    // const oBtn = new WeakMap();
+
+    // oBtn.set(oBtn1, handleBtnClick)
+    // oBtn1.addEventListener('click', oBtn.get(oBtn1), false);
+    // function handleBtnClick() { };
+    // // 当你删除了键名，键值也会被垃圾回收掉
+    // oBtn1.remove();
+
+    function deepClone(origin, hashMap = new WeakMap()) {
+      // 判断几种不是对象的情况
+      if (origin == undefined || typeof origin !== 'object') {
+        return origin;
+      }
+      if (origin instanceof Date) {
+        return new Date(origin);
+      }
+      if (origin instanceof RegExp) {
+        return RegExp(origin);
+      }
+      // 取键名
+      const hashKey = hashMap.get(origin);
+      // 判断键名是否存在，如果存在就不进行克隆了，直接返回
+      if (hashKey) {
+        return hashKey
+      }
+
+      const target = new origin.constructor();
+      // 处理对象和数组
+      hashMap.set(origin, target);
+
+      for (let k in origin) {
+        if (origin.hasOwnProperty(k)) {
+          // 通过构造器去new
+          target[k] = deepClone(origin[k], hashMap);
+        }
+      }
+      return target;
+    }
+
+    let test1 = {}
+    let test2 = {}
+    // 相互引用
+    test2.test1 = test1;
+    test1.test2 = test2;
+    const newObj = deepClone(test2);
+    console.log(newObj);
+
+
+  </script>
+</body>
+
+</html>
