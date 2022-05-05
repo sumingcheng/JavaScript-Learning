@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    // var target = {
+    //   a: 1,
+    //   b: 2
+    // }
+    // let proxy = new Proxy(target, {
+    //   // 参数1：这个对象，参数2：这个对象里的属性
+    //   get(target, prop) {
+    //     console.log("this is property value" + target[prop]);
+    //   },
+    //   // 参数1：这个对象，参数2：这个对象里的属性，参数3：设置的值
+    //   set(target, prop, value) {
+    //     target[prop] = value
+    //     console.log(target[prop]);
+    //   },
+    // });
+    // // console.log(proxy.a);
+    // // console.log(target.a);
+    // proxy.a = 3
+    // console.log(proxy.a);
+
+    // let arr = [
+    //   { name: "11", age: 11 },
+    //   { name: "22", age: 22 },
+    //   { name: "33", age: 33 },
+    //   { name: "44", age: 44 },
+    //   { name: "55", age: 55 },
+    //   { name: "66", age: 66 },
+    // ];
+
+    // let persons = new Proxy(arr, {
+    //   get(arr, prop) {
+    //     return arr[prop];
+    //   },
+    //   set(arr, prop, value) {
+    //     arr[prop] = value
+    //   }
+    // });
+
+
+    // console.log(persons[1] = { name: '小张' });
+    // console.log(persons[1]);
+
+    // let fn = function () {
+    //   console.log("fn");
+    // }
+
+    // fn.a = 123;
+    // let newFn = new Proxy(fn, {
+    //   get(fn, prop) {
+    //     return fn[prop] + '返回的fn';
+    //   }
+    // })
+
+    // console.log(newFn.a);  //123返回的fn
+
+
+    // // [[GetPrototypeOf]]
+    // var proto = Object.getPrototypeOf(obj);
+    // console.log(proto);
+    // console.log(obj.__proto__);
+    // console.log(Object.prototype);
+    // var obj = { a: 1, b: 2 };
+
+    // // [[SetPrototypeOf]]
+    // Object.setPrototypeOf(obj, { c: 3, d: 4 });
+    // obj.__proto__ = { c: 3, d: 4 }
+    // console.log(obj);
+
+
+    // var obj = { a: 1, b: 2 };
+    // // [[isExtensible]]
+
+    // var extensible = Object.isExtensible(obj);
+    // console.log(extensible); //true
+    // Object.freeze(obj);
+    // var extensible2 = Object.isExtensible(obj);
+    // console.log(extensible2); //false
+    // // 封闭对象,不可修改
+    // Object.seal(obj);
+    // obj.c = 3;
+    // console.log(obj);
+
+
+
+    // var obj = { a: 1, b: 2 };
+
+    // // [[GetOwnProperty]]
+    // Object.setPrototypeOf(obj, { c: 3, d: 4 });
+    // console.log(Object.getOwnPropertyNames(obj));
+
+
+    // var obj = { a: 1, b: 2 };
+
+    // // [[PreventExtensions]]
+    // Object.preventExtensions(obj)
+    // obj.c = 3;
+
+    // console.log(obj);
+
+    // var obj = { a: 1, b: 2 };
+
+    // // [[DefineOwnProperty]]
+    // Object.defineProperty()
+    // var obj = { a: 1, b: 2 };
+    // // [[HasProperty]]
+    // console.log(obj.hasOwnProperty('a'));
+
+
+    // var obj = { a: 1, b: 2 };
+
+    // delete obj.a;
+    // console.log(obj);
+
+    // console.log('a' in obj);
+    // console.log(obj.a);
+
+    // var obj = { a: 1, b: 2 };
+
+    // for (var k in obj) {
+    //   console.log(obj[k]);
+    // }
+
+    // var obj = { a: 1, b: 2 };
+
+    // // [[OwnPropertyKeys]]
+    // console.log(Object.keys(obj));
+
+
+    // var obj = { a: 1, b: 2 };
+
+    // function Test() { }
+    // var test = new test();
+
+
+    // function MyProxy(target, handler) {
+    //   let _target = deepClone(target);
+
+    //   Object.keys(_target).forEach((key) => {
+    //     Object.defineProperty(_target, key, {
+    //       get() {
+    //         return handler.get && handler.get(target, key);
+    //       },
+    //       set(newVal) {
+    //         handler.set && handler.set(target, key, newVal);
+    //       }
+    //     });
+    //   });
+    //   return _target;
+    //   // 深拷贝传入的对象
+    //   function deepClone(org, tar) {
+    //     var tar = tar || {},
+    //       toStr = Object.prototype.toString,
+    //       arrType = '[object Array]';
+
+    //     for (var key in org) {
+    //       if (org.hasOwnProperty(key)) {
+    //         if (typeof (org[key]) === 'object' && org[key] !== null) {
+    //           // if (toStr.call(org[key] === arrType)) {
+    //           //   tar[k] = [];
+    //           // } else {
+    //           //   tar[key] = {};
+    //           // }
+    //           tar[key] = toStr.call(org[key] === arrType ? [] : {})
+    //           deepClone(org[key], tar[key]);
+    //         } else {
+    //           tar[key] = org[key];
+    //         }
+    //       }
+    //     }
+    //     return tar
+    //   }
+
+    // }
+
+    // let target = {
+    //   a: 1,
+    //   b: 2
+    // }
+
+    // let proxy = new MyProxy(target, {
+    //   get(target, prop) {
+    //     return target[prop];
+    //   },
+    //   set(target, prop, value) {
+    //     target[prop] = value;
+    //   }
+    // });
+
+    // console.log(proxy.a);
+    // proxy.b = 4;
+    // console.log(proxy.b);
+
+    let target = {
+      a: 1,
+      b: 2
+    }
+
+    let proxy = new Proxy(target, {
+      get(target, prop) {
+        // 用方法去返回值
+        return Reflect.get(target, prop);
+      },
+      set(target, prop, value) {
+        // target[prop] = value 使用这种方式就做不到
+        const isOK = Reflect.set(target, prop, value);
+
+        if (isOK) {
+          console.log('SET SUCCESSFULLY');
+        }
+      }
+    })
+
+    // 一个简单的取值方法，我们希望是函数式的
+    console.log(proxy.a);
+    proxy.b = 4;
+    console.log(proxy.b);
+
+
+    Reflect.has(obj,'a'); 
+
+  </script>
+</body>
+
+</html>

@@ -59,6 +59,7 @@
     // // 当你删除了键名，键值也会被垃圾回收掉
     // oBtn1.remove();
 
+    // 防止内存泄露，使用weakmap
     function deepClone(origin, hashMap = new WeakMap()) {
       // 判断几种不是对象的情况
       if (origin == undefined || typeof origin !== 'object') {
@@ -72,13 +73,13 @@
       }
       // 取键名
       const hashKey = hashMap.get(origin);
-      // 判断键名是否存在，如果存在就不进行克隆了，直接返回
+      // 判断键名是否存在，如果存在就直接返回
       if (hashKey) {
         return hashKey
       }
 
       const target = new origin.constructor();
-      // 处理对象和数组
+      // 每次拷贝的时候，都要去保存一下键名
       hashMap.set(origin, target);
 
       for (let k in origin) {

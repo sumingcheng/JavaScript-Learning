@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <p>0</p>
+  <script>
+
+    // function defineProperty() {
+    //   var _obj = {}
+    //   // // 单个属性
+    //   // Object.defineProperty(_obj, 'a', {
+    //   //   value: 1
+    //   // });
+    //   // 定义多个属性
+    //   Object.defineProperties(_obj, {
+    //     a: {
+    //       value: 1,
+    //       // 可写
+    //       writable: true,
+    //       // 可枚举
+    //       enumerable: true,
+    //       // 可配置
+    //       configurable: true
+    //     },
+    //     b: {
+    //       value: 2
+    //     }
+    //   }
+    //   )
+    //   return _obj;
+    // }
+
+    // var obj = defineProperty();
+
+    // // 不可修改
+    // obj.a = 5;
+    // // 不可枚举
+    // for (var k in obj) {
+    //   console.log(k);
+    // }
+    // // 不可删除
+    // delete obj;
+    // console.log(obj);
+
+
+
+    // function defineProperty() {
+    //   var _obj = {}
+    //   var a = 1;
+    //   Object.defineProperties(_obj, {
+    //     a: {
+    //       // 访问
+    //       get() {
+    //         return "33"
+    //       },
+    //       // 设置
+    //       set(newVal) {
+    //         a = newVal;
+    //         var oP = document.getElementsByTagName('p')[0];
+    //         oP.innerHTML = a;
+    //       }
+    //     },
+    //     b: {
+    //     }
+    //   }
+    //   )
+    //   return _obj;
+    // }
+
+    // var obj = defineProperty();
+    // obj.a = 2;
+    // console.log(obj.a);
+
+
+    function DataArr() {
+      var _val = null,
+        _arr = [];
+
+      Object.defineProperty(this, "val", {
+        // 属性描述
+        get: function () {
+          return _val;
+        },
+        set: function (newVal) {
+          _val = newVal;
+          _arr.push({ val: _val });
+          console.log("执行一次");
+        }
+      })
+
+      this.getArr = function () {
+        return _arr;
+      }
+    }
+
+    var dataArr = new DataArr();
+
+    dataArr.val = 123;
+    dataArr.val = 234;
+
+    console.log(dataArr.getArr());
+  </script>
+</body>
+
+</html>
