@@ -109,13 +109,13 @@ function getEleDocPostion(el) {
 function getStyles(elem, prop) {
     if (window.getComputedStyle) {
         if (prop) {
-            return window.getComputedStyle(elem, null)[prop];
+            return parseInt(window.getComputedStyle(elem, null)[prop]);
         } else {
             return window.getComputedStyle(elem, null);
         }
     } else {
         if (prop) {
-            return elem.currentStyle[prop];
+            return parseInt(elem.currentStyle[prop]);
         } else {
             return elem.currentStyle;
         }
