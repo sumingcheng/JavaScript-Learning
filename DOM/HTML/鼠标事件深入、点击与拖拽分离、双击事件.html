@@ -43,6 +43,7 @@
     Element.prototype.dragNclick = (function (elemClick, menu) {
       var _this = this;
       var bTime = 0, eTime = 0, oPos = [],
+        cbTime = 0, ceTime = 0, counter = 0, t = null,
         wWidth = getViewPortSize().width,
         wHeight = getViewPortSize().height,
         eleWidth = getStyles(_this, "width"),
@@ -50,29 +51,46 @@
         mWidth = getStyles(menu, 'width'),
         mheight = getStyles(menu, 'height');
 
+      console.log(wWidth, wHeight, eleWidth, eleHeigth, mWidth, mheight);
       function drag() {
-        var x, y;
+        var x, y,
+          _self = this;
         addEvent(_this, 'mousedown', function (e) {
           var e = e || window.event,
             btnCode = e.button;
           // 右键
           if (btnCode === 2) {
-            var mLeft = pagePos(e).X + 'px'
-            var mTop = pagePos(e).Y + 'px'
+            var mLeft = pagePos(e).X + 'px';
+            var mTop = pagePos(e).Y + 'px';
+
             if (mLeft <= 0) {
               mLeft = 0;
-            } else if (mLeft >= wWidth - mWidth)
-              menu.style.dispaly = 'block'
+            } else if (mLeft >= wWidth - mWidth) {
+              mLeft = poagePost(e).Y - mHeight;
+            }
+            if (mTop <= 0) {
+              mTop = 0;
+            } else if (mTop >= wHeight - mHeight) {
+              mTop = pagePos(e).Y - mHeight;
+            }
+
+            menu.style.left = mLeft + 'px'
+            menu.style.top = mTop + 'px'
+            menu.style.dispaly = 'block'
+
           } else if (btnCode === 0) {
             // 按下时间
             bTime = new Date().getTime();
             // 记录初始位置
-            oPos = [parseInt(getStyles(_this, 'left')), parseInt(getStyles(_this, 'top'))];
+            oPos = [getStyles(_this, 'left'), getStyles(_this, 'top')];
             menu.style.dispaly = "none";
-            x = pagePos(e).X - parseInt(getStyles(_this, 'left'));
-            y = pagePos(e).Y - parseInt(getStyles(_this, 'top'));
+
+            x = pagePos(e).X - getStyles(_this, 'left');
+            y = pagePos(e).Y - getStyles(_this, 'top');
+
             addEvent(document, 'mousemove', mouseMove);
             addEvent(document, 'mouseup', mouseUp);
+
             cancelBubble(e);
             preventDefaultEvent(e);
           }
@@ -108,8 +126,8 @@
             // -1 防止滚动条的出现
             eleTop = wHeight - eleHeigth - 1;
           }
-          _this.style.left = eleLeft + 'px';
-          _this.style.top = eleTop + 'px';
+          _self.style.left = eleLeft + 'px';
+          _self.style.top = eleTop + 'px';
         }
 
         function mouseUp(e) {
@@ -120,26 +138,39 @@
             // 跳转后归位
             _this.style.left = oPos[0] + 'px';
             _this.style.top = oPos[1] + 'px';
-            elemClick();
+            counter++;
+
+            if (counter === 1) {
+              cbTime = new Date().getTime();
+            }
+            if (counter === 2) {
+              ceTime = new Date().getTime();
+            }
+            // 点击两次
+            if (cbTime && ceTime && (ceTime - ceTime < 200)) {
+              elemClick();
+            }
+            // 点击了一次没有点击第二次，0.5s后就清空
+            t = setTimeout(function () {
+              cbTime = 0;
+              ceTime = 0;
+              counter = 0;
+              clearTimeout(t);
+            }, 500)
           }
           removeEvent(document, 'mousemove', mouseMove);
           removeEvent(document, 'mouseup', mouseUp);
         }
-
       }
     });
 
-  </script>
-  <!-- 传入 -->
-  <script>
     var oLink = document.getElementsByTagName('a')[0];
     var oMenu = document.getElementsByTagName('div')[0];
     oLink.dragNclick(function () {
-      // window.open('http://www.baidu.com')
+      window.open('http://www.baidu.com');
     }, oMenu);
-
-
   </script>
+
 
 </body>
 

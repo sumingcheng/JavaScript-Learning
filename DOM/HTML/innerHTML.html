@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>这是标题</h1>
+    <p class="content">
+      <style>
+        .content {
+          color: orange;
+        }
+      </style>
+      文章内容
+      <br>
+      文章内容
+      <br>
+      文章内容
+      <br>
+      <span style="display: none;">隐藏内容</span>
+    </p>
+  </div>
+
+  <textarea id="oInnerText"></textarea>
+  <textarea id="oTextContent"></textarea>
+
+  <script>
+    var oWrapper = document.getElementsByClassName('wrapper')[0];
+    var oInnerText = document.getElementById('oInnerText');
+    var oTextContent = document.getElementById('oTextContent');
+
+    // innerHTML 会剔除非标签内容
+    oInnerText.innerHTML = oWrapper.innerText;
+    // textContent 会展示非标签内容
+    oTextContent.innerHTML = oWrapper.textContent;
+
+    var oDiv = document.createElement('div');
+    oDiv.innerHTML = `<h1>DOM</h1>`
+    document.body.appendChild(oDiv);
+  </script>
+</body>
+
+</html>
