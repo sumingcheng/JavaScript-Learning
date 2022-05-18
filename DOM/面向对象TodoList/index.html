@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="./common.css">
+  <link rel="stylesheet" href="./index.css">
+  <script src="../utils.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+</head>
+
+<body>
+  <div class="todo-wrap" data-config='{
+    "plusBtn" : "j-plus-btn",
+    "inputArea" : "input-wrap",
+    "addBtn" : "j-add-item",
+    "list" : "ltem-list",
+    "itemClass" : "item"
+  }'>
+    <div class="list-hd">
+      <h2>TodoList</h2>
+      <a href="javascript:;" class="j-plus-btn fa fa-plus"></a>
+    </div>
+    <div class="input-wrap">
+      <div class="input-bd">
+        <input type="text" id="textInput">
+      </div>
+      <div class="btn-bd">
+        <button class="j-add-item">增加项目</button>
+      </div>
+    </div>
+    <div class="list-wrap">
+      <ul class="list"></ul>
+    </div>
+  </div>
+</body>
+
+</html>

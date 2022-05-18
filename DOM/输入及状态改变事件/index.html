@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <input type="text" name="" id="content" value="请输入关键字" onfocus="if(this.value=='请输入关键字'){
+      this.value = '';
+      this.className = 'input-class';
+    }" onblur="if(this.value==''){
+      this.value='请输入关键字';
+      this.className = 'input-txt';
+    }">
+  <script>
+    var content = document.getElementById('content'),
+      div = document.getElementsByTagName('div')[0];
+
+    // // IE11 以上包括11
+    // content.oninput = function () {
+    //   console.log(this.value);
+    // }
+    // // IE 11 以下
+    // content.onpropertychange = function () {
+    //   console.log(this.value);
+    // }
+
+    // content.onchange = function () {
+    //   console.log(this.value);
+    // }
+
+
+    content.onfocus = function () {
+      console.log(this.value);
+    }
+
+    content.onblur = function () {
+      console.log('失去焦点');
+    }
+
+      // 没有变量接收
+      ; (function () {
+        var Test = function () {
+          window.Test = Test;
+        }
+      })
+    // 有变量接收
+    var test = (function () {
+      var Test = function () {
+        return 1;
+      }
+    })
+  </script>
+</body>
+
+</html>
