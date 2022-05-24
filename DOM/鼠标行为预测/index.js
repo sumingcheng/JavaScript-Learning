@@ -112,6 +112,7 @@ var initMenu = (function() {
     }
 
     function doTimeout(lastPos, curPos) {
+        console.log(getStyles(oMenu, 'width'));
         var topleft = {
             x: getStyles(oMenu, 'width') + getStyles(oMenu, 'margin-left'),
             y: getStyles(oMenu, 'margin-top')
@@ -123,4 +124,5 @@ var initMenu = (function() {
 
         return pointInTriangle(curPos, lastPos, topleft, bottomLeft);
     }
+
 })
