@@ -1,0 +1,71 @@
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.menu-wrap {
+    position: relative;
+    width: 200px;
+    height: 440px;
+    background-color: #424242;
+    margin: 50px;
+}
+
+.menu-wrap .main {
+    height: 100%;
+}
+
+.menu-wrap .main .main-item {
+    height: 44px;
+}
+
+.menu-wrap .main .main-item a {
+    display: block;
+    height: 100%;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+}
+
+.menu-wrap .main .main-item.active a {
+    background-color: #666;
+    color: orange;
+}
+
+.menu-wrap .sub {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    width: 440px;
+    height: 440px;
+    background-color: #eee;
+}
+
+.menu-wrap .sub.hide {
+    display: none;
+}
+
+.menu-wrap .sub .sub-list {
+    position: relative;
+}
+
+.menu-wrap .sub .sub-item {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 440px;
+    font-size: 50px;
+}
+
+.menu-wrap .sub .sub-item.active {
+    display: block;
+}
