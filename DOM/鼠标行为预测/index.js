@@ -64,7 +64,8 @@ var initMenu = (function() {
             lastPos = mousePoses[mousePoses.length - 2] || { x: 0, y: 0 },
             curPos = mousePoses[mousePoses.length - 1] || { x: 0, y: 0 },
             toDelay = doTimeout(lastPos, curPos),
-            // 下标
+            // Array.prototype.indexOf.call(列表集合，当前列表项)
+            // 找当前项在列表里的下标
             thisIdex = Array.prototype.indexOf.call(oMenuItems, tar);
 
         oSub.className = "sub";
@@ -112,6 +113,7 @@ var initMenu = (function() {
     }
 
     function doTimeout(lastPos, curPos) {
+        console.log(getStyles(oMenu, 'width'));
         var topleft = {
             x: getStyles(oMenu, 'width') + getStyles(oMenu, 'margin-left'),
             y: getStyles(oMenu, 'margin-top')
@@ -123,4 +125,5 @@ var initMenu = (function() {
 
         return pointInTriangle(curPos, lastPos, topleft, bottomLeft);
     }
+
 })
