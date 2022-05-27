@@ -1,0 +1,28 @@
+.img-wrap {
+    position: relative;
+    width: 375px;
+    height: 500px;
+    margin: 100px auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px #999;
+}
+
+.img-wrap .mag-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    box-shadow: 0 0 3px #ccc;
+    overflow: hidden;
+}
+
+.img-warp .mag-wrap .mag-img {
+    width: 375px;
+    height: 500px;
+}
+
+.img-wrap .static-img {
+    height: 100%;
+}
