@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <script src="../utils.js"></script>
+  <script src="./index.js"></script>
+</head>
+<style>
+  .div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+  }
+</style>
+
+<body>
+  <div class="div"></div>
+
+  <script>
+    var box = document.getElementsByClassName('div')[0];
+
+    document.onkeydown = function (e) {
+      var e = e || window.event,
+        code = e.keyCode,
+        bLeft = getStyles(box, 'left'),
+        bTop = getStyles(box, 'top');
+
+      switch (code) {
+        case 37:
+          box.style.left = bLeft - 10 + 'px';
+          break;
+        case 39:
+          box.style.left = bLeft + 10 + 'px';
+          break;
+        case 38:
+          box.style.top = bTop - 10 + 'px';
+          break;
+        case 40:
+          box.style.top = bTop + 10 + 'px';
+          break;
+
+        default:
+          break;
+      }
+    }
+  </script>
+</body>
+
+
+</html>
