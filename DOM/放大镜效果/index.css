@@ -7,7 +7,8 @@
     box-shadow: 0 0 5px #999;
 }
 
-.img-wrap .mag-img {
+.img-wrap .mag-wrap {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -16,9 +17,19 @@
     background-color: #fff;
     box-shadow: 0 0 3px #ccc;
     overflow: hidden;
+    border-radius:50%;
+    cursor: pointer;
 }
 
-.img-warp .mag-wrap .mag-img {
+.img-wrap .mag-wrap.show {
+    display: block;
+    transform: scale(1.5);
+}
+
+.img-wrap .mag-wrap .mag-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 375px;
     height: 500px;
 }
