@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    // Array.prototype.flat() ES2019
+
+    // flat 扁平化 多维数组
+
+    // const arr = [0, 1, [2, 3], 4, 5];
+    // // 返回一个新的数组，将二维数组拍平
+
+    // const newArr = arr.flat()
+    // console.log(newArr === arr);  // false
+
+    // const arr1 = [0, 1, [1, 2, [3, 4], 5], 6];
+    // // flat在默认情况下参数是1
+    // // 参数： 结构深度 默认为1, 向数组内部深一层，两层
+    // // flat默认情况下是浅扁平化
+
+    // const newArr1 = arr1.flat(2);
+
+    // console.log(newArr1);  // [0, 1, 1, 2, 3, 4, 5, 6]
+
+
+    // const newArr1 = arr1.flat(0); // 0
+    // const newArr1 = arr1.flat(false); // 0
+    // const newArr1 = arr1.flat(true); // 1 做处理
+
+    // const arr1 = [1, , , , 2, , , 3, , 4, [2, [3,], 2], 2, 32]
+
+    // const newArr1 = arr1.flat(Infinity); // 0
+
+    // console.log(newArr1);  // [1, 2, 3, 4, 2, 3, 2, 2, 32]
+
+
+    // function shallowFlat(arr) {
+    //   return arr.reduce(function (prev, current) {
+    //     return prev.concat(current);
+    //   }, []);
+    // }
+
+    // function shallowFlat(arr) {
+    //   return [].concat(...arr);
+    // }
+
+    // Array.prototype.deepFlat = function () {
+    //   var arr = this,
+    //     deep = arguments[0] !== Infinity ? arguments[0] >>> 0 : Infinity;
+
+    //   return deep > 0 ?
+    //     arr.reduce(function (prev, current) {
+    //       return prev.concat(
+    //         Array.isArray(current)
+    //           ? current.deepFlat(deep - 1)
+    //           : current
+    //           )
+    //     }, []) : arr;
+    // }
+
+    // Array.prototype.deepFlat = function () {
+    //   var arr = this,
+    //     deep = arguments[0] !== Infinity ? arguments[0] >>> 0 : Infinity,
+    //     res = [];
+
+    //   (function _(arr, deep) {
+    //     for (var item of arr) {
+    //       if (Array.isArray(item) && deep > 0) {
+    //         _(item, deep - 1);
+    //       } else {
+    //         // 判断empty
+    //         item !== void 0 && res.push(item);
+    //       }
+    //     }
+    //   })(arr, deep);
+
+    //   return res;
+    // }
+
+    Array.prototype.deepFlat = function () {
+      var arr = this,
+        stack = [...arr],
+        res = [];
+
+      while (stack.length) {
+        const popItem = stack.pop();
+
+        if (Array.isArray(popItem)) {
+          stack.push(...popItem);
+        } else {
+          res.push(popItem);
+        }
+      }
+
+      return res.reverse();
+    }
+
+
+    const arr1 = [1, , , , 2, , , 3, , 4, [2, [3,], 2], 2, 32]
+    console.log(arr1.deepFlat(Infinity));
+  </script>
+</body>
+
+</html>
