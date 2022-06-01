@@ -83,27 +83,63 @@
     //   return res;
     // }
 
-    Array.prototype.deepFlat = function () {
-      var arr = this,
-        stack = [...arr],
-        res = [];
+    // Array.prototype.deepFlat = function () {
+    //   var arr = this,
+    //     stack = [...arr],
+    //     res = [];
 
-      while (stack.length) {
-        const popItem = stack.pop();
+    //   while (stack.length) {
+    //     const popItem = stack.pop();
 
-        if (Array.isArray(popItem)) {
-          stack.push(...popItem);
+    //     if (Array.isArray(popItem)) {
+    //       stack.push(...popItem);
+    //     } else {
+    //       if (popItem != undefined) {
+    //         res.push(popItem);
+    //       }
+    //     }
+    //   }
+    //   return res.reverse();
+    // }
+
+    // const arr1 = [1, , , , 2, , , 3, , 4, [2, [3,], 2], 2, 32]
+    // console.log(arr1.deepFlat(Infinity));
+
+    // Array.prototype.deepFlat = function () {
+    //   var arr = this,
+    //     res = [];
+    //   (function _(arr) {
+    //     arr.forEach(function (item) {
+    //       if (Array.isArray(item)) {
+    //         _(item);
+    //       } else {
+    //         res.push(item);
+    //       }
+    //     });
+    //   })(arr);
+    //   return res;
+    // }
+
+
+    // const arr1 = [1, , , , 2, , , 3, , 4, [2, [3,], 2], 2, 32]
+    // console.log(arr1.deepFlat(Infinity));
+
+    // 生成器函数
+
+    function* deepFlat(arr) {
+      for (var item of arr) {
+        if (Array.isArray(item)) {
+          yield* deepFlat(item);
         } else {
-          res.push(popItem);
+          if (item != undefined) {
+            yield item;
+          }
         }
       }
-
-      return res.reverse();
     }
-
-
     const arr1 = [1, , , , 2, , , 3, , 4, [2, [3,], 2], 2, 32]
-    console.log(arr1.deepFlat(Infinity));
+
+    console.log([...(deepFlat(arr1))]);
   </script>
 </body>
 
