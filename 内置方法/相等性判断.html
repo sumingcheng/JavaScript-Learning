@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    // 严格相等 === Strict equality
+    // 非严格相等（抽象/非约束） == loose（自由的，不受限制的）Equality
+    // Object.is(v1, v2) ES6 新的API，判断两个参数是否是同一个值
+
+    // var obj = {};
+
+    // Object.defineProperty(obj, 'myZero', {
+    //   value: -0,
+    //   writable: false,
+    //   configurable: false,
+    //   enumerable: false
+    // });
+
+    // Object.defineProperty(obj, 'myZero', {
+    //   value: -0,
+    // })
+
+
+    // console.log(Object.is(+0, -0)); // false
+    // console.log(Object.is(NaN,NaN)); // true
+
+
+    Object.myIs = function (a, b) {
+      if (a === b) {
+        // Infinity != -Infinity
+        return a !== 0 || 1 / a === 1 / b;
+      }
+      // NaN和任何数不相等
+      return a !== a && b !== b;
+    }
+
+    console.log(Object.myIs(NaN, NaN));
+  </script>
+</body>
+
+</html>
