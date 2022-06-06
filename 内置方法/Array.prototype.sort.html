@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    // Array.prototype.sort ES3
+
+    // var arr = [5, 4, 3, 2, 1];
+    // var newArr = arr.sort();
+    // console.log(arr === newArr);
+    // console.log(newArr);
+    // 返回原数组的引用，不进行数组的引用赋值
+
+    // V8
+    // arr.length <= 10 插入排序
+    // arr.length > 10 快速排序
+
+    // Mozilla 归并排序
+    // Webkit C++ Qsort 快排的理念
+
+    // var arr = [5, 3, 10000, 1, 6];
+    // [1, 10000, 3, 5, 6]
+    // var arr = ['abc', 'abd']
+    // console.log(arr.sort());
+    // ['abc', 'abd']
+    // sort 不按照数字大小排序 而是按照ASICC码排序
+
+
+    // var arr = [5, 4, 3, 2, 1];
+    // console.log(arr.sort(function (a, b) {
+    //   // 如果函数内部没有排序规则，则不进行任何操作
+    //   // a=> 4  b=> 5
+    //   return a - b;
+    // }));
+
+    // var arr = ['素', '明', '诚'];
+    //   // C M S 按照字母顺序
+    // console.log(arr.sort((a, b) => {
+    //   return a.localeCompare(b);
+    // }));
+
+
+    var arr = ['zhangsan', 'lisi', 'wangwu'];
+
+    console.log(arr.sort(function (a, b) {
+      var _a = a.toLocaleLowerCase(),
+        _b = b.toLocaleLowerCase();
+      if (_a < _b) {
+        return -1;
+      }
+      if (_a > _b) {
+        return 1;
+      }
+      return 0;
+    }));
+  </script>
+</body>
+
+</html>
