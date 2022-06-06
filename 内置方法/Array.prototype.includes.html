@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    // let arr = [1, 2, 3, 4, 5];
+    // console.log(arr.includes(1));
+
+    // let str = '123123'
+    // console.log(str.includes('1'));
+
+    // let epy = [1, 2, ,];
+    // console.log(epy.includes(void(0)));
+
+    // let str = '123123'
+    // console.log(str.includes.length);
+    // 必填项为1
+
+    // var arr = [1, 2, 0];
+
+    // console.log(arr.includes(0));// true
+    // console.log(arr.includes(-0));// true
+    // console.log(arr.includes(+0));// true
+    var obj = {
+      0: 1,
+      1: 2,
+      length: 1,
+    }
+
+    console.log([].includes.call(obj, 1));
+
+
+    // Array.prototype.myIncludes = function (value) {
+    //   if (this == null) {
+    //     throw new TypeError('"this" is null');
+    //   }
+    //   var fromIndex = arguments[1],
+    //     obj = Object(this),
+    //     len = obj.length >>> 0;
+
+    //   if (len === 0) {
+    //     return false
+    //   }
+    //   fromIndex = fromIndex | 0;
+
+    //   fromIndex = Math.max(fromIndex >= 0 ? fromIndex : len + fromIndex, 0);
+
+    //   while (fromIndex < len) {
+    //     if (obj[fromIndex] === value) {
+    //       return true;
+    //     }
+    //     fromIndex++;
+    //   }
+    //   return false;
+    // }
+
+    // let arr = [1, 2, 3, 4, 5];
+    // console.log(arr.myIncludes(1));
+    // console.log(arr.myIncludes(1, -1));
+    // console.log(arr.myIncludes(1, -6));
+    // console.log(arr.myIncludes());
+  </script>
+</body>
+
+</html>
