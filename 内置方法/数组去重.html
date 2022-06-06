@@ -1,14 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
-    
+
+    // // for 循环
+    // function uniqueArr(arr) {
+    //   // 内部数组，用于保存
+    //   let _arr = [],
+    //     // 监测重复
+    //     isRepeat;
+    //   // 外层循环，执行数组长度次，遍历所有元素
+    //   for (let i = 0; i < arr.length; i++) {
+    //     // 每次执行给isRepeat赋初值
+    //     isRepeat = false;
+    //     // 内层循环，用来比较_arr和arr是否一样
+    //     for (let j = 0; j < _arr.length; j++) {
+    //       // 比较
+    //       if (_arr[j] == arr[i]) {
+    //         // 如果一样，修改 isRepeat
+    //         isRepeat = true;
+    //         break;
+    //       }
+    //     }
+    //     // 如果不一样，要把找到的元素push到_arr里
+    //     if (!isRepeat) {
+    //       _arr.push(arr[i]);
+    //     }
+    //   }
+    //   // 返回处理后的数组
+    //   return _arr;
+    // }
+
+    // let array = [1, 1, 2, 3, 4, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 0, 0,];
+
+    // function uniqueArr() {
+    //   return array.filter(function (item, index) {
+    //     return array.indexOf(item) === index;
+    //   })
+    // }
+
+
+
+    let array = [1, 1, 2, 3, 4, 5, 6, 6, 6, 7, 8, 8, 8, 9, 9, 0, 0,];
+    function uniqueArr() {
+      return array.sort().reduce(function (prev, item) {
+        if (prev.length === 0 || prev[prev.length - 1] !== item) {
+          prev.push(item);
+        }
+        return prev;
+      }, []);
+      return _arr;
+    }
+    console.log(uniqueArr(array));
   </script>
 </body>
+
 </html>
