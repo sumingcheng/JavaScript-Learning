@@ -8,25 +8,62 @@
 </head>
 
 <body>
-  <div style="display: none;" id="data">
-    [{"id":
-    "1","course":"前端开发之企业级深度JavaScript特训课【JS++前端】","classes":"19","teacher":"小野","img":"ecmascript.jpg","is_free":"1","datetime":"1540454477","price":"0"},
-    {"id": "2","course":"WEB前端工程师就业班之深度JS
-    DOM+讲师辅导-第3期【JS++前端】","classes":"22","teacher":"小野","img":"dom.jpg","is_free":"0","datetime":"1540454477","price":"699"},
-    {"id":
-    "3","course":"前端开发之企业级深度HTML特训课【JS++前端】","classes":"3","teacher":"小野","img":"html.jpg","is_free":"1","datetime":"1540454477","price":"0"},
-    {"id":
-    "4","course":"前端开发之企业级深度CSS特训课【JS++前端】","classes":"5","teacher":"小野","img":"css.jpg","is_free":"1","datetime":"1540454477","price":"0"},
-    {"id":
-    "5","course":"前端就业班VueJS+去哪儿网+源码课+讲师辅导-第3期【JS++前端】","classes":"50","teacher":"哈默","img":"vuejs.jpg","is_free":"0","datetime":"1540454477","price":"1280"},
-    {"id":
-    "6","course":"前端就业班ReactJS+新闻头条实战+讲师辅导-第3期【JS++前端】","classes":"21","teacher":"托尼","img":"reactjs.jpg","is_free":"0","datetime":"1540454477","price":"2180"},
-    {"id":
-    "7","course":"WEB前端开发工程师就业班-直播/录播+就业辅导-第3期【JS++前端】","classes":"700","teacher":"JS++名师团","img":"jiuyeban.jpg","is_free":"0","datetime":"1540454477","price":"4980"}]
+  <div style="display: none;">
+    {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+    "lat": "-37.3159",
+    "lng": "81.1496"
+    }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+    }
+    }
+  </div>
+  <div class="content">
+
   </div>
   <!-- 需要具备JSON基础 -->
   <script>
+    var odiv = document.getElementsByTagName('div')[0].innerHTML,
+      content = document.getElementsByClassName('content')[0];
+    var data = JSON.parse(odiv),
+      len = data.length,
+      item;
+    console.log(data, len);
 
+    render();
+
+    function render() {
+      let list;
+      for (var i = 0; i < 1; i++) {
+        item = data[i];
+        list += tpl(item);
+      }
+      content.innerHTML = list;
+    }
+
+    function tpl(data) {
+      return `
+        <div>${data.id}</div>
+        <div>${data.name}</div>
+        <div>${data.username}</div>
+        <div>${data.email}</div>
+      `
+    }
   </script>
 </body>
 
