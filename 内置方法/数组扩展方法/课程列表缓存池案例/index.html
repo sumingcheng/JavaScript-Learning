@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>课时3</title>
+	<link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+	<div class="wrap">
+		<div class="header">
+			<h3>课程列表</h3>
+		</div>
+		<div class="course">
+			<div class="loading">正在加载中...</div>
+			<ul class="list js-list"></ul>
+		</div>
+		<div class="footer">
+			<div class="btn-group">
+				<div class="btn-item cur">
+					<a href="javascript:;" class="page-lk">1</a>
+				</div>
+				<div class="btn-item">
+					<a href="javascript:;" class="page-lk">2</a>
+				</div>
+				<div class="btn-item">
+					<a href="javascript:;" class="page-lk">3</a>
+				</div>
+				<div class="btn-item">
+					<a href="javascript:;" class="page-lk">4</a>
+				</div>
+				<div class="btn-item">
+					<a href="javascript:;" class="page-lk">5</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/html" id="J_itemTpl">
+		<li class="list-item">
+     <div class="inner">
+     	<div class="img">
+	       <img src="http://10.url.cn/qqcourse_logo_ng/ajNVdqHZLLAibZAsw0xhFpUeJmHcOGzXwIMu8d3tz5388Tod9zfTYzKRr3Yum8M4ibBHtXGn3iaH34/356?tp=webp" />
+	     </div>
+	     <div class="info">
+	       <h4>{{classname}}</h4>
+	       <p class="row-2">{{name}}老师</p>
+	       <p class="row-3">{{watched}}人学习</p>
+	     </div>
+     </div>
+   </li>
+	</script>
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

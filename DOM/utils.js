@@ -209,7 +209,6 @@ function elemDrag(elem) {
 }
 
 // 向量计算
-
 function vec(a, b) {
     return {
         x: b.x - a.x,
@@ -234,4 +233,16 @@ function pointInTriangle(p, a, b, c) {
         R3 = vecProduct(PC, PA);
 
     return sameSymbols(R1, R2) && sameSymbols(R2, R3);
+}
+
+// 模版替换
+function setTplToHTML(tpl, regExp, opt) {
+    return tpl.replace(regExp(), function(node, key) {
+        console.log(node, key);
+        return opt[key];
+    });
+}
+
+function regTpl() {
+    return new RegExp(/{{(.*?)}}/, 'gim');
 }

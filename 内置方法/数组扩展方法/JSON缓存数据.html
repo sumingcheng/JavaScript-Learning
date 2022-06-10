@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div style="display: none;" id="div">
+    [{"id":"1","career":"\u524d\u7aef\u5de5\u7a0b\u5e08","city":"\u5317\u4eac","salary":"15","img":"1.jpg"}]
+  </div>
+
+  <div class="content" id="tpl">
+    <div>{{id}}</div>
+    <div>{{career}}</div>
+    <div>{{city}}</div>
+    <div>{{img}}</div>
+  </div>
+
+  <script>
+    var odiv = document.getElementById('div').innerHTML,
+      tpl = document.getElementById('tpl').innerHTML,
+      content = document.getElementsByClassName('content')[0],
+      data = JSON.parse(odiv),
+      len = data.length,
+      item;
+
+    render();
+    function render() {
+      let list = "";
+      for (var i = 0; i < len; i++) {
+        item = data[i];
+        list += setTplToHTML(tpl, regTpl, {
+          id: item.id,
+          career: item.career,
+          city: item.city,
+          img: item.img
+        });
+      }
+      content.innerHTML = list;
+    }
+
+    function setTplToHTML(tpl, regExp, opt) {
+      return tpl.replace(regExp(), function (node, key) {
+        console.log(node, key);
+        return opt[key];
+      });
+    }
+
+    function regTpl() {
+      return new RegExp(/{{(.*?)}}/, 'gim');
+    }
+    
+  </script>
+</body>
+
+</html>

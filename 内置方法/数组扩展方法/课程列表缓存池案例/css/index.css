@@ -1,0 +1,127 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+	margin: 0;
+	font-weight: normal;
+}
+
+a{
+	text-decoration: none;
+}
+
+ul{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.wrap{
+	position: relative;
+	width: 375px;
+	height: 667px;
+	margin: 100px auto;
+	box-shadow: 0 0 5px #999;
+}
+
+.header{
+	height: 44px;
+	background-color: #000;
+	text-align: center;
+	line-height: 44px;
+	color: #fff;
+}
+
+.course .loading{
+	height: 44px;
+	background-color: #eee;
+	text-align: center;
+	line-height: 44px;
+	font-size: 14px;
+}
+
+.course .list{
+	height: 579px;
+	overflow: auto;
+}
+
+.course .list-item{
+	height: 100px;
+	padding: 10px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ddd;
+}
+
+.course .list-item .inner{
+	position: relative;
+	height: 100%;
+}
+
+.course .list-item .img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 141px;
+}
+
+.course .list-item .img img{
+	width: 100%;
+	height: 100%;
+}
+
+.course .list-item .info{
+	width: 195px;
+	padding: 0 0 0 151px;
+	box-sizing: border;
+}
+
+.course .list-item .info p{
+	font-size: 14px;
+	margin-top: 7px;
+}
+
+.course .list-item .info p.row-2{
+	color: green;
+}
+
+.course .list-item .info p.row-3{
+	color: #999;
+}
+
+.footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 44px;
+	background-color: #fff;
+	border-top: 1px solid #eee;
+}
+
+.footer .btn-item{
+	float: left;
+	width: 20%;
+	height: 100%;
+}
+
+.footer .btn-item .page-lk{
+	display: block;
+	width: 30px;
+	height: 30px;
+	margin: 7px auto;
+	background-color: #000;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+}
+
+.footer .btn-item.cur .page-lk{
+	background-color: #eee;
+	color: #000;
+}
+
+
+

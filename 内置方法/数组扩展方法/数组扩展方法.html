@@ -8,49 +8,24 @@
 </head>
 
 <body>
-  <div style="display: none;">
-    {
-    "id": 1,
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "email": "Sincere@april.biz",
-    "address": {
-    "street": "Kulas Light",
-    "suite": "Apt. 556",
-    "city": "Gwenborough",
-    "zipcode": "92998-3874",
-    "geo": {
-    "lat": "-37.3159",
-    "lng": "81.1496"
-    }
-    },
-    "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org",
-    "company": {
-    "name": "Romaguera-Crona",
-    "catchPhrase": "Multi-layered client-server neural-net",
-    "bs": "harness real-time e-markets"
-    }
-    }
+  <div style="display: none;" id="div">
+    [{"id":"1","career":"\u524d\u7aef\u5de5\u7a0b\u5e08","city":"\u5317\u4eac","salary":"15","img":"1.jpg"}]
   </div>
   <div class="content">
 
   </div>
-  <!-- 需要具备JSON基础 -->
-  
   <script>
-    var odiv = document.getElementsByTagName('div')[0].innerHTML,
+    var odiv = document.getElementById('div').innerHTML,
       content = document.getElementsByClassName('content')[0];
     var data = JSON.parse(odiv),
       len = data.length,
       item;
-    console.log(data, len);
 
     render();
 
     function render() {
-      let list;
-      for (var i = 0; i < 1; i++) {
+      let list = "";
+      for (var i = 0; i < len; i++) {
         item = data[i];
         list += tpl(item);
       }
@@ -60,9 +35,9 @@
     function tpl(data) {
       return `
         <div>${data.id}</div>
-        <div>${data.name}</div>
-        <div>${data.username}</div>
-        <div>${data.email}</div>
+        <div>${data.career}</div>
+        <div>${data.city}</div>
+        <div>${data.salary}</div>
       `
     }
   </script>
