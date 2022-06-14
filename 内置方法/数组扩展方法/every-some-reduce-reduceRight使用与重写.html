@@ -1,12 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <script src="./data.js"></script>
 </head>
+
 <body>
-  
+  <script>
+
+    // Array.prototype.mySome = function (fn) {
+    //   var arr = this,
+    //     len = arr.length,
+    //     arg2 = arguments[1] || window,
+    //     res = false;
+
+    //   for (var i = 0; i < len; i++) {
+    //     if (!fn.apply(arg2, [arr[i], i, arr])) {
+    //       res = true;
+    //       break;
+    //     }
+    //   }
+    //   return res;
+    // }
+
+    // data.some(function (elem, index, array) {
+    //   console.log(elem);
+    //   console.log(this);
+    //   return elem.is_free == "0";
+    // }, { a: 1 });
+
+
+    // data.myEvery(function (elem, index, array) {
+    //   console.log(elem);
+    //   console.log(this);
+    //   return elem.is_free == "0";
+    // }, { a: 1 });
+
+
+    // 2. 数组中查找某个值
+    // var arr = [12, 5, 7, 99, 103];
+
+    // function findArr(arr, n) {
+    //   // 默认没有
+    //   var btn = false,
+    //     len = arr.length;
+    //   for (var i = 0; i < len; i++) {
+    //     if (n === arr[i]) {
+    //       // 有就true
+    //       btn = true;
+    //     }
+    //   }
+    //   return btn
+    // }
+
+    // console.log(findArr(arr, 103));
+
+    var initialValue = [];
+
+    data.reduce(function (prev, elem, index, arr) {
+      console.log(prev, elem, index, arr);
+    }, initialValue);
+
+
+  </script>
 </body>
+
 </html>
