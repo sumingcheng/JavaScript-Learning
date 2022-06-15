@@ -6,9 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./data.js"></script>
+  <script src="../../Tools.js"></script>
 </head>
 
 <body>
+  <input type="text" id="J_search" placeholder="搜索课程" />
+  <ul class="J_list">
+    <span>- 暂无数据 -</span>
+  </ul>
+  <div id="J_data"></div>
+
   <script>
 
     // Array.prototype.mySome = function (fn) {
@@ -58,11 +65,93 @@
 
     // console.log(findArr(arr, 103));
 
-    var initialValue = [];
+    // var initialValue = [];
 
-    data.reduce(function (prev, elem, index, arr) {
-      console.log(prev, elem, index, arr);
-    }, initialValue);
+    // data.reduce(function (prev, elem, index, arr) {
+    //   console.log(prev);
+    //   return prev;
+    // }, initialValue);
+
+    // 处理字符串转换成对象
+
+
+
+    // Array.prototype.myReduceRight = function (fn, initialValue) {
+    //   var arr = this,
+    //     len = arr.length,
+    //     arg2 = arguments[2] || window,
+    //     item;
+
+    //   for (var i = len - 1; i >= 0; i--) {
+    //     initialValue = fn.apply(arg2, [initialValue, arr[i], i, arr]);
+    //   }
+    //   return initialValue;
+    // }
+
+    // var cookieDatas = 'a=1; b=2; c=3;'
+
+    // var cookieArr = cookieDatas.split('; ');
+    // var cookieObj = cookieArr.myReduceRight(function (prev, elem) {
+    //   var item = elem.split('=');
+    //   prev[item[0]] = item[1];
+    //   return prev
+    // }, {});
+    // console.log(cookieObj);
+
+    ; (function (doc) {
+      var oSearchInput = doc.getElementById('J_search'),
+        oList = doc.getElementsByClassName('J_list')[0];
+
+      var init = function () {
+        bindEvent()
+      }
+
+      function bindEvent() {
+        oSearchInput.addEventListener('input', serchCourse, false);
+      }
+      // 管理
+      function serchCourse() {
+        var val = this.value,
+          len = val.length;
+        if (len > 0) {
+          if (makeList(serchData(data, val))) {
+            oList.innerHTML = makeList(serchData(data, val));
+          } else {
+            oList.innerHTML = `<span>暂无数据</span>`
+          }
+        } else {
+          oList.innerHTML = `<span>暂无数据</span>`
+        }
+      }
+      // 搜索数据
+      function serchData(data, keyword) {
+        return data.reduce(function (prev, elem) {
+          var res = elem.course.indexOf(keyword);
+          if (res !== -1) {
+            prev.push(elem);
+          }
+
+          return prev;
+        }, []);
+      }
+      // 渲染数据
+      function makeList(data) {
+        var list = '';
+        if (!data || data.length <= 0) {
+          return false
+        }
+
+        data.forEach(function (elem) {
+          list += `<li>${elem.course}</li>`;
+        })
+        return list
+      }
+
+
+      init()
+    })(document);
+
+
 
 
   </script>
