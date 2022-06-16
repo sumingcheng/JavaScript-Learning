@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 时间插件 -->
+  <script src="./moment.js"></script>
+</head>
+
+<body>
+  <script>
+    function prinTable(data) {
+      var elem = document.createElement('div'),
+        args = document.createElement('span');
+
+      args.style.color = 'blue';
+      args.innerHTML = arguments[1];
+      elem.innerHTML = data;
+      document.body.appendChild(args);
+      document.body.appendChild(elem);
+    }
+
+    // 获取系列
+    prinTable(moment(), 'moment()');
+    // （12）获取时间戳(以毫秒为单位)
+    prinTable(moment().format('X'), "moment().format('X')");
+    // （13）获取年份
+    prinTable(moment().get('year'), "moment().get('year')");
+    // （16）获取一个星期中的某一天
+    prinTable(moment().get('weekday'), "moment().get('weekday')");
+    document.write("————————————————————————</br>");
+    // 设置系列 先获取 再设置
+    // 设置秒
+    prinTable(moment().seconds(10), "moment().seconds(10)");
+    prinTable(moment().set('seconds', 30), "moment().set('seconds', 30)");
+
+    // 格式化时间 重点
+    // 初始化一个时间
+    document.write("————————————————————————</br>");
+    let time = new Date();
+    document.write(time);
+    // 格式化操作
+    document.write("</br>");
+    // 格式化年月日： 'xxxx年xx月xx日'
+    prinTable(moment(time).format('YYYY年MM月DD日'), "moment(time).format('YYYY年MM月DD日')");
+    // 格式化年月日： 'xxxx-xx-xx'
+    prinTable(moment().format('YYYY-MM-DD'), "moment().format('YYYY-MM-DD')");
+    // 格式化时分秒(24小时制)： 'xx时xx分xx秒'
+    prinTable(moment().format('HH时mm分ss秒'), "moment().format('HH时mm分ss秒')");
+    // 格式化时分秒(12小时制)：'xx:xx:xx am/pm'
+    prinTable(moment().format('hh:mm:ss a'), "moment().format('hh:mm:ss a')");
+    // 格式化时间戳(以毫秒为单位)
+    prinTable(moment().format('x'), "moment().format('x')");
+
+    // 时间比较
+    var a = moment();
+    var b = moment();
+    var res = a.diff(b, 'seconds') // 1
+    document.write("————————————————————————</br>");
+    document.write(res);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 实际使用
+    // bail_date_start = moment(moment(issueData.bailStartDate).format("YYYY-MM-DD 00:00:00")).valueOf();
+    // bail_date_end = moment(moment(issueData.bailEndDate).format("YYYY-MM-DD 23:59:59")).valueOf();
+    // active_date_start = moment(moment(issueData.activeStartDate).format("YYYY-MM-DD 00:00:00")).valueOf();
+    // active_date_end = moment(moment(issueData.endTime).subtract(1, 'days').format("YYYY-MM-DD 23:59:59")).valueOf();
+    // offer_date_start = moment(issueData.startTime).valueOf();
+    // offer_date_end = moment(issueData.endTime).valueOf();
+    // fee_date_start = moment(moment(issueData.feeStartDate).format("YYYY-MM-DD 00:00:00")).valueOf();
+    // fee_date_end = moment(moment(issueData.feeEndDate).format("YYYY-MM-DD 23:59:59")).valueOf();
+    // first_report_date = moment(issueData.firstReportTime).valueOf();
+    // second_report_date = moment(issueData.secondReportTime).valueOf();
+
+
+  </script>
+</body>
+
+</html>
