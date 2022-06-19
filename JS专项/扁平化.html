@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script type="text/javascript">
+
+
+    // 编写一个程序，实现数组扁平化后的数组去重，最终得到一个升序且不重复的一维数组。
+    var arr = [[1, 2, 3], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10];
+    var newArr = Array.from(new Set(faltten(arr))).sort(function (a, b) {
+      return a - b
+    });
+    console.log(newArr);
+
+    function faltten(arr) {
+      var _arr = arr || [],
+        fArr = [],
+        len = _arr.length,
+        item;
+
+      for (var i = 0; i < len; i++) {
+        item = _arr[i];
+
+        if (_isArr(item)) {
+          // 如果是数组，就再次递归，循环数组内数组元素，直到他们不是数组
+          fArr = fArr.concat(faltten(item));
+        } else {
+          fArr.push(item);
+        }
+      }
+
+      return fArr
+
+      function _isArr(item) {
+        return {}.toString.call(item) === '[object Array]';
+      }
+    } 
+  </script>
+</body>
+
+</html>
