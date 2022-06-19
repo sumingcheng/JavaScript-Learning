@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <p>窗口<span id="status">关闭</span>状态</p>
+  <button onclick="openWin()">打开窗口</button>
+  <button onclick="closeWin()">关闭窗口</button>
+  <script type="text/javascript">
+    var win,
+      oStatus = document.getElementById('status');
+
+    function openWin() {
+      // 第四个参数是历史记录，false是新增一条，true是替换主窗口历史记录
+      win = window.open('https://www.baidu.com/', '窗口名', 'width=500,height=500', true);
+      console.log(win.name);
+      checkStatus();
+    }
+    function closeWin() {
+      win.close();
+      checkStatus();
+    }
+    function checkStatus() {
+      if (win.closed) {
+        oStatus.innerHTML = '关闭';
+      } else {
+        oStatus.innerHTML = '打开';
+      }
+    }
+  </script>
+</body>
+
+</html>
