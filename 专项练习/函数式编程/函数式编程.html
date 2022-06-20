@@ -8,8 +8,54 @@
 </head>
 
 <body>
+
   <script>
+    // var arr1 = ['a', 'b', 'b', 'd', 'e'],
+    //   arr2 = ['a', 'b', 'c', 'd', 'e'];
+
+    // var spArr = arr1.splice(0, 3),
+    //   slArr = arr2.slice(0, 3);
+
+    // console.log('arr1:' + arr1); // arr1:d,e
+    // console.log('spArr:' + spArr); //  spArr:a,b,b
+    // console.log('arr2:' + arr2); //  arr2:a,b,c,d,e
+    // console.log('slArr:' + slArr); //  slArr:a,b,c
+
+    // function compose(f, g) {
+    //   var args = Array.prototype.slice.call(arguments),
+    //     len = args.length - 1;
+    //   return function (x) {
+    //     var res = args[len](x);
+
+    //     while (len--) {
+    //       res = args[len](res);
+    //     }
+    //     return res
+    //   }
+    // }
+
+
+    function fn1(str) {
+      return str.toUpperCase();
+    }
+
+    function fn2(str) {
+      return str + "!";
+    }
+
+    function compose() {
+      var args = Array.prototype.slice.call(arguments);
+      return function (x) {
+        return args.reduceRight(function (res, cb) {
+          return cb(res);
+        }, x);
+      }
+    }
     
+    //  compose 无论怎么分组或者结合，最后的结果都是一样，
+    var f = compose(compose(fn1), fn2);
+    console.log(f('hello'));
+
   </script>
 </body>
 
