@@ -5,33 +5,73 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./checkBrowser.js"></script>
 </head>
 
 <body>
   <script>
 
-    function checkBrowser() {
-      var userAgent = navigator.userAgent;
+    // function checkBrowser() {
+    //   var userAgent = navigator.userAgent;
 
-      if (userAgent.indexOf('Opera') > -1) {
-        return 'Opera';
-      }
-      if (userAgent.indexOf('Firefox') > -1) {
-        return 'Firefox';
-      }
-      if (userAgent.indexOf('Chrome') > -1) {
-        return 'Chrome';
-      }
-      if (userAgent.indexOf('Safari') > -1) {
-        return 'Safari';
-      }
-      if (userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1 && userAgent.indexOf('Opera') === -1) {
-        return 'IE';
-      }
-    }
+    //   if (userAgent.indexOf('Opera') > -1) {
+    //     return 'Opera';
+    //   }
+    //   if (userAgent.indexOf('Firefox') > -1) {
+    //     return 'Firefox';
+    //   }
+    //   if (userAgent.indexOf('Chrome') > -1) {
+    //     return 'Chrome';
+    //   }
+    //   if (userAgent.indexOf('Safari') > -1) {
+    //     return 'Safari';
+    //   }
+    //   if (userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1 && userAgent.indexOf('Opera') === -1) {
+    //     return 'IE';
+    //   }
+    // }
 
-    checkBrowser()
+    // checkBrowser()
 
+    // function networkType() {
+    //   var type = navigator.connection.effectiveType;
+
+    //   switch (type) {
+    //     case 'slow-2g':
+    //       return '2G-';
+    //       break;
+    //     case '2g':
+    //       return '2G';
+    //       break;
+    //     case '3g':
+    //       return '3G';
+    //       break;
+    //     case '4g':
+    //       return '4G';
+    //       break;
+    //     default:
+    //       return 'Unknown network'
+    //   }
+    // }
+
+    // 监控屏幕方向 横屏竖屏
+    screen.orientation.type
+
+
+    // 协议 HTTP/HTTPS
+    location.protocol
+    // 端口
+    location.port
+    // 路径
+    location.pathname
+    // 域名
+    location.hostname
+    // hash值 用来做单页面应用
+    location.hash
+    // 搜索内容
+    location.search
+    // 整个Url
+    location.href
   </script>
 </body>
 

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SPA</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="page-container">
+      <div class="page-wrap show">
+        <div class="header">首 页</div>
+        <div class="content"></div>
+      </div>
+      <div class="page-wrap">
+        <div class="header">分 类</div>
+      </div>
+      <div class="page-wrap">
+        <div class="header">我 的</div>
+      </div>
+    </div>
+    <div class="footer J_nav">
+      <div class="item cur" data-page="home">
+        <div class="btn-wrap">
+          <i class="fa fa-home"></i>
+          <span class="text">首 页</span>
+        </div>
+      </div>
+      <div class="item" data-page="cat">
+        <div class="btn-wrap">
+          <i class="fa fa-navicon"></i>
+          <span class="text">分 类</span>
+        </div>
+      </div>
+      <div class="item" data-page="my">
+        <div class="btn-wrap">
+          <i class="fa fa-user"></i>
+          <span class="text">我 的</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    ; (function () {
+      var oNav = document.getElementsByClassName('J_nav')[0],
+        oItems = oNav.getElementsByClassName('item'),
+        oPages = document.getElementsByClassName('page-wrap'),
+
+        oItemsLen = oItems.length,
+        oPagesLen = oPages.length;
+
+      var init = function () {
+        pageChange();
+        bindEvent();
+      }
+
+      window.onhashchange = function () {
+        pageChange();
+      }
+
+      function bindEvent() {
+        oNav.addEventListener('click', navClick, false);
+      }
+
+      function navClick(e) {
+        var tar = e.target,
+          oParent = tar.parentNode,
+          className = oParent.className;
+
+        if (className === 'btn-wrap') {
+          var oItem = oParent.parentNode,
+            hashName = oItem.getAttribute('data-page');
+
+          location.hash = '#' + hashName;
+        }
+      }
+
+      function pageChange() {
+        var hashName = location.hash.slice(1);
+        var hasThisHash = checkHashName(hashName).hasThisHash,
+          thisIdx = checkHashName(hashName).index;
+
+        if (hasThisHash) {
+          location.hash = '#' + hashName;
+        } else {
+          location.hash = '#home';
+          thisIdx = 0;
+        }
+
+        var pageItem,
+          btnItem;
+
+        for (var i = 0; i < oPagesLen; i++) {
+          pageItem = oPages[i];
+          btnItem = oItems[i];
+
+          pageItem.className = 'page-wrap';
+          btnItem.className = 'item';
+        }
+
+        oPages[thisIdx].className += ' show';
+        oItems[thisIdx].className += ' cur';
+      }
+
+      function checkHashName(hashName) {
+        var item,
+          page = '',
+          hasThisHash = false,
+          thisIdx = 0;
+
+        for (var i = 0; i < oItemsLen; i++) {
+          item = oItems[i];
+          page = item.getAttribute('data-page');
+
+          if (hashName === page) {
+            hasThisHash = true;
+            thisIdx = i;
+            break;
+          }
+        }
+
+        return {
+          hasThisHash: hasThisHash,
+          index: thisIdx
+        }
+      }
+
+      init();
+    })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
