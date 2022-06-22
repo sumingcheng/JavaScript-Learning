@@ -9,7 +9,28 @@
 </head>
 
 <body>
+  <script>
+    // function test(a, b, pow) {
+    //   return pow(a, 2) + pow(b, 2);
+    // }
 
+    // function pow(x, n) {
+    //   return Math.pow(x, n);
+    // }
+
+    // var res = test(2, 3, pow);
+    // console.log(res);
+
+
+    function add(a, b, c, d) {
+      return a + b + c + d;
+    }
+
+    var add2 = curry(add, 1);
+    console.log(add2(2, 3, 4)); 
+
+    
+  </script>
 </body>
 
 </html>
