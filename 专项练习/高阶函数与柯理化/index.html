@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <button id="button">按钮</button>
   <script>
     // function test(a, b, pow) {
     //   return pow(a, 2) + pow(b, 2);
@@ -22,14 +23,81 @@
     // console.log(res);
 
 
-    function add(a, b, c, d) {
-      return a + b + c + d;
+    // function add(a, b, c, d) {
+    //   return a + b + c + d;
+    // }
+
+    // add(1, 2, 3, 4);
+
+    // function curry(fn) {
+    //   var _arg = [].slice.call(arguments, 1);
+    //   return function () {
+    //     var newArgs = _arg.concat([].slice.call(arguments));
+    //     return fn.apply(this, newArgs);
+    //   }
+    // } 
+
+    // var add2 = curry(add, 1, 2);
+    // var res = add2(3, 4);
+
+
+    // function add(a, b, c, d) {
+    //   return a + b + c + d;
+    // }
+
+    // function curry(fn, len) {
+    //   var len = len || fn.length;
+
+    //   var func = function (fn) {
+    //     var _arg = [].slice.call(arguments, 1);
+
+    //     return function () {
+    //       var newArgs = _arg.concat([].slice.call(arguments));
+    //       return fn.apply(this, newArgs);
+    //     }
+    //   }
+
+    //   return function () {
+    //     var argLen = arguments.length;
+
+    //     if (argLen < len) {
+    //       var formatedArr = [fn].concat([].slice.call(arguments));
+    //       return curry(func.apply(this, formatedArr), len - argLen);
+    //     } else {
+    //       return fn.apply(this, arguments);
+    //     }
+    //   }
+    // }
+
+    // var add1 = curry(add);
+
+    // console.log(add1(1)(2)(3)(4));
+
+    var addEvent = (function () {
+      if (window.addEventListener) {
+        return function (el, type, fn, capture) {
+          el.addEventListener(type, fn, capture);
+        }
+      } else if (window.attachEvent) {
+        return function (el, type, fn) {
+          el.attachEvent('on' + type, function () {
+            fn.call(el);
+          });
+        }
+      } else {
+        return function (el, type, fn) {
+          el['on' + type] = fn;
+        }
+      }
+    })();
+
+    var btn = document.getElementById('button');
+
+    addEvent(btn, 'click', btnClick, false);
+    function btnClick() {
+      console.log(1);
     }
 
-    var add2 = curry(add, 1);
-    console.log(add2(2, 3, 4)); 
-
-    
   </script>
 </body>
 
