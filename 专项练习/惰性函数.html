@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <button id="obtn">button</button>
+  <script>
+    // var getTimeStamp = function () {
+    //   var timeStamp = new Date().getTime();
+    //   console.log(1);
+
+    //   getTimeStamp = function () {
+    //     console.log(2);
+    //     return timeStamp;
+    //   }
+    //   return getTimeStamp();
+    // }
+
+    // console.log(getTimeStamp());
+    // console.log(getTimeStamp());
+    // console.log(getTimeStamp());
+    // console.log(getTimeStamp());
+
+
+    // var addEvent = function (el, type, fn, captrue) {
+    //   if (el.addEventListener) {
+    //     addEvent = function (el, type, fn, captrue) {
+    //       el.addEventListener(type, fn, captrue);
+    //     }
+    //   } else if (el.attachEvent) {
+    //     addEvent = function (el, type, fn) {
+    //       el.attachEvent('on' + type, function () {
+    //         fn.call(el);
+    //       })
+    //     }
+    //   } else {
+    //     addEvent = function (el, type, fn) {
+    //       el['on' + type] = fn;
+    //     }
+    //   }
+
+    //   addEvent(el, type, fn, captrue);
+    // }
+
+    // var oBtn = document.getElementById('obtn');
+    // addEvent(oBtn, 'click', btnClick, false);
+
+    // function btnClick() {
+    //   console.log(1);
+    // }
+
+
+    function test(num) {
+      switch (num) {
+        case 1:
+          test = function () {
+            console.log('function1');
+          }
+          break;
+        case 2:
+          test = function () {
+            console.log('function2');
+          }
+          break;
+        case 3:
+          test = function () {
+            console.log('function3');
+          }
+          break;
+      }
+      return test();
+    }
+
+    test(1)
+  </script>
+</body>
+
+</html>
