@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    function add(a, b, c, d) {
+      return a + b + c + d;
+    }
+
+    Function.prototype.partial = function () {
+      var _self = this,
+        _args = [].slice.call(arguments);
+
+      return function () {
+        var newArgs = _args.concat([].slice.call(arguments));
+        return _self.apply(this, newArgs);
+      }
+    }
+
+    var newAdd = add.partial(1, 2);
+    console.log(newAdd(3, 4));
+
+    
+  </script>
+</body>
+
+</html>
