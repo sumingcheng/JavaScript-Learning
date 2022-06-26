@@ -8,7 +8,85 @@
 </head>
 
 <body>
+  <div class="box" style="width: 100px; height: 100px; background-color: black;"></div>
+  <input type="text" id="input" />
+  <script>
+    // var oBox = document.getElementsByClassName('box')[0];
 
+    // function test() {
+    //   console.log(1);
+    // }
+
+    // function debounce(fn, time, triggerNow) {
+    //   var t = null;
+    //   var debounced = function () {
+    //     var _self = this,
+    //       args = arguments;
+
+    //     if (t) {
+    //       clearTimeout(t);
+    //     }
+
+    //     if (triggerNow) {
+    //       var exec = !t;
+
+    //       t = setTimeout(function () {
+    //         t = null;
+    //       }, time);
+
+    //       if (exec) {
+    //         fn.apply(_self, args);
+    //       }
+    //     } else {
+    //       t = setTimeout(function () {
+    //         fn.apply(_self, args);
+    //       }, time);
+    //     }
+    //   }
+    //   debounced.remove = function () {
+    //     clearTimeout(t);
+    //     t = null;
+    //   }
+    //   return debounced;
+    // }
+    // oBox.onmouseover = debounce(test, 1000, true);
+
+    // 输入验证
+    var oInput = document.getElementById('input');
+    oInput.onkeyup = throttle(check, 1000);
+
+    var t = null;
+    function check() {
+      var val = this.value;
+
+      if (val.length < 6) {
+        console.log('不够长');
+      } else {
+        console.log('Success');
+      }
+    }
+
+    function throttle(fn, delay) {
+      var t = null,
+        begin = new Date().getTime();
+
+      return function () {
+        var _self = this,
+          args = arguments,
+          cur = new Date().getTime();
+        clearTimeout(t);
+
+        if (cur - begin >= delay) {
+          fn.apply(_self, args)
+          begin = cur;
+        } else {
+          t = setTimeout(function () {
+            fn.apply(_self, args);
+          }, delay);
+        }
+      }
+    }
+  </script>
 </body>
 
 </html>
