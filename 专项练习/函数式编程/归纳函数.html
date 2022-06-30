@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    // var users = [
+    //   { "id": "1", "name": "小明", "sex": "1" },
+    //   { "id": "2", "name": "小绿", "sex": "1" },
+    //   { "id": "3", "name": "小影", "sex": "2" },
+    //   { "id": "4", "name": "小姜", "sex": "2" }
+    // ];
+
+    // var sex = [
+    //   { "id": '1', "sex": "男" },
+    //   { "id": '2', "sex": "女" },
+    // ]
+
+
+    // var cache = {};
+
+    // sex.forEach(function (sex) {
+    //   var _id = sex.id;
+
+    //   cache[_id] = [];
+
+    //   users.forEach(function (user) {
+    //     var _sex = user.sex;
+
+    //     if (_sex == _id) {
+    //       cache[_id].push(user);
+    //     }
+    //   });
+    // });
+
+    // console.log(cache);
+
+
+    // var cache = {};
+
+    // hobby.forEach(function (hobby) {
+    //   var _id = hobby.id;
+    //   cache[_id] = [];
+
+    //   person.forEach(function (person) {
+    //     var _hobbyArr = person.hobby.split(',');
+
+    //     _hobbyArr.forEach(function (elem) {
+    //       if (elem == _id) {
+    //         cache[_id].push(person);
+    //       }
+    //     });
+    //   });
+    // });
+
+    // console.log(cache);
+
+
+    var users = [
+      { "id": "1", "name": "小明", "sex": "1" },
+      { "id": "2", "name": "小绿", "sex": "1" },
+      { "id": "3", "name": "小影", "sex": "2" },
+      { "id": "4", "name": "小姜", "sex": "2" }
+    ];
+
+    var sex = [
+      { "id": '1', "sex": "男" },
+      { "id": '2', "sex": "女" },
+    ]
+
+    var hobby = [
+      { "id": "1", "name": "足球" },
+      { "id": "2", "name": "篮球" },
+      { "id": "3", "name": "排球" },
+      { "id": "4", "name": "乒乓球" },
+      { "id": "5", "name": "保龄球" },
+      { "id": "6", "name": "高尔夫球" },
+    ];
+
+
+    var person = [
+      { "name": "小2", "hobby": "1,3" },
+      { "name": "小1", "hobby": "1,4" },
+      { "name": "小3", "hobby": "1,6" },
+      { "name": "小4", "hobby": "1,6" },
+      { "name": "小5", "hobby": "1,3,4" },
+      { "name": "小6", "hobby": "3,4" },
+      { "name": "小7", "hobby": "3,5" },
+      { "name": "小8", "hobby": "1,2,3,4,5,6" },
+    ];
+
+    var sortDatas1 = sortDatas(hobby, person);
+    console.log(sortDatas1('hobby', 'multi'));
+
+    function sortDatas(sort, data) {
+      var cache = {}
+
+      return function (foreign_key, sortType) {
+        if (sortType !== 'single' && sortType !== 'multi') {
+          console.log(new Error('Invalid sort type.[Only "single and" multi are valid values]'));
+          return;
+        }
+
+        sort.forEach(function (sort) {
+          var _id = sort.id;
+          cache[_id] = [];
+
+          data.forEach(function (elem) {
+            var foreign_val = elem[foreign_key];
+            switch (sortType) {
+              case 'single':
+                if (foreign_val == _id) {
+                  cache[_id].push(elem);
+                };
+                break;
+              case 'multi':
+                var _arr = foreign_val.split(',');
+                _arr.forEach(function (val) {
+                  if (val == _id) {
+                    cache[_id].push(elem);
+                  };
+                });
+                break;
+              default:
+                break;
+            }
+          });
+        });
+        return cache;
+      }
+    }
+  </script>
+</body>
+
+</html>
