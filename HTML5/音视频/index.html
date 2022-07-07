@@ -9,7 +9,106 @@
 </head>
 
 <body>
-
+  <video src="D:\Desktop\周杰伦.mp4" controls id="vd">
+    <source src="D:\Desktop\周杰伦.mp4" type="video/mp4" />
+    <source src="D:\Desktop\周杰伦.ogg" type="video/ogg" />
+  </video>
+  <div>
+    <button id="bt1">重载</button>
+    <button id="bt2">播放</button>
+    <button id="bt3">暂停</button>
+    <button id="bt4">获取当前时间</button>
+    <button id="bt5">获取视频总时长</button>
+    <button id="bt6">获取播放状态</button>
+    <button id="bt7">设置静音</button>
+    <button id="bt8">设置音量</button>
+    <button id="bt9">设置倍数</button>
+  </div>
+  <script>
+    var vd = document.getElementById('vd');
+    // 重载
+    bt1.addEventListener("click", function () {
+      vd.load();
+    });
+    // 播放
+    bt2.addEventListener("click", function () {
+      vd.play();
+    });
+    // 暂停
+    bt3.addEventListener("click", function () {
+      vd.pause();
+    });
+    // 获取当前时间
+    bt4.addEventListener("click", function () {
+      console.log(vd.currentTime);
+    });
+    // 获取视频总时长
+    bt5.addEventListener("click", function () {
+      console.log(vd.duration);
+    });
+    // 获取播放状态
+    bt6.addEventListener("click", function () {
+      if (vd.paused) {
+        console.log('暂停中');
+      } else {
+        console.log("播放中");
+      }
+    });
+    // 设置静音
+    bt7.addEventListener("click", function () {
+      if (vd.muted) {
+        vd.muted = false;
+      } else {
+        vd.muted = true;
+      }
+    });
+    // 设置音量
+    bt8.addEventListener("click", function () {
+      vd.volume = 0.4;
+    });
+    // 设置倍数
+    bt9.addEventListener("click", function () {
+      // 建议使用值0.5 1.25 1.5 2
+      vd.playbackRate = 2;
+    });
+    // ——————————————————————————————————————————————
+    // 监听是否可以播放
+    vd.addEventListener("canplay", function () {
+      console.log('可以播放了');
+    });
+    // 监听是否结束了
+    vd.addEventListener("ended", function () {
+      console.log('结束了');
+    });
+    // 是否播放错误
+    vd.addEventListener("error", function () {
+      console.log('播放出错');
+    });
+    // 是否播放
+    vd.addEventListener("play", function () {
+      console.log('播放了');
+    });
+    // 缓冲
+    vd.addEventListener("play", function () {
+      console.log(vd.buffered.end(0), vd.duration);
+    });
+    // 拖动
+    vd.addEventListener("seeked", function () {
+      console.log('拖动了');
+    });
+    // 监听播放倍数
+    vd.addEventListener("ratechange", function () {
+      console.log(this.playbackRate);
+    });
+    // 监听音量 范围是0~1
+    vd.addEventListener("volumechange", function () {
+      console.log(this.volume);
+    });
+    // 暂停的时候缓冲会触发此事件
+    vd.addEventListener("waiting", function () {
+      console.log('waiting');
+    });
+  </script>
 </body>
 
 </html>
