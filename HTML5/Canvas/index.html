@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  #canvas {
+    border: 1px solid #000;
+  }
+</style>
+
+<body>
+  <canvas id="canvas" width="400" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    // ctx.fillStyle = 'orange';
+    // // 绘制图形
+    // ctx.fillRect(50, 50, 100, 100);
+    // // 透明矩形(清除指定区域)
+    // ctx.clearRect(75, 75, 50, 50);
+
+    // 画笔
+    // ctx.strokeRect(50, 50, 100, 100,)
+
+    // ctx.beginPath();
+    // ctx.strokeStyle = 'orange';
+    // ctx.moveTo(50, 50);
+    // ctx.lineToWidth = 5;
+    // ctx.lineTo(150, 50);
+    // ctx.lineTo(100, 100);
+    // // 闭合路径
+    // ctx.closePath();
+    // ctx.stroke();
+
+    // // 开始路径
+    // ctx.beginPath();
+    // ctx.moveTo(50, 50);
+    // //参数1、2：控制点1坐标   参数3、4：控制点2坐标  参数4：圆弧半径
+    // ctx.arcTo(200, 50, 200, 200, 100);
+    // ctx.lineTo(200, 200)
+    // ctx.stroke();
+
+    // ctx.beginPath();
+    // ctx.moveTo(10, 200); //起始点
+    // var cp1x = 40, cp1y = 100;  //控制点
+    // var x = 200, y = 200; // 结束点
+    // //绘制二次贝塞尔曲线
+    // ctx.quadraticCurveTo(cp1x, cp1y, x, y);
+    // ctx.stroke();
+
+    // ctx.beginPath();
+    // ctx.rect(10, 200, 10, 10);
+    // ctx.rect(cp1x, cp1y, 10, 10);
+    // ctx.rect(x, y, 10, 10);
+    // ctx.fill();
+
+
+    // ctx.beginPath();
+    // ctx.moveTo(40, 200); //起始点
+    // var cp1x = 20, cp1y = 100;  //控制点1
+    // var cp2x = 100, cp2y = 120;  //控制点2
+    // var x = 200, y = 200; // 结束点
+    // //绘制三次贝塞尔曲线
+    // ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
+    // ctx.stroke();
+
+    // ctx.beginPath();
+    // ctx.rect(40, 200, 10, 10);
+    // ctx.rect(cp1x, cp1y, 10, 10);
+    // ctx.rect(cp2x, cp2y, 10, 10);
+    // ctx.rect(x, y, 10, 10);
+    // ctx.fill();
+
+    // // 保存状态
+    // ctx.save();
+    // ctx.translate(50, 0);
+    // ctx.fillRect(0, 0, 50, 50);
+
+    // // 回到之前状态
+    // ctx.restore();
+    // ctx.fillStyle = 'pink';
+    // ctx.fillRect(0, 0, 30, 30);
+
+
+    // ctx.scale(2, 1);
+    // ctx.fillRect(50, 0, 50, 50);
+
+    ctx.fillRect(20, 20, 50, 50);
+    ctx.rotate(Math.PI / 180 * 10);
+    ctx.fillStyle = 'pink';
+    ctx.fillRect(20, 20, 50, 50);
+
+
+    // ctx.transform(1, 1, 0, 1, 0, 0);
+    // ctx.fillRect(0, 0, 50, 50);
+  </script>
+</body>
+
+</html>
