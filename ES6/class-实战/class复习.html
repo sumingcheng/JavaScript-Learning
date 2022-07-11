@@ -73,22 +73,111 @@
     // per.fnCall; // fn
 
     // 私有
+    // class User {
+    //   constructor(name) {
+    //     this.#fn();
+    //     this.#name = name
+    //   }
+    //   #name = "素明诚"
+    //   #fn = () => {
+    //     console.log('fn');
+    //   }
+    // }
+
+    // let user = new User();
+    // console.log(user);
+
+    // 继承
+
+    // function User(name) {
+    //   this.name = name;
+    // }
+
+    // function Admin(name) {
+    //   User.call(this, name);
+    // }
+
+    // Admin.prototype = Object.create(User.prototype);
+    // Admin.prototype.show = function () { };
+
+    // let user = new Admin('管理员');
+    // console.log(user);
+
+
+    // class User {
+    //   constructor(name) {
+    //     this.name = name;
+    //   }
+    // }
+
+    // class Admin extends User {
+    //   constructor(name) {
+    //     super(name);
+    //   }
+    // }
+
+    // let user = new Admin('管理员');
+    // console.log(user);
+
+    // 对象继承
+
+    // let father = {
+    //   show() {
+    //     console.log("father.show");
+    //   }
+    // }
+
+    // let son = {
+    //   __proto__: father,
+    //   show() {
+    //     console.log("son.show");
+    //   }
+    // }
+
+    // console.dir(son);
+
+
+    // class User {
+    //   constructor(name) {
+    //     this.name = name;
+    //     this.site = "abc";
+    //   }
+    // }
+
+    // class Admin extends User {
+    //   constructor(...args) {
+    //     super(...args);
+    //     this.site = 'www.baidu.com';
+    //   }
+    // }
+
+    // let user = new Admin("管理员")
+    // console.log(user);
+
+
+    // 访问父类方法
+
     class User {
       constructor() {
-        this.fn();
+        this.name = "用户"
       }
-      #name = "素明诚"
-      #fn = () => {
-        console.log('fn');
-      }
-
-      get fn() {
-        #fn();
+      log() {
+        console.log(this.name);
       }
     }
 
-    let user = new User();
-    user.fn
+    class Admin extends User {
+      constructor() {
+        super();
+      }
+      info() {
+        super.log()
+      }
+    }
+
+    let admin = new Admin();
+
+    admin.info();
 
   </script>
 </body>
