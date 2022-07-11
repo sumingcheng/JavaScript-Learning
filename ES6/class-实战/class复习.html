@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <script>
+    // class Requset {
+    //   constructor(url) {
+    //     this._host = url;
+    //   }
+    //   set host(url) {
+    //     if (!/^https?:\/\//i.test(url)) {
+    //       throw new Error("地址错误");
+    //     }
+    //     this._host = url;
+    //   }
+    //   get host() {
+    //     return this._host;
+    //   }
+    // }
+
+    // let res = new Requset('http://www.baidu.com');
+    // res.host = "http://www.baidu.com"
+    // console.log(res);
+    // console.log(res._host);
+    // 属性保护
+    // class User {
+    //   // 人为约定此属性尽量不要修改
+    //   _age = "年龄"
+    //   constructor(name) {
+    //     // 开放属性
+    //     this.name = name;
+    //   }
+    //   set age(age) {
+    //     if (age < 18) {
+    //       throw new Error('对不起您未成年');
+    //     }
+    //     this._age = age;
+    //   }
+    // }
+
+    // let user = new User();
+    // user.age = "18";
+    // console.log(user);
+    // 不可修改
+
+    // 独一无二值
+
+
+    // const age = Symbol();
+    // const fn = Symbol();
+    // class Person {
+    //   // 私有属性
+    //   [age] = 1;
+    //   get age() {
+    //     return this[age];
+    //   }
+    //   // 私有方法
+    //   [fn]() {
+    //     console.log("fn");
+    //   }
+    //   get fnCall() {
+    //     this[fn]()
+    //   }
+    // }
+    // let per = new Person()
+    // console.log(per.age); // 1
+    // per.fnCall; // fn
+
+    // 私有
+    class User {
+      constructor() {
+        this.fn();
+      }
+      #name = "素明诚"
+      #fn = () => {
+        console.log('fn');
+      }
+
+      get fn() {
+        #fn();
+      }
+    }
+
+    let user = new User();
+    user.fn
+
+  </script>
+</body>
+
+</html>
