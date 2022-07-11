@@ -35,19 +35,6 @@
 // }
 
 
-// class默认使用严格模式
-// class User {
-//   show() {
-//     console.log("prototype.show");
-//   }
-//   static show() {
-//     console.log("static.show");
-//   }
-// }
-
-// let user = new User();
-// console.log(user);
-// User.show();
 
 
 function demo() {
@@ -56,3 +43,4 @@ function demo() {
 }
 
 console.log(demo());
+
