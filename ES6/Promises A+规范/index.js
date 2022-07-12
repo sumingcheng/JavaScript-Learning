@@ -37,10 +37,11 @@
 
 
 
-function demo() {
-  let a = "1";
-  return new Array(a);
-}
+// function demo() {
+//   let a = "1";
+//   return new Array(a);
+// }
 
-console.log(demo());
+// console.log(demo());
 
+// 原型
