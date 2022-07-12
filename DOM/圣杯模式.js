@@ -1,18 +1,18 @@
-function Father(){
-    this.firstName = '张三';
+function Father() {
+  this.firstName = '张三';
 }
 
 Father.prototype = {
-    lastName:'法外狂徒'
+  lastName: '法外狂徒'
 }
 
 var father = new Father();
 
-function Son(){
-    this.firstName = '李四'
+function Son() {
+  this.firstName = '李四'
 }
 // 使用Buffer 来解决父级原型被改变的问题
-function Buffer(){}
+function Buffer() { }
 
 Buffer.prototype = Father.prototype;
 

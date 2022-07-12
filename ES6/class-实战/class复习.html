@@ -157,27 +157,37 @@
 
     // 访问父类方法
 
-    class User {
-      constructor() {
-        this.name = "用户"
-      }
-      log() {
-        console.log(this.name);
-      }
-    }
+    // class User {
+    //   constructor() {
+    //     this.name = "用户"
+    //   }
+    //   log() {
+    //     console.log(this.name);
+    //   }
+    // }
 
-    class Admin extends User {
-      constructor() {
-        super();
-      }
-      info() {
-        super.log()
-      }
-    }
+    // class Admin extends User {
+    //   constructor() {
+    //     super();
+    //   }
+    //   info() {
+    //     super.log()
+    //   }
+    // }
 
-    let admin = new Admin();
+    // let admin = new Admin();
 
-    admin.info();
+    // admin.info();
+
+    // function User() { }
+    // function Admin() { }
+    // Admin.prototype = Object.create(User.prototype);
+
+    // let demo = new Admin();
+    // console.log(demo instanceof Admin);
+    // console.log(demo instanceof User);
+
+
 
   </script>
 </body>
