@@ -35,24 +35,13 @@
 // }
 
 
-// class默认使用严格模式
-// class User {
-//   show() {
-//     console.log("prototype.show");
-//   }
-//   static show() {
-//     console.log("static.show");
-//   }
+
+
+// function demo() {
+//   let a = "1";
+//   return new Array(a);
 // }
 
-// let user = new User();
-// console.log(user);
-// User.show();
+// console.log(demo());
 
-
-function demo() {
-  let a = "1";
-  return new Array(a);
-}
-
-console.log(demo());
+// 原型
