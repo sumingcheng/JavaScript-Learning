@@ -144,6 +144,17 @@
     // new Foo.getName(); // 是方法就可以new 执行对象属性的方法。2
     // new Foo().getName();// 3
     // new new Foo().getName();// 先看 new Foo 实例后对象 3
+
+
+
+    var a = 1;
+    function doem(a) {
+      a = 5;
+      console.log(a)
+    }
+    doem(a)
+    console.log(a);
+
   </script>
 </body>
 
