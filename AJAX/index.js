@@ -48,13 +48,10 @@ var $ = (function () {
     o.send(type === 'GET' ? null : formatDatas(data));
 
     o.onreadystatechange = function () {
-      if (o.readyState === 4 && o.states === 200) {
-        success(JSON.parse(o.requestText));
+      if (o.readyState === 4 && o.status === 200) {
+        success(JSON.parse(o.responseText));
       }
-      if (o.readyState === 4 && o.states === 304) {
-        success(JSON.parse(o.requestText));
-      }
-      if (o.states === 404) {
+      if (o.status === 404) {
         error();
       }
       complete();
@@ -85,13 +82,11 @@ var $ = (function () {
 
 $.ajax({
   type: 'get',
-  url: "https://jsonplaceholder.typicode.com/posts/1",
-  data: {
-    // body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-    // id: 1,
-    // title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-    // userId: 1,
-  },
+  url: "https://jsonplaceholder.typicode.com/posts",
+  // data: {
+  //   id: 1,
+  //   userId: 1,
+  // },
   success: function (data) {
     console.log(data);
   }
