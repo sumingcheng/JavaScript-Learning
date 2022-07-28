@@ -1,3 +1,4 @@
+// 需要配合JQ使用
 $(function () {
   function screen() {
     var w = window.innerWidth;
