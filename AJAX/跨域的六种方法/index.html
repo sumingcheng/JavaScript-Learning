@@ -5,11 +5,46 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
 </head>
 
 <body>
+  <!-- <iframe src="./index2.html" id="myIframe"></iframe>
+  <script>
+    var myIframe = document.getElementById('myIframe');
+    window.name = 'mainWindow'
+    myIframe.onload = function () {
+      // console.log(myIframe.contentWindow.name);
+    }
+  </script> -->
 
+  <script>
+    var flag = false;
+
+    var iframe = document.createElement('iframe');
+    var getDatas = function () {
+      if (flag) {
+        // 第二次
+        var data = iframe.contentWindow.name;
+        console.log(JSON.parse(data));
+      } else {
+        // 第一次
+        flag = true;
+        setTimeout(function () {
+          iframe.contentWindow.location = 'index2.html';
+        }, 500);
+      }
+    }
+
+    iframe.src = 'http://test.jsplusplus.com/index.html';
+
+    if (iframe.attachEvent) {
+      iframe.attachEvent('onload', getDatas);
+    } else {
+      iframe.onload = getDatas;
+    }
+
+    document.body.appendChild(iframe);
+  </script>
 </body>
 
 </html>
