@@ -1,27 +1,27 @@
-;(function(doc){
+; (function (doc) {
   var searchInput = doc.getElementsByClassName('J_searchInput')[0],
-      wdList = doc.getElementsByClassName('J_wdList')[0],
-      listWrap = wdList.parentNode;
-      firstScript = doc.getElementsByTagName('script')[0],
-      listTpl = doc.getElementById('J_listTpl').innerHTML;
+    wdList = doc.getElementsByClassName('J_wdList')[0],
+    listWrap = wdList.parentNode,
+    firstScript = doc.getElementsByTagName('script')[0],
+    listTpl = doc.getElementById('J_listTpl').innerHTML;
 
-  var init = function(){
+  var init = function () {
     bindEvent();
   }
 
-  function bindEvent(){
+  function bindEvent() {
     searchInput.addEventListener('input', typeInput, false);
   }
 
-  function renderList(data){
+  function renderList(data) {
     var list = '',
-        data = data.s,
-        len = data.length,
-        val = _trimSpace(searchInput.value);
+      data = data.s,
+      len = data.length,
+      val = _trimSpace(searchInput.value);
 
-    if(len){
-      data.forEach(function(elem){
-        list += listTpl.replace(/{{(.*?)}}/g, function(node, key){
+    if (len) {
+      data.forEach(function (elem) {
+        list += listTpl.replace(/{{(.*?)}}/g, function (node, key) {
           return {
             wdLink: elem,
             wd: _setWdStyle(val, elem)
@@ -31,40 +31,38 @@
 
       wdList.innerHTML = list;
       listWrap.style.display = 'block';
-    }else{
+    } else {
       wdList.innerHTML = '';
       listWrap.style.display = 'none';
     }
-
-    
   }
 
-  function typeInput(){
+  function typeInput() {
     var val = _trimSpace(searchInput.value);
-    if(val.length > 0){
+    if (val.length > 0) {
       getDatas(val, 'setDatas');
-    }else{
+    } else {
       wdList.innerHTML = '';
       listWrap.style.display = 'none';
     }
   }
 
-  function getDatas(value, callbackName){
+  function getDatas(value, callbackName) {
     var oScript = doc.createElement('script');
-    oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ value +'&cb=' + callbackName;
+    oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + value + '&cb=' + callbackName;
     doc.body.insertBefore(oScript, firstScript);
-    doc.body.removeChild(oScript);  
+    doc.body.removeChild(oScript);
   }
 
-  function _trimSpace(str){
+  function _trimSpace(str) {
     return str.replace(/\s+/g, '');
   }
 
-  function _setWdStyle(value, word){
-    return '<span class="font-normal">'+ value +'</span>' + word.replace(value, '');
+  function _setWdStyle(value, word) {
+    return '<span class="font-normal">' + value + '</span>' + word.replace(value, '');
   }
 
-  window.setDatas = function(data){
+  window.setDatas = function (data) {
     renderList(data);
   }
 
