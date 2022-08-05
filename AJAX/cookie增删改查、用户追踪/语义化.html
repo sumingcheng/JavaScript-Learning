@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <form action="server/b1.php" method="post">
+    <input type="text" name="username" placeholder="用户名" />
+    <br>
+    <input type="password" name="password" placeholder="密码">
+    <br>
+    <textarea name="intro"></textarea>
+    <br>
+
+    <input type="radio" name="sex" value="male" checked="chacked" />男
+    <input type="radio" name="sex" value="female" />女
+    <br>
+
+    <input type="checkbox" name="hobby[]" value="fb" />足球
+    <input type="checkbox" name="hobby[]" value="bb" />篮球
+    <input type="checkbox" name="hobby[]" value="golf" />高尔夫
+    <br>
+
+    <select name="occupation">
+      <option value="fe">前端</option>
+      <option value="be">后端</option>
+    </select>
+    <br>
+    <!-- 以前的提交 -->
+    <!-- <input type="submit" value="提交" />
+    <input type="reset" value="重置" /> -->
+    <!-- HTML5修改后 -->
+    <button type="submit">提交</button>
+    <button type="reset">重置</button>
+  </form>
+</body>
+
+</html>
