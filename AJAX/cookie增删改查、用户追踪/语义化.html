@@ -34,8 +34,18 @@
     <!-- <input type="submit" value="提交" />
     <input type="reset" value="重置" /> -->
     <!-- HTML5修改后 -->
-    <button type="submit">提交</button>
+    <button type="submit" id="J_submitBtn">提交</button>
     <button type="reset">重置</button>
+
+    <script>
+      var oSubmitBtn = document.getElementById('J_submitBtn');
+
+      oSubmitBtn.onclick = function () {
+        var e = e || window.event;
+        e.preventDefault();
+        console.log(1);
+      }
+    </script>
   </form>
 </body>
 
