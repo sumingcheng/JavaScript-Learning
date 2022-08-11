@@ -31,9 +31,11 @@
       },
       get: function (key) {
         var cookieArray = document.cookie.split(';');
+
         for (let i = 0; i < cookieArray.length; i++) {
           var cookieItem = cookieArray[i];
           var cookieItemArray = cookieItem.split('=');
+
           if (cookieItemArray[0].replace(/\s+/g, "") == key) {
             console.log(cookieItemArray[1]);
           }
