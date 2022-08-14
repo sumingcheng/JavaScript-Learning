@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <input type="text" id="username" value="张三">
+  <input type="text" id="password" value="123">
+  <input type="submit" value="提交" id="submitBtn">
+  <script type="text/javascript">
+    var oUsername = document.getElementById('username'),
+      oPassword = document.getElementById('password'),
+      oSubmitBtn = document.getElementById('submitBtn'),
+      fd = new FormData();
+
+    oSubmitBtn.onclick = function () {
+      fd.append('username', oUsername.value);
+      fd.append('password', oPassword.value);
+      console.log(fd); // FormData {}
+      
+      // 访问 FormData 
+      console.log('username' + fd.get('username')); // 访问
+      fd.set('password', '123123123') // 设置
+      console.log(fd.get('password'));
+      fd.has()// 比较
+      fd.delete() // 删除
+    }
+  </script>
+</body>
+
+</html>
