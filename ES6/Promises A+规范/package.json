@@ -2,9 +2,9 @@
   "name": "promise",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "MyPromise.js",
   "scripts": {
-    "dev": "nodemon ./index.js -i ./data/"
+    "dev": "nodemon MyPromise.js -i ./data/"
   },
   "author": "",
   "license": "ISC"
