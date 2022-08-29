@@ -1,14 +1,9 @@
-let promise = new MyPromise((resolve, reject) => {
-  // throw  new Error('Exception:Error');
-  setTimeout(() => {
-    resolve('成功')
-  }, 2000)
+let promise1 = new Promise((resolve, reject) => {
+  resolve('promise1')
 })
 
-
-promise.then((value) => {
-  console.log('value', value);
-}, (reason) => {
-  console.log('reason', reason);
-});
-
+let promise2 = promise1.then((value) => {
+  return value + '->then->promise2';
+}).then(value => {
+  console.log(value);
+})
