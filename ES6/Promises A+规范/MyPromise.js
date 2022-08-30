@@ -2,6 +2,11 @@ const PENDING = 'PENDING';
 const FULFILLED = 'FULFILLED';
 const REJECTED = 'REJECTED';
 
+function resolvePromise(promise2, x, resolve, reject) {
+  //Promise的处理流程
+  console.log(arguments)
+}
+
 class MyPromise {
   // constructor在实例化的时候自动执行
   constructor(executor) {
@@ -37,21 +42,49 @@ class MyPromise {
   }
 
   then(onFulfilled, onRejected) {
-    if (this.status === FULFILLED) {
-      onFulfilled(this.value);
-    }
-    if (this.status === REJECTED) {
-      onRejected(this.reason);
-    }
-    // 订阅
-    if (this.status === PENDING) {
-      this.onFulfilledCallbacks.push(() => {
-        onFulfilled(this.value);
-      });
-      this.onRejectedCallbacks.push(() => {
-        onRejected(this.reason);
-      })
-    }
+    let promise2 = new Promise((resolve, reject) => {
+      if (this.status === FULFILLED) {
+        setTimeout(() => {
+          try {
+            let x = onFulfilled(this.value);
+            resolvePromise(promise2, x, resolve, reject);
+          } catch (e) {
+            reject(e)
+          }
+        }, 0);
+      }
+      if (this.status === REJECTED) {
+        setTimeout(() => {
+          try {
+            let x = onRejected(this.reason);
+            resolvePromise(promise2, x, resolve, reject);
+          } catch (e) {
+            reject(e)
+          }
+        }, 0);
+      }
+
+      // 订阅
+      if (this.status === PENDING) {
+        this.onFulfilledCallbacks.push(() => {
+          try {
+            let x = onFulfilled(this.value);
+            resolvePromise(promise2, x, resolve, reject);
+          } catch (e) {
+            reject(e)
+          }
+        });
+        this.onRejectedCallbacks.push(() => {
+          try {
+            let x = onRejected(this.reason);
+            resolvePromise(promise2, x, resolve, reject);
+          } catch (e) {
+            reject(e)
+          }
+        })
+      }
+    })
+
+    return promise2;
   }
 }
-

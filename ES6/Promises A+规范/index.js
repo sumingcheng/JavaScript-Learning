@@ -1,4 +1,4 @@
-let promise1 = new Promise((resolve, reject) => {
+let promise1 = new MyPromise((resolve, reject) => {
   resolve('promise1')
 })
 
