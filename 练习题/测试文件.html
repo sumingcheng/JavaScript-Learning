@@ -5,11 +5,15 @@
   <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>test</title>
 </head>
 <body>
 <script>
-  console.log(globalThis.location == window.location)
+  const lessons = {
+    title: '媒体查询',
+    category: 'css',
+  }
+  console.log(JSON.stringify(Object.getOwnPropertyDescriptors(lessons), null, 2))
 
 </script>
 </body>
