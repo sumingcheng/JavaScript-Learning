@@ -21,7 +21,7 @@ function resolvePromise(promise2, x, resolve, reject) {
         }, (r) => {
           if (called) return;
           called = true;
-          resolvePromise(promise2, r, resolve, reject)
+          reject(r);
         })
       } else {
         resolve(x);
@@ -42,8 +42,10 @@ class MyPromise {
     this.status = PENDING;
     this.value = undefined;
     this.reason = undefined;
+
     this.onFulfilledCallbacks = [];
     this.onRejectedCallbacks = [];
+
     const resolve = (value) => {
       if (this.status === PENDING) {
         this.status = FULFILLED;
