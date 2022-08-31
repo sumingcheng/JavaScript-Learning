@@ -4,7 +4,34 @@ const REJECTED = 'REJECTED';
 
 function resolvePromise(promise2, x, resolve, reject) {
   //Promise的处理流程
-  console.log(arguments)
+  if (promise2 === x) {
+    return reject(new TypeError('chaining cycle detected for promise #<MyPromise>'))
+  }
+  let called = false;
+
+  if ((typeof x === 'object' && x !== null) || typeof x === 'function') {
+    try {
+      let then = x.then;
+
+      if (typeof then === 'function') {
+        then.call(x, (y) => {
+          if (called) return;
+          called = true;
+          resolvePromise(promise2, y, resolve, reject)
+        }, (r) => {
+          if (called) return;
+          called = true;
+          resolvePromise(promise2, r, resolve, reject)
+        })
+      } else {
+        resolve(x);
+      }
+    } catch (e) {
+      reject(e);
+    }
+  } else {
+    resolve(x);
+  }
 }
 
 class MyPromise {
@@ -42,6 +69,12 @@ class MyPromise {
   }
 
   then(onFulfilled, onRejected) {
+    // 防止then使用的时候不传值出现问题
+    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+    onRejected = typeof onRejected === 'function' ? onRejected : reason => {
+      throw reason;
+    };
+
     let promise2 = new Promise((resolve, reject) => {
       if (this.status === FULFILLED) {
         setTimeout(() => {
@@ -84,7 +117,11 @@ class MyPromise {
         })
       }
     })
-
     return promise2;
   }
+
+  catch(errorCallback) {
+    return this.then(null, errorCallback);
+  }
 }
+
