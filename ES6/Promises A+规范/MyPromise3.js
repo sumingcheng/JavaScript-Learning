@@ -136,5 +136,17 @@ class MyPromise {
   catch(errorCallback) {
     return this.then(null, errorCallback);
   }
+
+  static resolve(value) {
+    return new MyPromise((resolve, reject) => {
+      resolve(value);
+    });
+  }
+
+  static reject(reason) {
+    return new MyPromise((resolve, reject) => {
+      reject(reason);
+    })
+  }
 }
 
