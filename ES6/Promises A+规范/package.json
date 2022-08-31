@@ -1,0 +1,14 @@
+{
+  "name": "promise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "MyPromise.js",
+  "scripts": {
+    "dev": "nodemon MyPromise.js -i ./data/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  }
+}
