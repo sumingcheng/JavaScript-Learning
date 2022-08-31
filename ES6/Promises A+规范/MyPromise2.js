@@ -100,20 +100,24 @@ class MyPromise {
       // 订阅
       if (this.status === PENDING) {
         this.onFulfilledCallbacks.push(() => {
-          try {
-            let x = onFulfilled(this.value);
-            resolvePromise(promise2, x, resolve, reject);
-          } catch (e) {
-            reject(e)
-          }
+          setTimeout(() => {
+            try {
+              let x = onFulfilled(this.value);
+              resolvePromise(promise2, x, resolve, reject);
+            } catch (e) {
+              reject(e)
+            }
+          }, 0)
         });
         this.onRejectedCallbacks.push(() => {
-          try {
-            let x = onRejected(this.reason);
-            resolvePromise(promise2, x, resolve, reject);
-          } catch (e) {
-            reject(e)
-          }
+          setTimeout(() => {
+            try {
+              let x = onRejected(this.reason);
+              resolvePromise(promise2, x, resolve, reject);
+            } catch (e) {
+              reject(e)
+            }
+          }, 0)
         })
       }
     })
@@ -124,4 +128,5 @@ class MyPromise {
     return this.then(null, errorCallback);
   }
 }
+
 

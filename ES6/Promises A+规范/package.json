@@ -4,7 +4,8 @@
   "description": "",
   "main": "MyPromise.js",
   "scripts": {
-    "dev": "nodemon MyPromise.js -i ./data/"
+    "dev": "nodemon MyPromise.js -i ./data/",
+    "test": "promises-aplus-tests MyPromise1.js"
   },
   "author": "",
   "license": "ISC",
