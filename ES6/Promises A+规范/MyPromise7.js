@@ -236,5 +236,17 @@ class MyPromise {
 
     })
   }
+
+  static race(promiseAll) {
+    return new MyPromise((resolve, reject) => {
+      promiseAll.map((promise) => {
+        if (isPromise(promise)) {
+          promise.then(resolve, reject);
+        } else {
+          resolve(promise);
+        }
+      })
+    })
+  }
 }
 
