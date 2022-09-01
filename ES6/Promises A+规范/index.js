@@ -1,17 +1,17 @@
-let a3 = 3;
+let p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('success');
+  }, 2000);
+})
 
-
-let a2 = MyPromise.resolve(new MyPromise((resolve, reject) => {
-  resolve('222');
-}))
-
-let a1 = MyPromise.resolve(new MyPromise((resolve, reject) => {
-  reject('333');
-}))
-
-
-MyPromise.allSettled([a1, a2, a3]).then((res) => {
-  console.dir(res)
-}, reason => {
-  console.dir(reason)
+let p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject('error');
+  }, 1000);
+})
+// 赛跑，数组里，谁先出结果，就拿谁的结果
+Promise.race([p1, p2]).then(res => {
+  console.log(res);
+}).catch((err) => {
+  console.log(err);
 })
