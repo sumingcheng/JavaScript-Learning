@@ -2,16 +2,16 @@ let a3 = 3;
 
 
 let a2 = MyPromise.resolve(new MyPromise((resolve, reject) => {
-  resolve('smc');
+  resolve('222');
 }))
 
 let a1 = MyPromise.resolve(new MyPromise((resolve, reject) => {
-  resolve('smc');
+  reject('333');
 }))
 
 
-let all = MyPromise.all([a1, a2, a3]);
-
-all.then((res) => {
-  console.log(res)
+MyPromise.allSettled([a1, a2, a3]).then((res) => {
+  console.dir(res)
+}, reason => {
+  console.dir(reason)
 })
