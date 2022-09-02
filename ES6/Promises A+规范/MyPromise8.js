@@ -149,6 +149,17 @@ class MyPromise {
     return this.then(null, errorCallback);
   }
 
+  finally(finallyCallback) {
+    return this.then((value) => {
+      return MyPromise.resolve(finallyCallback()).then(() => value)
+    }, (reason) => {
+      return MyPromise.resolve(finallyCallback()).then(() => {
+        throw reason;
+      })
+    })
+  }
+
+
   static resolve(value) {
     return new MyPromise((resolve, reject) => {
       resolve(value);
