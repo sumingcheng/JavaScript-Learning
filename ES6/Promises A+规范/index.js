@@ -5,3 +5,4 @@ MyPromise.resolve('promise success').finally(() => {
 }, (err) => {
   console.log('err' + err);
 })
+
