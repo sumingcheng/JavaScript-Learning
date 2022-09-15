@@ -69,6 +69,7 @@
 //
 // console.log(7)
 
+
 // 1 2 m1 m2
 // const oBtn = document.getElementById('btn');
 //
@@ -120,40 +121,39 @@
 //
 // console.log(2);
 
-// script start
-// a1.start
-// async2
-// promise1
-// script end
-// a1 end
-// promise2
-// setTimeout
-async function async1() {
-  console.log('a1.start')
-  await async2();
-  console.log('a1 end')
-}
 
-async function async2() {
-  console.log('async2');
-}
+// script start、 a1.start 、 async2、 promise1、 script end、 a1 end、promise2、setTimeout
 
-console.log('script start');
-
-setTimeout(function () {
-  console.log('setTimeout');
-}, 0);
-
-async1();
-
-new Promise(function (resolve) {
-  console.log('promise1');
-  resolve();
-}).then(function () {
-  console.log('promise2');
-})
-
-console.log('script end');
+// async function async1() {
+//   console.log('a1.start')
+//   await async2();
+//   // await 之后的相当于then的回调
+//   // async2().then(res=>{
+//   //   console.log('a1 end')
+//   // })
+//   console.log('a1 end')
+// }
+//
+// async function async2() {
+//   console.log('async2');
+// }
+//
+// console.log('script start');
+//
+// setTimeout(function () {
+//   console.log('setTimeout');
+// }, 0);
+//
+// async1();
+//
+// new Promise(function (resolve) {
+//   console.log('promise1');
+//   resolve();
+// }).then(function () {
+//   console.log('promise2');
+// })
+//
+// console.log('script end');
 
 
 
