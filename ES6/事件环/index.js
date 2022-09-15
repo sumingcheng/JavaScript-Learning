@@ -70,22 +70,103 @@
 // console.log(7)
 
 // 1 2 m1 m2
-const oBtn = document.getElementById('btn');
+// const oBtn = document.getElementById('btn');
+//
+// oBtn.addEventListener('click', () => {
+//   console.log(1);
+//
+//   Promise.resolve('m1').then((str) => {
+//     console.log(str);
+//   })
+// }, false)
+//
+// oBtn.addEventListener('click', () => {
+//   console.log(2);
+//
+//   Promise.resolve('m2').then((str) => {
+//     console.log(str);
+//   })
+// }, false);
+//
+// oBtn.click();
+//  2 then1 then4 then2 then5 then6 setTimeout1 then3 setTimeout2 setTimeout3
 
-oBtn.addEventListener('click', () => {
-  console.log(1);
+// setTimeout(() => {
+//   console.log('setTimeout1');
+//   setTimeout(() => {
+//     console.log('setTimeout3')
+//   }, 1000);
+//   Promise.resolve().then(data => {
+//     console.log('then3');
+//   })
+// })
+//
+// Promise.resolve().then(data => {
+//   console.log('then1');
+//   console.log('then4');
+//   Promise.resolve().then(data => {
+//     console.log('then6');
+//   })
+// })
+//
+//
+// Promise.resolve().then(data => {
+//   console.log('then2');
+//   console.log('then5');
+//   setTimeout(() => {
+//     console.log('setTimeout2');
+//   }, 1000);
+// })
+//
+// console.log(2);
 
-  Promise.resolve('m1').then((str) => {
-    console.log(str);
-  })
-}, false)
+// script start
+// a1.start
+// async2
+// promise1
+// script end
+// a1 end
+// promise2
+// setTimeout
+async function async1() {
+  console.log('a1.start')
+  await async2();
+  console.log('a1 end')
+}
 
-oBtn.addEventListener('click', () => {
-  console.log(2);
+async function async2() {
+  console.log('async2');
+}
 
-  Promise.resolve('m2').then((str) => {
-    console.log(str);
-  })
-}, false);
+console.log('script start');
 
-oBtn.click();
+setTimeout(function () {
+  console.log('setTimeout');
+}, 0);
+
+async1();
+
+new Promise(function (resolve) {
+  console.log('promise1');
+  resolve();
+}).then(function () {
+  console.log('promise2');
+})
+
+console.log('script end');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
