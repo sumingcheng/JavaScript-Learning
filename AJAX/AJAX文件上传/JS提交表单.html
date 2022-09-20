@@ -20,9 +20,9 @@
     oSubmitBtn.onclick = function () {
       fd.append('username', oUsername.value);
       fd.append('password', oPassword.value);
-      console.log(fd); // FormData {}
-      
-      // 访问 FormData 
+      console.log(fd); // FormData{}
+
+      // 访问 FormData
       console.log('username' + fd.get('username')); // 访问
       fd.set('password', '123123123') // 设置
       console.log(fd.get('password'));

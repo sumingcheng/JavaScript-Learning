@@ -156,18 +156,91 @@
 // console.log('script end');
 
 
-
-// Node 事件环
-
+// setImmediate与setTimeout
 
 
+// setImmediate(() => {
+//   console.log('1');
+//   console.log('2');
+//   console.log('3');
+//   console.log('4');
+// });
+//
+// setTimeout(() => {
+//   console.log('1');
+//   console.log('2');
+//   console.log('3');
+//   console.log('4');
+// });
+//
+// console.log(5);
+// console.log(6);
+
+// 在node环境下，setImmediate和setTimeout的执行结果受性能影响
+// setImmediate(() => {
+//   console.log('setImmediate');
+// });
+//
+//
+// setTimeout(() => {
+//   console.log('setTimeout');
+// },0);
 
 
+//
+// const oMsg1 = document.querySelector('#msg1'), oMsg2 = document.querySelector('#msg2'),
+//     btn1 = document.querySelector('#btn1'), btn2 = document.querySelector('#btn2');
+//
+//
+// let Channel = new MessageChannel();
+// const { port1, port2 } = Channel;
+//
+// btn1.addEventListener('click', sendMessage1, false);
+// btn2.addEventListener('click', sendMesasge2, false);
+// port1.onmessage = getMessage1;
+// port2.onmessage = getMessage2;
+//
+//
+// function sendMessage1() {
+//   port1.postMessage('port1');
+// }
+//
+// function sendMesasge2() {
+//   port2.postMessage('port2');
+// }
+//
+// function getMessage1(e) {
+//   oMsg1.textContent = e.data;
+// }
+//
+// function getMessage2(e) {
+//   oMsg2.textContent = e.data;
+// }
 
 
+// import port2 from './demo';
+//
+// ;(() => {
+//   port2.postMessage('我在沈阳大街等你');
+//   port2.onmessage = function (e){
+//     console.log(e.data);
+//   }
+// })();
 
 
-
-
+// let Channel = new MessageChannel();
+// const { port1, port2 } = Channel;
+//
+// port1.postMessage('1发送数据');
+//
+// port2.onmessage = function (e) {
+//   console.log(e.data);
+// };
+//
+// port2.postMessage('2发送的数据');
+//
+// port1.onmessage = function (e) {
+//   console.log(e.data);
+// };
 
 
