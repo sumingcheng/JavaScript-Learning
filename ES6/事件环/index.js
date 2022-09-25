@@ -269,7 +269,42 @@
 // }
 //
 // window.requestAnimationFrame(step);
+//
+// const oTarget = document.getElementById('oTarget');
+//
+// function callback(target) {
+//   console.log(target);
+// }
+//
+// function cb(mutationList, observer) {
+//   mutationList.forEach(mutation => {
+//     callback(mutation);
+//   });
+// }
+//
+// // MutationObserver 接收一个微任务队列
+// const observer = new MutationObserver(cb);
+//
+// observer.observe(oTarget, {
+//   attributes: true,
+//   childList: true,
+//   subtree: true
+// });
 
 
+Promise.resolve().then(() => {
+  console.log('Promise');
+});
 
+setTimeout(() => {
+  console.log('setTimeout');
+}, 0);
 
+// 微任务
+process.nextTick(() => {
+  console.log('nextTick');
+});
+
+// nextTick
+// Promise
+// setTimeout
