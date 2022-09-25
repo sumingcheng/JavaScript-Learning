@@ -291,20 +291,23 @@
 //   subtree: true
 // });
 
-
-Promise.resolve().then(() => {
-  console.log('Promise');
-});
-
-setTimeout(() => {
-  console.log('setTimeout');
-}, 0);
-
-// 微任务
-process.nextTick(() => {
-  console.log('nextTick');
-});
+//
+// Promise.resolve().then(() => {
+//   console.log('Promise');
+// });
+//
+// setTimeout(() => {
+//   console.log('setTimeout');
+// }, 0);
+//
+// // 微任务
+// process.nextTick(() => {
+//   console.log('nextTick');
+// });
 
 // nextTick
 // Promise
 // setTimeout
+
+
+
