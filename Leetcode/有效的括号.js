@@ -27,3 +27,10 @@ var isValid = function (s) {
 };
 
 console.log(isValid(s));
+
+
+/**
+ * @总结
+ * 1.核心其实就是利用了栈空间，进入的 先进入的{{((，出栈的顺序一定是))}}
+ * 2.使用map存放key和value，方便之后对比值
+ */
