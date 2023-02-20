@@ -5,7 +5,7 @@ function elemChildren(node) {
     length: 0,
     push: Array.prototype.push,
     splice: Array.prototype.splice
-  }
+  };
   var len = node.childNodes.length;
   for (var i = 0; i < len; i++) {
     var childItem = node.childNodes[i];
@@ -39,13 +39,13 @@ function getScrollOffset() {
     return {
       left: window.pageXOffset,
       top: window.pageYOffset
-    }
+    };
   } else {
     // IE9及以下
     return {
       left: document.body.scrollLeft + document.documentElement.scrollLeft,
       top: document.body.scrollTop + document.documentElement.scrollTop,
-    }
+    };
   }
 }
 
@@ -56,19 +56,19 @@ function getViewPortSize() {
     return {
       width: window.innerWidth,
       height: window.innerHeight
-    }
+    };
   } else {
     // 怪异模式
     if (document.compatMode === 'BackComapt') {
       return {
         width: document.body.clientWidth,
         height: document.body.clientHeight,
-      }
+      };
     } else {
       return {
         width: document.documentElement.clientWidth,
         height: document.documentElement.clientHeight
-      }
+      };
     }
   }
 }
@@ -79,12 +79,12 @@ function getScrollSize() {
     return {
       width: document.body.scrollWidth,
       height: document.body.scrollHeight
-    }
+    };
   } else {
     return {
       width: document.documentElement.scrollWidth,
       height: document.documentElement.scrollHeight
-    }
+    };
   }
 }
 
@@ -97,12 +97,12 @@ function getEleDocPostion(el) {
   while (parent) {
     offsetLeft += parent.offsetLeft;
     offsetTop += parent.offsetTop;
-    parent = parent.offsetParent
+    parent = parent.offsetParent;
   }
   return {
     left: offsetLeft,
     top: offsetTop
-  }
+  };
 }
 
 // 封装获取元素
@@ -178,7 +178,7 @@ function pagePos(e) {
   return {
     X: e.clientX + sLeft - cLeft,
     Y: e.clientY + sTop - cTop
-  }
+  };
 }
 
 // 元素拖拽函数封装（无边界）
@@ -205,7 +205,7 @@ function elemDrag(elem) {
       removeEvent(document, 'mousemove', mouseMove);
       removeEvent(document, 'mouseup', mouseUp);
     }
-  })
+  });
 }
 
 // 向量计算
@@ -213,7 +213,7 @@ function vec(a, b) {
   return {
     x: b.x - a.x,
     y: b.y - a.y
-  }
+  };
 }
 
 function vecProduct(v1, v2) {
