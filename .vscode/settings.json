@@ -1,0 +1,6 @@
+{
+  "codesnap.containerPadding": "1rem",
+  "vue-helper.componentIgnore": [
+    ".js"
+  ]
+}
