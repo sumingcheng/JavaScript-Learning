@@ -91,6 +91,12 @@
 // // myTypeof(Symbol())
 // // myTypeof(() => {})
 
+let a = 1, b = 2, c
+c = a
+a = b
+b = c
+
+console.log(a, b)
 
 
 
